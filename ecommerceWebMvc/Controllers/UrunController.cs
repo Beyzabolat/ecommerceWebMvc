@@ -63,53 +63,91 @@ namespace ecommerceWebMvc.Controllers
             }
         }
 
-        [HttpGet]
+        //[HttpGet]
         public ActionResult UrunGetirme(int id)
         {
-            Urunler urun = q.Urunlers.Find(id);
+            List<SelectListItem> deger1 = (from x in q.Kategoris.ToList()
+                                           select new SelectListItem
+                                           {
+                                               Text = x.KategoriAd,
+                                               Value = x.KategoriID.ToString()
+                                           }).ToList();
+            ViewBag.dgr1 = deger1;
+            var uruun = q.Urunlers.Find(id);
+            return View("UrunGuncelle", uruun);
+            //return View("UrunGetirme", uruun);
+            //Urunler urun = q.Urunlers.Find(id);
 
-            if (urun == null)
-            {
-                return HttpNotFound();
-            }
+            //if (urun == null)
+            //{
+            //    return HttpNotFound();
+            //}
 
-            List<SelectListItem> kategoriListesi = (from x in q.Kategoris.ToList()
-                                                    select new SelectListItem
-                                                    {
-                                                        Text = x.KategoriAd,
-                                                        Value = x.KategoriID.ToString()
-                                                    }).ToList();
+            //List<SelectListItem> kategoriListesi = (from x in q.Kategoris.ToList()
+            //                                        select new SelectListItem
+            //                                        {
+            //                                            Text = x.KategoriAd,
+            //                                            Value = x.KategoriID.ToString()
+            //                                        }).ToList();
 
-            ViewBag.dgr1 = kategoriListesi;
+            //ViewBag.dgr1 = kategoriListesi;
 
-            return View(urun);
+            //return View(urun);
         }
         [HttpPost]
         public ActionResult UrunGuncelle(Urunler p)
         {
-            var urunnnn = q.Urunlers.Find(p.UrunID);
 
-            if (urunnnn == null)
+            if (ModelState.IsValid)
             {
-                return HttpNotFound();
+                var urunnnn = q.Urunlers.Find(p.UrunID);
+                if (urunnnn != null)
+                {
+                    urunnnn.AlisFiyati = p.AlisFiyati;
+                    urunnnn.SatisFiyati = p.SatisFiyati;
+                    urunnnn.Durum = p.Durum;
+                    urunnnn.Kategoriid = p.Kategoriid;
+                    urunnnn.Marka = p.Marka;
+                    urunnnn.Stok = p.Stok;
+                    urunnnn.UrunAdi = p.UrunAdi;
+                    urunnnn.UrunGorsel = p.UrunGorsel;
+                    urunnnn.Renk = p.Renk;
+                    urunnnn.Beden = p.Beden;
+                    urunnnn.Numara = p.Numara;
+                    urunnnn.Cinsiyet = p.Cinsiyet;
+                    q.SaveChanges();
+
+                    //TempData["kategoriguncelleme"] = "Kayıt başarıyla güncellendi";
+                    return RedirectToAction("Index");
+                }
             }
 
-            urunnnn.AlisFiyati = p.AlisFiyati;
-            urunnnn.SatisFiyati = p.SatisFiyati;
-            urunnnn.Durum = p.Durum;
-            urunnnn.Kategoriid = p.Kategoriid;
-            urunnnn.Marka = p.Marka;
-            urunnnn.Stok = p.Stok;
-            urunnnn.UrunAdi = p.UrunAdi;
-            urunnnn.UrunGorsel = p.UrunGorsel;
-            urunnnn.Renk = p.Renk;
-            urunnnn.Beden = p.Beden;
-            urunnnn.Numara = p.Numara;
-            urunnnn.Cinsiyet = p.Cinsiyet;
+            return View("UrunGuncelle", p);
 
-            q.SaveChanges();
-            return RedirectToAction("Index");
         }
+            //var urunnnn = q.Urunlers.Find(p.UrunID);
+
+            //if (urunnnn == null)
+            //{
+            //    return HttpNotFound();
+            //}
+
+            //urunnnn.AlisFiyati = p.AlisFiyati;
+            //urunnnn.SatisFiyati = p.SatisFiyati;
+            //urunnnn.Durum = p.Durum;
+            //urunnnn.Kategoriid = p.Kategoriid;
+            //urunnnn.Marka = p.Marka;
+            //urunnnn.Stok = p.Stok;
+            //urunnnn.UrunAdi = p.UrunAdi;
+            //urunnnn.UrunGorsel = p.UrunGorsel;
+            //urunnnn.Renk = p.Renk;
+            //urunnnn.Beden = p.Beden;
+            //urunnnn.Numara = p.Numara;
+            //urunnnn.Cinsiyet = p.Cinsiyet;
+
+            //q.SaveChanges();
+            //return RedirectToAction("Index");
+        //}
 
         //[HttpPost]
         //public ActionResult UrunGuncelle(Urunler p)

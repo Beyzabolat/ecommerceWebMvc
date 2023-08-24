@@ -66,7 +66,7 @@ namespace ecommerceWebMvc.Controllers
             {
                 return HttpNotFound();
             }
-            TempData["kategoriekleme"] = "Kayıt başarılı ";
+            TempData["kategoriguncelleme"] = "Güncelleme başarılı ";
             return View("KategoriGuncelleme", kategori);
         }
 
