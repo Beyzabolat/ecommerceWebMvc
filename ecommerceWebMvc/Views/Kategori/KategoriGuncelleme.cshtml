@@ -1,0 +1,57 @@
+﻿@model ecommerceWebMvc.Models.Classes.Kategori
+@{
+    ViewBag.Title = "Kategori Güncelleme";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="main-container">
+    <div class="pd-ltr-20 xs-pd-20-10">
+        <div class="min-height-200px">
+            <div class="page-header">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="title">
+                            <h4>Kategori Güncelleme</h4>
+                        </div>
+                        <nav aria-label="breadcrumb" role="navigation">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a href="index.html">Anasayfa</a>
+                                </li>
+                                <li class="breadcrumb-item active" aria-current="page">
+                                    <a href="/Kategori/Index">Kategori</a>
+                                </li>
+                                <li class="breadcrumb-item active" aria-current="page">
+                                    Kategori Güncelleme
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row clearfix">
+                <div class="col-lg-12">
+                    <form class="form-group" method="post" action="/Kategori/KategoriGuncelleme">
+                        <div class="form-group">
+                            <label for="kategoriAdi">Kategori ID</label>
+                            <input type="text" id="kategoriID" name="KategoriID" class="form-control" value="@Model.KategoriID" readonly />
+                        </div>
+                        <div class="form-group">
+                            <label for="kategoriAdi">Kategori Adı</label>
+                            <input type="text" id="kategoriAdi" name="KategoriAd" class="form-control" value="@Model.KategoriAd" />
+                        </div>
+                        <div class="form-group">
+                            <label for="kategoriDurum">Durum</label>
+                            <select id="kategoriDurum" name="Durum" class="form-control">
+                                <option value="true" @(Model.Durum ? "selected" : "")>Aktif</option>
+                                <option value="false" @(!Model.Durum ? "selected" : "")>Pasif</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-success">Güncelle</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

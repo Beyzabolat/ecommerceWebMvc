@@ -57,6 +57,7 @@
 
 			gtag("config", "G-GBZ3SGGX85");</script>
     <!-- Google Tag Manager -->
+
     <script>(function (w, d, s, l, i) {
 				w[l] = w[l] || [];
 				w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
@@ -70,7 +71,7 @@
     <!-- End Google Tag Manager -->
 </head>
 <body>
-    
+
 
     <div class="header">
         <div class="header-left">
@@ -228,7 +229,7 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
     </div>
 
@@ -387,7 +388,7 @@
                 <ul id="accordion-menu">
                     <li>
                         <a href="javascript:;" class="dropdown-toggle no-arrow">
-                            <span class="micon bi bi-house"></span><span class="mtext">Home</span>
+                            <span class="micon bi bi-house"></span><span class="mtext">Anasayfa</span>
                         </a>
 
                     </li>
@@ -407,15 +408,24 @@
                             <li><a href="image-dropzone.html">Image Dropzone</a></li>
                         </ul>
                     </li>
-                    <li class="dropdown">
-                        <a href="javascript:;" class="dropdown-toggle">
+                    @*<li>
+            <a href="javascript:;" class="dropdown-toggle no-arrow">
+                <span class="micon bi bi-list-task"></span><span class="mtext">Kategori</span>
+            </a>
+
+        </li>*@
+                    <li>
+                        <a href="/Kategori/Index/" class="dropdown-toggle no-arrow">
                             <span class="micon bi bi-list-task"></span><span class="mtext">Kategori</span>
                         </a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="javascript:;" class="dropdown-toggle">
+                            <span class="micon bi bi-clipboard2"></span><span class="mtext">Ürün</span>
+                        </a>
                         <ul class="submenu">
-                            <li><a href="form-basic.html">Kategoriler</a></li>
-                            <li>
-                                <a href="advanced-components.html">Kateori Ekle</a>
-                            </li>
+                            <li><a href="/Urun/Index">Ürünler</a></li>
+                            <li><a href="/Urun/UrunEkleme">Ürün Ekleme Sayfası</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
@@ -593,22 +603,25 @@
     </div>
     <div class="mobile-menu-overlay"></div>
     @RenderBody()
-    
+
     <!-- welcome modal start -->
-    
-    
     <!-- welcome modal end -->
     <!-- js -->
     <script src="~/deskapp-master/vendors/scripts/core.js"></script>
     <script src="~/deskapp-master/vendors/scripts/script.min.js"></script>
     <script src="~/deskapp-master/vendors/scripts/process.js"></script>
     <script src="~/deskapp-master/vendors/scripts/layout-settings.js"></script>
-    <script src="~/deskapp-master/src/plugins/apexcharts/apexcharts.min.js"></script>
-    <script src="~/deskapp-master/src/plugins/datatables/js/jquery.dataTables.min.js"></script>
-    <script src="~/deskapp-master/src/plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
-    <script src="~/deskapp-master/src/plugins/datatables/js/dataTables.responsive.min.js"></script>
-    <script src="~/deskapp-master/src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
-    <script src="~/deskapp-master/vendors/scripts/dashboard.js"></script>
+    <script src="deskapp-master/src/plugins/apexcharts/apexcharts.min.js"></script>
+    <script src="deskapp-master/src/plugins/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="deskapp-master/src/plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
+    <script src="deskapp-master/src/plugins/datatables/js/dataTables.responsive.min.js"></script>
+    <script src="deskapp-master/src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
+    
+    <script src="deskapp-master/vendors/scripts/dashboard.js"></script>
+    <!-- add sweet alert js & css in footer -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="deskapp-master/src/plugins/sweetalert2/sweetalert2.all.js"></script>
+    <script src="deskapp-master/src/plugins/sweetalert2/sweet-alert.init.js"></script>
     <!-- Google Tag Manager (noscript) -->
     <noscript>
         <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXZMQSS"
