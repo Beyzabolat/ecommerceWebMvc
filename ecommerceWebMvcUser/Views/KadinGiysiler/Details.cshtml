@@ -1,0 +1,67 @@
+﻿@model ecommerceWebMvcUser.Models.Classes.Urunler
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Urunler</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UrunAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UrunAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Marka)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Marka)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UrunGorsel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UrunGorsel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Renk)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Renk)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Beden)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Beden)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Numara)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Numara)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.UrunID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
