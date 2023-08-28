@@ -35,7 +35,7 @@
             </div>
 
             <div class="pd-20 card-box mb-30">
-                @using (Html.BeginForm("UrunEkleme", "Urun", FormMethod.Post))
+                @using (Html.BeginForm("UrunEkleme", "Urun", FormMethod.Post, new { enctype = "multipart/form-data" }))
                 {
                     <div class="form-row">
                         <div class="form-group col-md-4">
@@ -60,17 +60,6 @@
                             <input type="number" class="form-control" id="SatisFiyati" name="SatisFiyati" min="0" max="10000" step="0.01" />
                         </div>
 
-
-                        @*<div class="form-group col-md-4">
-
-
-
-                                <label for="kategoriDurum">Durum</label>
-                                <select id="kategoriDurum" name="Durum" class="form-control">
-                                    <option value="true">Aktif</option>
-                                    <option value="false">Pasif</option>
-                                </select>
-                            </div>*@
                         <div class="form-group col-md-4">
                             <label for="kategoriDurum">Durum</label>
                             <select id="kategoriDurum" name="Durum" class="form-control">
@@ -81,8 +70,10 @@
                         </div>
 
                         <div class="form-group col-md-4">
-                            @Html.LabelFor(model => model.UrunGorsel)
-                            @Html.TextBoxFor(model => model.UrunGorsel, new { @class = "form-control" })
+                            @Html.Label("Resim Seçin")
+                            <input type="file" name="ImageURL" />
+                            @*@Html.LabelFor(model => model.UrunGorsel)*@
+                            @*@Html.TextBoxFor(model => model.ImageURL, new { @class = "form-control" })*@
                         </div>
                         <div class="form-group col-md-4">
                             @Html.LabelFor(model => model.Renk)

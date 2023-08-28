@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -39,6 +40,7 @@ namespace ecommerceWebMvc.Models.Classes
         public string Cinsiyet { get; set; }
         [Display(Name = "Kategori")]
         public int Kategoriid { get; set; }
+        public IFormFile ImageURL { get; set; }
         public virtual Kategori Kategori { get; set; }
         public ICollection<SatisHareketi> SatisHareketis { get; set; }
     }

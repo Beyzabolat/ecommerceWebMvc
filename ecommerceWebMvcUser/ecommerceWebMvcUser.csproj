@@ -127,12 +127,16 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KadinAksesuarController.cs" />
+    <Compile Include="Controllers\KadinGiyimController.cs" />
     <Compile Include="Controllers\KadinGiysilerController.cs" />
     <Compile Include="Controllers\UrunlerController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Classes\Aksesuar.cs" />
     <Compile Include="Models\Classes\Context.cs" />
+    <Compile Include="Models\Classes\Kategori.cs" />
     <Compile Include="Models\Classes\Urunler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -748,9 +752,11 @@
     <Content Include="Views\KadinGiysiler\Details.cshtml" />
     <Content Include="Views\KadinGiysiler\Edit.cshtml" />
     <Content Include="Views\KadinGiysiler\Index.cshtml" />
+    <Content Include="Views\KadinGiyim\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\KadinAksesuar\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

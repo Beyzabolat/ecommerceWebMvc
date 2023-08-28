@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -22,6 +23,7 @@ namespace ecommerceWebMvc.Controllers
         [HttpGet]  //sayfa çalıştığında boş olarak bunu açacak
         public ActionResult UrunEkleme()
         {
+
             List<SelectListItem> deger1 = (from x in q.Kategoris.ToList()
                                            select new SelectListItem
                                            {
@@ -36,6 +38,22 @@ namespace ecommerceWebMvc.Controllers
         [HttpPost]
         public ActionResult UrunEkleme(Urunler m)
         {
+            Urunler u = new Urunler();
+            if(m.ImageURL!= null)
+            {
+                if (m.ImageURL != null)
+                {
+                    var extension = Path.GetExtension(m.ImageURL.FileName);
+                    var newimagename = Guid.NewGuid() + extension;
+                    var location = Path.Combine(Directory.GetCurrentDirectory(), "src/images/", newimagename);
+                    var stream = new FileStream(location, FileMode.Create);
+                    m.ImageURL.CopyTo(stream);
+                    u.ImageURL = m.ImageURL; // IFormFile nesnesini doğrudan atıyoruz
+                }
+
+
+
+            }
             try
             {
                 if (ModelState.IsValid)

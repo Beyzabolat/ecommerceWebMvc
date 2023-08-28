@@ -7,11 +7,21 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
+@*@model IEnumerable<ecommerceWebMvcUser.Models.Classes.Urunler>
+@using ecommerceWebMvcUser.Models.Classes;
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}*@
+
 <!--Collection Banner-->
 <div class="collection-header">
     <div class="collection-hero">
         <div class="collection-hero__image"><img class="blur-up lazyload" data-src="/belle-multipurpose-bootstrap-html-template/assets/images/cat-women.jpg" src="assets/images/cat-women.jpg" alt="Women" title="Women" /></div>
-        <div class="collection-hero__title-wrapper"><h1 class="collection-hero__title page-width">Shop Left Sidebar</h1></div>
+        <div class="collection-hero__title-wrapper"><h1 class="collection-hero__title page-width"></h1>@ViewBag.KategoriAdi</div>
     </div>
 </div>
 <!--End Collection Banner-->
@@ -299,8 +309,8 @@
                 <!--End Toolbar-->
                 <div class="grid-products grid--view-items">
                     <div class="row">
-                        @foreach (var b in Model)
-                          
+                        @foreach(var b in Model)
+                       
                         {
                             <div class="col-6 col-sm-6 col-md-4 col-lg-3 item">
 
@@ -376,7 +386,7 @@
                                         <li class="swatch medium rounded"><img src="/belle-multipurpose-bootstrap-html-template/assets/images/product-images/variant6.jpg" alt="image" /></li>
                                     </ul>
                                     <!-- End Variant -->
-                                   
+
                                 </div>
                                 <!-- End product details -->
                                 <!-- countdown start -->
@@ -394,7 +404,7 @@
 
 
                         }
-                        </div>
+                    </div>
                 </div>
             </div>
             <div class="infinitpaginOuter">
@@ -406,3 +416,4 @@
         <!--End Main Content-->
     </div>
 </div>
+

@@ -16,7 +16,7 @@ namespace ecommerceWebMvcUser.Models.Classes
 
         public string Marka { get; set; }
 
-
+        public decimal SatisFiyati { get; set; }
 
         public string UrunGorsel { get; set; }
 
@@ -25,5 +25,7 @@ namespace ecommerceWebMvcUser.Models.Classes
         public string Beden { get; set; }
 
         public int Numara { get; set; }
+        public int Kategoriid { get; set; }
+        public virtual Kategori Kategori { get; set; }
     }
 }
