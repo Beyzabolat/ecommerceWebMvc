@@ -1361,6 +1361,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="deskapp-master\resimler\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

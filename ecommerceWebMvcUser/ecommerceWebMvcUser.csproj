@@ -126,10 +126,17 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AyakkabiController.cs" />
+    <Compile Include="Controllers\CantaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KadinAksesuarController.cs" />
+    <Compile Include="Controllers\KadinAyakkabiController.cs" />
+    <Compile Include="Controllers\KadinCantaController.cs" />
     <Compile Include="Controllers\KadinGiyimController.cs" />
-    <Compile Include="Controllers\KadinGiysilerController.cs" />
+    <Compile Include="Controllers\KadinKozmetikController.cs" />
+    <Compile Include="Controllers\KadinTakiController.cs" />
+    <Compile Include="Controllers\KozmetikController.cs" />
+    <Compile Include="Controllers\TakiController.cs" />
     <Compile Include="Controllers\UrunlerController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -747,16 +754,24 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Urunler\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\KadinGiysiler\Create.cshtml" />
-    <Content Include="Views\KadinGiysiler\Delete.cshtml" />
-    <Content Include="Views\KadinGiysiler\Details.cshtml" />
-    <Content Include="Views\KadinGiysiler\Edit.cshtml" />
-    <Content Include="Views\KadinGiysiler\Index.cshtml" />
+    <Content Include="Views\KadinCanta\Create.cshtml" />
+    <Content Include="Views\KadinCanta\Delete.cshtml" />
+    <Content Include="Views\KadinCanta\Details.cshtml" />
+    <Content Include="Views\KadinCanta\Edit.cshtml" />
+    <Content Include="Views\KadinCanta\Index.cshtml" />
     <Content Include="Views\KadinGiyim\Index.cshtml" />
+    <Content Include="Views\KadinAksesuar\Index.cshtml" />
+    <Content Include="Views\Urun\Index.cshtml" />
+    <Content Include="Views\KadinTaki\Index.cshtml" />
+    <Content Include="Views\KadinKozmetik\Index.cshtml" />
+    <Content Include="Views\KadinAyakkabi\Index.cshtml" />
+    <Content Include="Views\Kozmetik\Index.cshtml" />
+    <Content Include="Views\Ayakkabi\Index.cshtml" />
+    <Content Include="Views\Canta\Index.cshtml" />
+    <Content Include="Views\Taki\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\KadinAksesuar\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

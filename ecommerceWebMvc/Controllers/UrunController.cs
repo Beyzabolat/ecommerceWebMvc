@@ -34,26 +34,25 @@ namespace ecommerceWebMvc.Controllers
             return View();
 
         }
-        
+
         [HttpPost]
         public ActionResult UrunEkleme(Urunler m)
         {
             Urunler u = new Urunler();
-            if(m.ImageURL!= null)
+
+            if (m.ImageURL != null)
             {
-                if (m.ImageURL != null)
-                {
-                    var extension = Path.GetExtension(m.ImageURL.FileName);
-                    var newimagename = Guid.NewGuid() + extension;
-                    var location = Path.Combine(Directory.GetCurrentDirectory(), "src/images/", newimagename);
-                    var stream = new FileStream(location, FileMode.Create);
-                    m.ImageURL.CopyTo(stream);
-                    u.ImageURL = m.ImageURL; // IFormFile nesnesini doğrudan atıyoruz
-                }
-
-
-
+                var extension = Path.GetExtension(m.ImageURL.FileName);
+                var newimagename = Guid.NewGuid() + extension;
+                var location = Path.Combine(Directory.GetCurrentDirectory(), "/deskapp-master/resimler/", newimagename);
+                var stream = new FileStream(location, FileMode.Create);
+                m.ImageURL.CopyTo(stream);
+                u.ImageURL = newimagename; // IFormFile nesnesini doğrudan atıyoruz
             }
+
+
+
+
             try
             {
                 if (ModelState.IsValid)
@@ -143,28 +142,28 @@ namespace ecommerceWebMvc.Controllers
             return View("UrunGuncelle", p);
 
         }
-            //var urunnnn = q.Urunlers.Find(p.UrunID);
+        //var urunnnn = q.Urunlers.Find(p.UrunID);
 
-            //if (urunnnn == null)
-            //{
-            //    return HttpNotFound();
-            //}
+        //if (urunnnn == null)
+        //{
+        //    return HttpNotFound();
+        //}
 
-            //urunnnn.AlisFiyati = p.AlisFiyati;
-            //urunnnn.SatisFiyati = p.SatisFiyati;
-            //urunnnn.Durum = p.Durum;
-            //urunnnn.Kategoriid = p.Kategoriid;
-            //urunnnn.Marka = p.Marka;
-            //urunnnn.Stok = p.Stok;
-            //urunnnn.UrunAdi = p.UrunAdi;
-            //urunnnn.UrunGorsel = p.UrunGorsel;
-            //urunnnn.Renk = p.Renk;
-            //urunnnn.Beden = p.Beden;
-            //urunnnn.Numara = p.Numara;
-            //urunnnn.Cinsiyet = p.Cinsiyet;
+        //urunnnn.AlisFiyati = p.AlisFiyati;
+        //urunnnn.SatisFiyati = p.SatisFiyati;
+        //urunnnn.Durum = p.Durum;
+        //urunnnn.Kategoriid = p.Kategoriid;
+        //urunnnn.Marka = p.Marka;
+        //urunnnn.Stok = p.Stok;
+        //urunnnn.UrunAdi = p.UrunAdi;
+        //urunnnn.UrunGorsel = p.UrunGorsel;
+        //urunnnn.Renk = p.Renk;
+        //urunnnn.Beden = p.Beden;
+        //urunnnn.Numara = p.Numara;
+        //urunnnn.Cinsiyet = p.Cinsiyet;
 
-            //q.SaveChanges();
-            //return RedirectToAction("Index");
+        //q.SaveChanges();
+        //return RedirectToAction("Index");
         //}
 
         //[HttpPost]

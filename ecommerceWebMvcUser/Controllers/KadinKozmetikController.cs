@@ -7,14 +7,15 @@ using ecommerceWebMvcUser.Models.Classes;
 
 namespace ecommerceWebMvcUser.Controllers
 {
-    public class KadinAksesuarController : Controller
+    public class KadinKozmetikController : Controller
     {
-        // GET: KadinAksesuar
         private Context _context = new Context();
+
+
         public ActionResult Index()
         {
 
-            var kategori = _context.Urunlers.Where(k => k.Kategoriid == 5).ToList();
+            var kategori = _context.Urunlers.Where(k => k.Kategoriid == 6).ToList();
 
             return View(kategori);
 
