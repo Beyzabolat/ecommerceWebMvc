@@ -9,16 +9,16 @@ namespace ecommerceWebMvcUser.Controllers
 {
     public class KadinCantaController : Controller
     {
-        private Context _context = new Context();
+        private Context db = new Context();
 
 
         public ActionResult Index()
         {
+            var urunler = db.Urunlers.Where(x => x.Durum == true && x.Kategoriid == 8).ToList();
+            int urunSayisi = urunler.Count;
+            ViewBag.UrunSayisi = urunSayisi;
+            return View(urunler);
 
-            var kategori = _context.Urunlers.Where(k => k.Kategoriid == 8).ToList();
-
-            return View(kategori);
-           
         }
     }
 }

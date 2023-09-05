@@ -38,19 +38,7 @@ namespace ecommerceWebMvc.Controllers
         [HttpPost]
         public ActionResult UrunEkleme(Urunler m)
         {
-            Urunler u = new Urunler();
-
-            if (m.ImageURL != null)
-            {
-                var extension = Path.GetExtension(m.ImageURL.FileName);
-                var newimagename = Guid.NewGuid() + extension;
-                var location = Path.Combine(Directory.GetCurrentDirectory(), "/deskapp-master/resimler/", newimagename);
-                var stream = new FileStream(location, FileMode.Create);
-                m.ImageURL.CopyTo(stream);
-                u.ImageURL = newimagename; // IFormFile nesnesini doğrudan atıyoruz
-            }
-
-
+           
 
 
             try

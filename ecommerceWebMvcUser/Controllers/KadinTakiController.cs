@@ -8,15 +8,27 @@ namespace ecommerceWebMvcUser.Controllers
 {
     public class KadinTakiController : Controller
     {
-        private Context _context = new Context();
+        private Context db = new Context();
 
 
         public ActionResult Index()
         {
 
-            var kategori = _context.Urunlers.Where(k => k.Kategoriid == 2).ToList();
+            var urunler = db.Urunlers.Where(x => x.Durum == true && x.Kategoriid == 2).ToList();
+            int urunSayisi = urunler.Count;
+            ViewBag.UrunSayisi = urunSayisi;
+            return View(urunler);
 
-            return View(kategori);
+
+            //var urunler = _context.Urunlers.Where(x => x.Durum == true).ToList();
+            //int urunSayisi = urunler.Count;
+
+            //ViewBag.UrunSayisi = urunSayisi;
+
+
+            //var kategori = _context.Urunlers.Where(k => k.Kategoriid == 2).ToList();
+
+            //return View(kategori);
 
         }
     }

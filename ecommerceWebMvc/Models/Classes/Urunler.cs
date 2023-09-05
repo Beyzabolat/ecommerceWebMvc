@@ -40,7 +40,8 @@ namespace ecommerceWebMvc.Models.Classes
         public string Cinsiyet { get; set; }
         [Display(Name = "Kategori")]
         public int Kategoriid { get; set; }
-        public IFormFile ImageURL { get; set; }
+        //public string ImageURL { get; set; } // IFormFile yerine string
+
         public virtual Kategori Kategori { get; set; }
         public ICollection<SatisHareketi> SatisHareketis { get; set; }
     }

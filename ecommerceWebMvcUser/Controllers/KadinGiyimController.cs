@@ -17,12 +17,26 @@ namespace ecommerceWebMvcUser.Controllers
         // GET: KadinGiysiler
         public ActionResult Index()
         {
-
-            var kategori = db.Urunlers.Where(k => k.Kategoriid == 8).ToList();
-
-            return View(kategori);
-
+            var urunler = db.Urunlers.Where(x => x.Durum == true && x.Kategoriid == 1).ToList();
+            int urunSayisi = urunler.Count;
+            ViewBag.UrunSayisi = urunSayisi;
+            return View(urunler);
         }
+
+        //public ActionResult Index()
+        //{
+
+
+        //    var urunler = db.Urunlers.Where(x => x.Durum == true).ToList();
+        //    int urunSayisi = urunler.Count;
+
+        //    ViewBag.UrunSayisi = urunSayisi;
+
+        //    var kategori = db.Urunlers.Where(k => k.Kategoriid == 1).ToList();
+
+        //    return View(kategori);
+
+        //}
 
         // GET: KadinGiysiler/Details/5
         public ActionResult Details(int? id)

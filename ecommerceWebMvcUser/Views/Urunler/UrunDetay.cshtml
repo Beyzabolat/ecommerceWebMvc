@@ -1,0 +1,867 @@
+﻿@model ecommerceWebMvcUser.Models.Classes.Urunler
+
+@using ecommerceWebMvcUser.Models.Classes;
+
+
+@{
+    ViewBag.Title = "UrunDetay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div id="MainContent" class="main-content" role="main">
+    <!--Breadcrumb-->
+    <div class="bredcrumbWrap">
+        <div class="container breadcrumbs">
+            <a href="/Home/Index/" title="Back to the home page">Anasayfa</a><span aria-hidden="true">›</span><a href="/Urunler/Index/" title="Back to the ürün page">Ürünler</a>› <a href="/UrunDetay/Index/" title="Back to the ürün page">Ürün Detay</a>
+        </div>
+    </div>
+    <!--End Breadcrumb-->
+
+    <div id="ProductSection-product-template" class="product-template__container prstyle1 container">
+
+
+        <!--product-single-->
+        <div class="product-single">
+
+
+            <div class="row">
+
+
+                <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                    <div class="product-details-img">
+
+                        <div class="zoompro-wrap product-zoom-right pl-20">
+                            <div class="zoompro-span">
+                                <img class="blur-up lazyload zoompro" data-zoom-image="@Model.UrunGorsel" alt="" src="@Model.UrunGorsel" />
+                            </div>
+                            <div class="product-labels"><span class="lbl on-sale">Satışta</span><span class="lbl pr-label1">Yeni</span></div>
+                            <div class="product-buttons">
+                                <a href="#" class="btn prlightbox" title="Zoom"><i class="icon anm anm-expand-l-arrows" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                    <div class="product-single__meta">
+                        <h1 class="product-single__title">@Model.UrunAdi</h1>
+                        <div class="product-nav clearfix">
+                            <a href="#" class="next" title="Next"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="prInfoRow">
+                            <div class="product-stock"> <span class="instock ">Stokta</span> <span class="outstock hide">Unavailable</span> </div>
+                            <div class="product-review"><a class="reviewLink" href="#tab2"><i class="font-13 fa fa-star"></i><i class="font-13 fa fa-star"></i><i class="font-13 fa fa-star"></i><i class="font-13 fa fa-star-o"></i><i class="font-13 fa fa-star-o"></i><span class="spr-badge-caption">6 değerlendirme</span></a></div>
+                        </div>
+                        <p class="product-single__price product-single__price-product-template">
+                            <span class="visually-hidden">Regular price</span>
+                            <span class="product-price__price product-price__price-product-template product-price__sale product-price__sale--single">
+                                <span id="ProductPrice-product-template"><span class="money">@Model.SatisFiyati ₺</span></span>
+                            </span>
+
+                        </p>
+                        <div class="orderMsg" data-user="23" data-time="24">
+                            <img src="/belle-multipurpose-bootstrap-html-template/assets/images/order-icon.jpg" alt="" /> <strong class="items">5</strong> adet satıldı <strong class="time">26</strong> saatte
+                        </div>
+                    </div>
+                    <div class="product-single__description rte">
+                        <ul>
+                            <li>@Model.Beden</li>
+                            <li>@Model.Numara</li>
+
+                        </ul>
+                    </div>
+                    <div id="quantity_message">Acele et! Sadece  <span class="items">4</span> adet stokta kaldı.</div>
+                    <form method="post" action="http://annimexweb.com/cart/add" id="product_form_10508262282" accept-charset="UTF-8" class="product-form product-form-product-template hidedropdown" enctype="multipart/form-data">
+                        <div class="swatch clearfix swatch-0 option1" data-option-index="0">
+                            <div class="product-form__item">
+                                <label class="header">Renk: <span class="slVariant">@Model.Renk</span></label>
+
+                            </div>
+                        </div>
+
+                        <!-- Product Action -->
+                        <div class="product-action clearfix">
+                            <div class="product-form__item--quantity">
+                                <div class="wrapQtyBtn">
+                                    <div class="qtyField">
+                                        <a class="qtyBtn minus" href="javascript:void(0);"><i class="fa anm anm-minus-r" aria-hidden="true"></i></a>
+                                        <input type="text" id="Quantity" name="quantity" value="1" class="product-form__input qty">
+                                        <a class="qtyBtn plus" href="javascript:void(0);"><i class="fa anm anm-plus-r" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-form__item--submit">
+                                <button type="button" name="add" class="btn product-form__cart-submit">
+                                    <span>Sepete ekle</span>
+                                </button>
+                            </div>
+                            <div class="shopify-payment-button" data-shopify="payment-button">
+                                <button type="button" class="shopify-payment-button__button shopify-payment-button__button--unbranded">Hemen satın al</button>
+                            </div>
+                        </div>
+                        <!-- End Product Action -->
+                    </form>
+                    <div class="display-table shareRow">
+                        <div class="display-table-cell medium-up--one-third">
+                            <div class="wishlist-btn">
+                                <a class="wishlist add-to-wishlist" href="#" title="Add to Wishlist"><i class="icon anm anm-heart-l" aria-hidden="true"></i> <span>Favorilere ekle</span></a>
+                            </div>
+                        </div>
+                        <div class="display-table-cell text-right">
+                            <div class="social-sharing">
+                                <a target="_blank" href="#" class="btn btn--small btn--secondary btn--share share-facebook" title="Share on Facebook">
+                                    <i class="fa fa-facebook-square" aria-hidden="true"></i> <span class="share-title" aria-hidden="true">Paylaş</span>
+                                </a>
+                                <a target="_blank" href="#" class="btn btn--small btn--secondary btn--share share-twitter" title="Tweet on Twitter">
+                                    <i class="fa fa-twitter" aria-hidden="true"></i> <span class="share-title" aria-hidden="true">Tweet</span>
+                                </a>
+                                <a href="#" title="Share on google+" class="btn btn--small btn--secondary btn--share">
+                                    <i class="fa fa-google-plus" aria-hidden="true"></i> <span class="share-title" aria-hidden="true">Google+</span>
+                                </a>
+                                <a target="_blank" href="#" class="btn btn--small btn--secondary btn--share share-pinterest" title="Pin on Pinterest">
+                                    <i class="fa fa-pinterest" aria-hidden="true"></i> <span class="share-title" aria-hidden="true">Pinle</span>
+                                </a>
+                                <a href="#" class="btn btn--small btn--secondary btn--share share-pinterest" title="Share by Email" target="_blank">
+                                    <i class="fa fa-envelope" aria-hidden="true"></i> <span class="share-title" aria-hidden="true">Email</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p id="freeShipMsg" class="freeShipMsg" data-price="199"><i class="fa fa-truck" aria-hidden="true"></i> DAHA DA YAKLAŞIYORSUNUZ! ÜCRETSİZ KARGO <b class="freeShip"><span class="money" data-currency-usd="$199.00" data-currency="USD">@Model.SatisFiyati ₺</span></b> UZAKLIKTA!</p>
+                    <p class="shippingMsg"><i class="fa fa-clock-o" aria-hidden="true"></i> TAHMİNİ TESLİMAT TARİHLERİ: <b id="fromDate">Çar. 1 Mayıs</b> ile <b id="toDate">Salı. 7 Mayıs</b> arasında.</p>
+                    <div class="userViewMsg" data-user="20" data-time="11000"><i class="fa fa-users" aria-hidden="true"></i> <strong class="uersView">14</strong> KİŞİ BU ÜRÜNÜ İNCELİYOR</div>
+
+                </div>
+
+            </div>
+            <!--End-product-single-->
+            <!--Product Fearure-->
+            <div class="prFeatures">
+                <div class="row">
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-3 feature">
+                        <img src="/belle-multipurpose-bootstrap-html-template/assets/images/credit-card.png" alt="Güvenli Ödeme" title="Güvenli Ödeme" />
+                        <div class="details"><h3>Güvenli Ödeme</h3>Dünyanın en güvenilir ödeme yöntemleri ile ödeyin.</div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-3 feature">
+                        <img src="/belle-multipurpose-bootstrap-html-template/assets/images/shield.png" alt="Güvence" title="Güvence" />
+                        <div class="details"><h3>Güvence</h3>Koruma, satın almanızı ve kişisel verilerinizi kapsar.</div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-3 feature">
+                        <img src="/belle-multipurpose-bootstrap-html-template/assets/images/worldwide.png" alt="Dünya Çapında Teslimat" title="Dünya Çapında Teslimat" />
+                        <div class="details"><h3>Dünya Çapında Teslimat</h3>Ücretsiz ve hızlı kargo, 200'den fazla ülkeye ve bölgeye gönderim yapmaktadır.</div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-3 feature">
+                        <img src="/belle-multipurpose-bootstrap-html-template/assets/images/phone-call.png" alt="Destek Hattı" title="Destek Hattı" />
+                        <div class="details"><h3>Destek Hattı</h3>Sorularınız için yardım hattını arayın: 4141 456 789, 4125 666 888</div>
+                    </div>
+                </div>
+            </div>
+
+            <!--End Product Fearure-->
+            <!--Product Tabs-->
+            <div class="tabs-listing">
+                <ul class="product-tabs">
+                    <li rel="tab1"><a class="tablink">Ürünlerimiz 30x20x10 boyutlarındadır.</a></li>
+                    <li rel="tab2"><a class="tablink">İç kısmında iki büyük bölme, bir fermuarlı cep ve beş adet kart tutucu bulunmaktadır</a></li>
+                    <li rel="tab3"><a class="tablink">.Ayarlanabilir omuz askısı ve elde taşıma sapları mevcut.</a></li>
+                </ul>
+                <div class="tab-container">
+                    <div id="tab1" class="tab-content">
+                        <div class="product-description rte">
+                            <p>
+                            <p> Kadın Giyim Ürünlerimiz:</p>
+                            Yeni sezonun en şık ve rahat kadın giyim ürünlerini keşfedin! En son moda tasarımlarıyla günlük stilinizi ve özel günlerinizi yükseltin. Kaliteli kumaşlar ve özenle işlenmiş detaylarla tasarlanmış elbiseler, bluzlar, pantolonlar ve daha fazlası burada sizi bekliyor. Tarzınıza uygun renk ve beden seçenekleri ile kadın giyim ürünlerindeki indirimleri kaçırmayın
+                            Bizim ürünlerimiz, zarif tasarımları, yüksek kaliteli malzemeleri ve işlevselliğiyle öne çıkar. Her ürünümüz, sizin ihtiyaçlarınızı karşılamak ve tarzınıza uygun bir seçenek sunmak için özenle tasarlanmıştır. Şıklığı ve dayanıklılığı bir arada sunan ürünlerimiz, günlük yaşamınızı kolaylaştırmak için ideal birer tercihtir. Ürünlerimiz hakkında daha fazla bilgi edinmek ve kaliteyi deneyimlemek için sizi mağazamıza bekliyoruz
+
+
+                            
+                            <ul>
+                                <li>Belle marka çantamız, zarif tasarımı ve işlevselliği ile dikkatinizi çekecek.</li>
+                                <li> Bu şık çanta, her gün kullanımınıza uygun boyutlarıyla ve rahat taşıma seçenekleriyle öne çıkıyor.</li>
+                                <li>Belle çanta, uygun fiyatıyla kaliteli bir seçenek sunar.</li>
+                                <li>Ürünümüz, güvenilir bir garanti ve iade politikası ile birlikte gelir.</li>
+                                <li>Çantanın bakımı oldukça kolaydır, sadece nemli bir bezle silmek yeterlidir.</li>
+                            </ul>
+                            <h3>
+                               Erkek Giyim Ürünlerimiz
+
+                            </h3>
+
+
+
+
+
+                            
+                          
+                            <p>
+                                Erkek giyim ürünlerinde şıklık ve konforu bir arada bulabilirsiniz. Üstelik özel indirimlerle dilediğiniz ürünü uygun fiyatlarla satın alabilirsiniz.
+                            </p>
+                            <p> İşte size özel seçenekler: günlük tişörtler, klasik gömlekler, şık takımlar ve daha fazlası. Tarzınızı yansıtacak renk ve kesim seçenekleriyle erkek giyim ürünlerini keşfedin.</p>
+                            <h3>Her detayda titizlikle çalışıyoruz ve sonuç olarak ürünlerimiz zarif, şık ve kaliteli bir görünüme sahiptir.</h3>
+                            <p>Göz alıcı takılarla kendinizi ifade edin. Takılar, her anın ve her tarzın vazgeçilmez tamamlayıcısıdır. Zarif yüzükler, göz kamaştırıcı kolyeler, şık bilezikler ve daha fazlası sizi bekliyor. Kendinizi veya sevdiklerinizi özel hissettirecek takıları kaçırmayın.</p>
+
+                            <h3>
+                                Boyut ve Taşıma Seçenekleri
+
+                            </h3>
+                            <p>
+                                Ürünlerimizin boyutları, günlük ihtiyaçlarınızı karşılamak için idealdir. Taşıması kolay ve kullanışlıdır.
+                                İster elde taşıyın, ister omzunuzda taşıyın, ürünlerimiz çok yönlü taşıma seçenekleri sunar.
+                                Boyutlarımız, seyahat, iş veya günlük kullanım için uygundur, böylece her an ihtiyacınıza cevap verir.
+                            </p>
+
+
+
+
+
+                            <h3>İç Bölme ve Detaylar</h3>
+                            <p>
+                                Ürünlerimiz, iç bölmedeki bölmeler ve ceplerle size düzenli bir kullanım deneyimi sunar.
+                                Fermuarlı cebi ve kart tutucuları, kişisel eşyalarınızı güvende ve düzenli tutmanıza yardımcı olur.
+                            </p>
+                            <h3>Pratik detaylar, ürünlerimizin kullanımını daha işlevsel hale getirir.</h3>
+                            <p>İç düzenlemelerimiz, eşyalarınızı kolayca bulmanızı sağlar ve günlük yaşamınızı düzenli tutar.</p>
+                            <h3>Bakım ve Temizlik</h3>
+                            <p>
+                                Ürünlerimizin bakımı oldukça basittir, sadece nemli bir bezle silmek yeterlidir.
+                                Dayanıklı malzemeler, uzun süreli kullanım için tasarlanmıştır ve az bakım gerektirir.
+                            </p>
+                            <h3>Kaliteli işçilik, ürünlerimizin uzun yıllar boyunca ilk günkü gibi görünmesini sağlar.</h3>
+                            <p>Bakım talimatlarına uymak, ürünlerinizin ömrünü uzatır ve görünümlerini korur.</p>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+            <!--End Product Tabs-->
+            <!--Related Product Slider-->
+            <div class="related-product grid-products">
+                <header class="section-header">
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <h2 class="section-header__title text-center h2"><span>Çok Satanlar</span></h2>
+                    <p class="sub-heading">Müşterilerimizin favorileri burada! Siz de bu popüler ürünleri keşfedin!</p>
+                </header>
+                <div class="productPageSlider">
+                    <div class="col-12 item">
+                        <!-- start product image -->
+                        <div class="product-image">
+                            <!-- start product image -->
+                            <a href="/Urunler/UrunDetay/2">
+                                <!-- image -->
+                                <img class="primary blur-up lazyload" data-src="/belle-multipurpose-bootstrap-html-template/assets/images/product-images/bags-p-img2.jpg" src="/belle-multipurpose-bootstrap-html-template/assets/images/product-images/bags-p-img2.jpg" alt="image" title="product">
+                                <!-- End image -->
+                                <!-- Hover image -->
+                                <img class="hover blur-up lazyload" data-src="/belle-multipurpose-bootstrap-html-template/assets/images/product-images/bags-p-img2-1.jpg" src="/belle-multipurpose-bootstrap-html-template/assets/images/product-images/bags-p-img2-1.jpg" alt="image" title="product">
+                                <!-- End hover image -->
+                                <!-- product label -->
+                                <div class="product-labels rectangular"><span class="lbl on-sale">-16%</span> <span class="lbl pr-label1">Yeni</span></div>
+                                <!-- End product label -->
+                            </a>
+                            <!-- end product image -->
+                            <!-- Start product button -->
+                            <form class="variants add" action="#" onclick="window.location.href='cart.html'" method="post">
+                                <button class="btn btn-addto-cart" type="button" tabindex="0">Sepete Ekle</button>
+                            </form>
+                            <div class="button-set">
+                                <a href="#" title="Quick View" class="quick-view" tabindex="0">
+                                    <i class="icon anm anm-search-plus-r"></i>
+                                </a>
+                                <div class="wishlist-btn">
+                                    <a class="wishlist add-to-wishlist" href="wishlist.html">
+                                        <i class="icon anm anm-heart-l"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- end product button -->
+                        </div>
+                        <!-- end product image -->
+                        <!--start product details -->
+                        <div class="product-details text-center">
+                            <!-- product name -->
+                            <div class="product-name">
+                                <a href="/Urunler/UrunDetay/2">Mavi Deri El Çantası</a>
+                            </div>
+                            <!-- End product name -->
+                            <!-- product price -->
+                            <div class="product-price">
+
+                                <span class="price">@Model.SatisFiyati ₺</span>
+                            </div>
+                            <!-- End product price -->
+
+                            <div class="product-review">
+                                <i class="font-13 fa fa-star"></i>
+                                <i class="font-13 fa fa-star"></i>
+                                <i class="font-13 fa fa-star"></i>
+                                <i class="font-13 fa fa-star-o"></i>
+                                <i class="font-13 fa fa-star-o"></i>
+                            </div>
+
+                        </div>
+                        <!-- End product details -->
+                    </div>
+                    <div class="col-12 item">
+                        <!-- start product image -->
+                        <div class="product-image">
+                            <!-- start product image -->
+                            <a href="/Urunler/UrunDetay/3">
+                                <!-- image -->
+                                <img class="primary blur-up lazyload" data-src="/belle-multipurpose-bootstrap-html-template/assets/images/product-images/bags-p-img3.jpg" src="/belle-multipurpose-bootstrap-html-template/assets/images/product-images/bags-p-img3.jpg" alt="image" title="product">
+                                <!-- End image -->
+                                <!-- Hover image -->
+                                <img class="hover blur-up lazyload" data-src="/belle-multipurpose-bootstrap-html-template/assets/images/product-images/bags-p-img3.jpg" src="/belle-multipurpose-bootstrap-html-template/assets/images/product-images/bags-p-img3.jpg" alt="image" title="product">
+                                <!-- End hover image -->
+                            </a>
+                            <!-- end product image -->
+                            <!-- Start product button -->
+                            <form class="variants add" action="#" onclick="window.location.href='cart.html'" method="post">
+                                <button class="btn btn-addto-cart" type="button" tabindex="0">Sepete Ekle</button>
+                            </form>
+                            <div class="button-set">
+                                <a href="#" title="Quick View" class="quick-view" tabindex="0">
+                                    <i class="icon anm anm-search-plus-r"></i>
+                                </a>
+                                <div class="wishlist-btn">
+                                    <a class="wishlist add-to-wishlist" href="wishlist.html">
+                                        <i class="icon anm anm-heart-l"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- end product button -->
+                        </div>
+                        <!-- end product image -->
+                        <!--start product details -->
+                        <div class="product-details text-center">
+                            <!-- product name -->
+                            <div class="product-name">
+                                <a href="/Urunler/UrunDetay/3">Yeşil Deri El Çantası</a>
+                            </div>
+                            <!-- End product name -->
+                            <!-- product price -->
+
+                            <div class="product-price">
+                                <span class="price">@Model.SatisFiyati  ₺</span>
+                            </div>
+                            <!-- End product price -->
+                            <div class="product-review">
+                                <i class="font-13 fa fa-star"></i>
+                                <i class="font-13 fa fa-star"></i>
+                                <i class="font-13 fa fa-star"></i>
+                                <i class="font-13 fa fa-star"></i>
+                                <i class="font-13 fa fa-star"></i>
+                            </div>
+
+                        </div>
+                        <!-- End product details -->
+                    </div>
+                    <div class="col-12 item">
+                        <!-- start product image -->
+                        <div class="product-image">
+                            <!-- start product image -->
+                            <a href="/Urunler/UrunDetay/4">
+                                <!-- image -->
+                                <img class="primary blur-up lazyload" data-src="/belle-multipurpose-bootstrap-html-template/assets/images/product-images/bags-p-img3-1.jpg" src="/belle-multipurpose-bootstrap-html-template/assets/images/product-images/bags-p-img3-1.jpg" alt="image" title="product">
+                                <!-- End image -->
+                                <!-- Hover image -->
+                                <img class="hover blur-up lazyload" data-src="/belle-multipurpose-bootstrap-html-template/assets/images/product-images/bags-p-img3-1.jpg" src="/belle-multipurpose-bootstrap-html-template/assets/images/product-images/bags-p-img3-1.jpg" alt="image" title="product">
+                                <!-- End hover image -->
+                                <!-- product label -->
+                                <div class="product-labels rectangular"><span class="lbl pr-label2">Hot</span></div>
+                                <!-- End product label -->
+                            </a>
+                            <!-- end product image -->
+                            <!-- Start product button -->
+                            <form class="variants add" action="#" onclick="window.location.href='cart.html'" method="post">
+                                <button class="btn btn-addto-cart" type="button" tabindex="0">Sepete Ekle</button>
+                            </form>
+                            <div class="button-set">
+                                <a href="#" title="Quick View" class="quick-view" tabindex="0">
+                                    <i class="icon anm anm-search-plus-r"></i>
+                                </a>
+                                <div class="wishlist-btn">
+                                    <a class="wishlist add-to-wishlist" href="wishlist.html">
+                                        <i class="icon anm anm-heart-l"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- end product button -->
+                        </div>
+                        <!-- end product image -->
+                        <!--start product details -->
+                        <div class="product-details text-center">
+                            <!-- product name -->
+                            <div class="product-name">
+                                <a href="/Urunler/UrunDetay/4">Kahverengi Deri El Çantası</a>
+                            </div>
+                            <!-- End product name -->
+                            <!-- product price -->
+                            <div class="product-price">
+                                <span class="price">@Model.SatisFiyati  ₺</span>
+                            </div>
+                            <!-- End product price -->
+
+                            <div class="product-review">
+                                <i class="font-13 fa fa-star"></i>
+                                <i class="font-13 fa fa-star"></i>
+                                <i class="font-13 fa fa-star"></i>
+                                <i class="font-13 fa fa-star"></i>
+                                <i class="font-13 fa fa-star-o"></i>
+                            </div>
+
+                        </div>
+                        <!-- End product details -->
+                    </div>
+                    <div class="col-12 item">
+                        <!-- start product image -->
+                        <div class="product-image">
+                            <!-- start product image -->
+                            <a href="/Urunler/UrunDetay/5">
+                                <!-- image -->
+                                <img class="primary blur-up lazyload" data-src="/belle-multipurpose-bootstrap-html-template/assets/images/product-images/bags-p-img4.jpg" src="/belle-multipurpose-bootstrap-html-template/assets/images/product-images/bags-p-img4.jpg" alt="image" title="product" />
+                                <!-- End image -->
+                                <!-- Hover image -->
+                                <img class="hover blur-up lazyload" data-src="/belle-multipurpose-bootstrap-html-template/assets/images/product-images/bags-p-img4-1.jpg" src="~/belle-multipurpose-bootstrap-html-template/assets/images/product-images/bags-p-img4-1.jpg" alt="image" title="product" />
+                                <!-- End hover image -->
+                                <!-- product label -->
+                                <div class="product-labels"><span class="lbl on-sale">Sale</span></div>
+                                <!-- End product label -->
+                            </a>
+                            <!-- end product image -->
+                            <!-- Start product button -->
+                            <form class="variants add" action="#" onclick="window.location.href='cart.html'" method="post">
+                                <button class="btn btn-addto-cart" type="button" tabindex="0">Sepete Ekle</button>
+                            </form>
+                            <div class="button-set">
+                                <a href="/Urunler/UrunDetay/4" title="Quick View" class="quick-view" tabindex="0">
+                                    <i class="icon anm anm-search-plus-r"></i>
+                                </a>
+                                <div class="wishlist-btn">
+                                    <a class="wishlist add-to-wishlist" href="wishlist.html">
+                                        <i class="icon anm anm-heart-l"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- end product button -->
+                        </div>
+                        <!-- end product image -->
+                        <!--start product details -->
+                        <div class="product-details text-center">
+                            <!-- product name -->
+                            <div class="product-name">
+                                <a href="/Urunler/UrunDetay/5">Vişne Çürüğü Deri El Çantası</a>
+                            </div>
+                            <!-- End product name -->
+                            <!-- product price -->
+                            <div class="product-price">
+                                <span class="price">@Model.SatisFiyati ₺</span>
+                            </div>
+                            <!-- End product price -->
+
+                            <div class="product-review">
+                                <i class="font-13 fa fa-star"></i>
+                                <i class="font-13 fa fa-star"></i>
+                                <i class="font-13 fa fa-star"></i>
+                                <i class="font-13 fa fa-star-o"></i>
+                                <i class="font-13 fa fa-star-o"></i>
+                            </div>
+
+                        </div>
+                        <!-- End product details -->
+                    </div>
+                    <div class="col-12 item">
+                        <!-- start product image -->
+                        <div class="product-image">
+                            <!-- start product image -->
+                            <a href="/Urunler/UrunDetay/6">
+                                <!-- image -->
+                                <img class="primary blur-up lazyload" data-src="/belle-multipurpose-bootstrap-html-template/assets/images/product-images/bags-p-img5.jpg" src="/belle-multipurpose-bootstrap-html-template/assets/images/product-images/bags-p-img5.jpg" alt="image" title="product" />
+                                <!-- End image -->
+                                <!-- Hover image -->
+                                <img class="hover blur-up lazyload" data-src="/belle-multipurpose-bootstrap-html-template/assets/images/product-images/bags-p-img5.jpg" src="~/belle-multipurpose-bootstrap-html-template/assets/images/product-images/bags-p-img5.jpg" alt="image" title="product" />
+                                <!-- End hover image -->
+                                <!-- product label -->
+                                <div class="product-labels"><span class="lbl on-sale">Sale</span></div>
+                                <!-- End product label -->
+                            </a>
+                            <!-- end product image -->
+                            <!-- Start product button -->
+                            <form class="variants add" action="#" onclick="window.location.href='cart.html'" method="post">
+                                <button class="btn btn-addto-cart" type="button" tabindex="0">Sepete Ekle</button>
+                            </form>
+                            <div class="button-set">
+                                <a href="/Urunler/UrunDetay/6" title="Quick View" class="quick-view" tabindex="0">
+                                    <i class="icon anm anm-search-plus-r"></i>
+                                </a>
+                                <div class="wishlist-btn">
+                                    <a class="wishlist add-to-wishlist" href="wishlist.html">
+                                        <i class="icon anm anm-heart-l"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- end product button -->
+                        </div>
+                        <!-- end product image -->
+                        <!--start product details -->
+                        <div class="product-details text-center">
+                            <!-- product name -->
+                            <div class="product-name">
+                                <a href="/Urunler/UrunDetay/6">Siyah Deri El Çantası</a>
+                            </div>
+                            <!-- End product name -->
+                            <!-- product price -->
+                            <div class="product-price">
+                                <span class="price">@Model.SatisFiyati ₺</span>
+                            </div>
+                            <!-- End product price -->
+
+                            <div class="product-review">
+                                <i class="font-13 fa fa-star"></i>
+                                <i class="font-13 fa fa-star"></i>
+                                <i class="font-13 fa fa-star"></i>
+                                <i class="font-13 fa fa-star"></i>
+                                <i class="font-13 fa fa-star"></i>
+                            </div>
+
+                        </div>
+                        <!-- End product details -->
+                    </div>
+                    <div class="col-12 item">
+                        <!-- start product image -->
+                        <div class="product-image">
+                            <!-- start product image -->
+                            <a href="/Urunler/UrunDetay/7">
+                                <!-- image -->
+                                <img class="primary blur-up lazyload" data-src="/belle-multipurpose-bootstrap-html-template/assets/images/product-images/bags-p-img7.jpg" src="/belle-multipurpose-bootstrap-html-template/assets/images/product-images/bags-p-img7.jpg" alt="image" title="product">
+                                <!-- End image -->
+                                <!-- Hover image -->
+                                <img class="hover blur-up lazyload" data-src="/belle-multipurpose-bootstrap-html-template/assets/images/product-images/bags-p-img7-1.jpg" src="~/belle-multipurpose-bootstrap-html-template/assets/images/product-images/bags-p-img7-1.jpg" alt="image" title="product">
+                                <!-- End hover image -->
+                                <!-- product label -->
+                                <div class="product-labels rectangular"><span class="lbl on-sale">-16%</span> <span class="lbl pr-label1">yeni</span></div>
+                                <!-- End product label -->
+                            </a>
+                            <!-- end product image -->
+                            <!-- Start product button -->
+                            <form class="variants add" action="#" onclick="window.location.href='cart.html'" method="post">
+                                <button class="btn btn-addto-cart" type="button" tabindex="0">Sepete Ekle</button>
+                            </form>
+                            <div class="button-set">
+                                <a href="/Urunler/UrunDetay/7" title="Quick View" class="quick-view" tabindex="0">
+                                    <i class="icon anm anm-search-plus-r"></i>
+                                </a>
+                                <div class="wishlist-btn">
+                                    <a class="wishlist add-to-wishlist" href="wishlist.html">
+                                        <i class="icon anm anm-heart-l"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- end product button -->
+                        </div>
+                        <!-- end product image -->
+                        <!--start product details -->
+                        <div class="product-details text-center">
+                            <!-- product name -->
+                            <div class="product-name">
+                                <a href="/Urunler/UrunDetay/7">Koyu Yeşil Deri El Çantası</a>
+                            </div>
+                            <!-- End product name -->
+                            <!-- product price -->
+                            <div class="product-price">
+                                <span class="price">@Model.SatisFiyati ₺</span>
+                            </div>
+                            <!-- End product price -->
+
+                            <div class="product-review">
+                                <i class="font-13 fa fa-star"></i>
+                                <i class="font-13 fa fa-star"></i>
+                                <i class="font-13 fa fa-star"></i>
+                                <i class="font-13 fa fa-star-o"></i>
+                                <i class="font-13 fa fa-star-o"></i>
+                            </div>
+                        </div>
+                        <!-- End product details -->
+                    </div>
+                    <div class="col-12 item">
+                        <!-- start product image -->
+                        <div class="product-image">
+                            <!-- start product image -->
+                            <a href="/Urunler/UrunDetay/8">
+                                <!-- image -->
+                                <img class="primary blur-up lazyload" data-src="/belle-multipurpose-bootstrap-html-template/assets/images/product-images/bags-p-img6.jpg" src="/belle-multipurpose-bootstrap-html-template/assets/images/product-images/bags-p-img6.jpg" alt="image" title="product">
+                                <!-- End image -->
+                                <!-- Hover image -->
+                                <img class="hover blur-up lazyload" data-src="/belle-multipurpose-bootstrap-html-template/assets/images/product-images/bags-p-img6-1.jpg" src="~/belle-multipurpose-bootstrap-html-template/assets/images/product-images/bags-p-img6-1.jpg" alt="image" title="product">
+                                <!-- End hover image -->
+                            </a>
+                            <!-- end product image -->
+                            <!-- Start product button -->
+                            <form class="variants add" action="#" onclick="window.location.href='cart.html'" method="post">
+                                <button class="btn btn-addto-cart" type="button" tabindex="0">Sepete Ekle</button>
+                            </form>
+                            <div class="button-set">
+                                <a href="#" title="Quick View" class="quick-view" tabindex="0">
+                                    <i class="icon anm anm-search-plus-r"></i>
+                                </a>
+                                <div class="wishlist-btn">
+                                    <a class="wishlist add-to-wishlist" href="wishlist.html">
+                                        <i class="icon anm anm-heart-l"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- end product button -->
+                        </div>
+                        <!-- end product image -->
+                        <!--start product details -->
+                        <div class="product-details text-center">
+                            <!-- product name -->
+                            <div class="product-name">
+                                <a href="/Urunler/UrunDetay/8">Sarı Deri El Çantası</a>
+                            </div>
+                            <!-- End product name -->
+                            <!-- product price -->
+                            <div class="product-price">
+                                <span class="price">@Model.SatisFiyati ₺</span>
+                            </div>
+                            <!-- End product price -->
+                            <div class="product-review">
+                                <i class="font-13 fa fa-star"></i>
+                                <i class="font-13 fa fa-star"></i>
+                                <i class="font-13 fa fa-star"></i>
+                                <i class="font-13 fa fa-star"></i>
+                                <i class="font-13 fa fa-star"></i>
+                            </div>
+                        </div>
+                        <!-- End product details -->
+                    </div>
+                </div>
+            </div>
+            <!--End Related Product Slider-->
+            <!--Recently Product Slider-->
+            <div class="related-product grid-products">
+                <header class="section-header">
+                    <h2 class="section-header__title text-center h2"><span>SON GÖRÜNTÜLENEN ÜRÜNLER</span></h2>
+                   
+                </header>
+                <div class="productPageSlider">
+                    <div class="col-12 item">
+                        <!-- start product image -->
+                        <div class="product-image">
+                            <!-- start product image -->
+                            <a href="/Urunler/UrunDetay/16">
+                                <!-- image -->
+                                <img class="primary blur-up lazyload" data-src="/belle-multipurpose-bootstrap-html-template/assets/images/product-images/cape-dress-1.jpg" src="~/belle-multipurpose-bootstrap-html-template/assets/images/product-images/cape-dress-1.jpg" alt="image" title="product">
+                                <!-- End image -->
+                                <!-- Hover image -->
+                                <img class="hover blur-up lazyload" data-src="/belle-multipurpose-bootstrap-html-template/assets/images/product-images/cape-dress-2.jpg" src="/belle-multipurpose-bootstrap-html-template/assets/images/product-images/cape-dress-2.jpg" alt="image" title="product">
+                                <!-- End hover image -->
+                                <!-- product label -->
+                                <div class="product-labels rectangular"><span class="lbl on-sale">-16%</span> <span class="lbl pr-label1">yeni</span></div>
+                                <!-- End product label -->
+                            </a>
+                            <!-- end product image -->
+                        </div>
+                        <!-- end product image -->
+                        <!--start product details -->
+                        <div class="product-details text-center">
+                            <!-- product name -->
+                            <div class="product-name">
+                                <a href="/Urunler/UrunDetay/16">Cape Siyah Elbise</a>
+                            </div>
+                            <!-- End product name -->
+                        </div>
+                        <!-- End product details -->
+                    </div>
+                    <div class="col-12 item">
+                        <!-- start product image -->
+                        <div class="product-image">
+                            <!-- start product image -->
+                            <a href="/Urunler/UrunDetay/22">
+                                <!-- image -->
+                                <img class="primary blur-up lazyload" data-src="/belle-multipurpose-bootstrap-html-template/assets/images/product-images/product-image2.jpg" src="/belle-multipurpose-bootstrap-html-template/assets/images/product-images/product-image2.jpg" alt="image" title="product">
+                                <!-- End image -->
+                                <!-- Hover image -->
+                                <img class="hover blur-up lazyload" data-src="/belle-multipurpose-bootstrap-html-template/assets/images/product-images/product-image2-1.jpg" src="~/belle-multipurpose-bootstrap-html-template/assets/images/product-images/product-image2-1.jpg" alt="image" title="product">
+                                <!-- End hover image -->
+                            </a>
+                            <!-- end product image -->
+                        </div>
+                        <!-- end product image -->
+                        <!--start product details -->
+                        <div class="product-details text-center">
+                            <!-- product name -->
+                            <div class="product-name">
+                                <a href="/Urunler/UrunDetay/22">Esnek Bel Detaylı Elbise</a>
+                            </div>
+                            <!-- End product name -->
+                        </div>
+                        <!-- End product details -->
+                    </div>
+                    <div class="col-12 item">
+                        <!-- start product image -->
+                        <div class="product-image">
+                            <!-- start product image -->
+                            <a href="/Urunler/UrunDetay/31">
+                                <!-- image -->
+                                <img class="primary blur-up lazyload" data-src="/belle-multipurpose-bootstrap-html-template/assets/images/product-images/product-image8.jpg" src="/belle-multipurpose-bootstrap-html-template/assets/images/product-images/product-image8.jpg" alt="image" title="product">
+                                <!-- End image -->
+                                <!-- Hover image -->
+                                <img class="hover blur-up lazyload" data-src="/belle-multipurpose-bootstrap-html-template/assets/images/product-images/product-image8-1.jpg" src="/belle-multipurpose-bootstrap-html-template/assets/images/product-images/product-image8-1.jpg" alt="image" title="product">
+                                <!-- End hover image -->
+                            </a>
+                            <!-- end product image -->
+                        </div>
+
+                        <!-- end product image -->
+                        <!--start product details -->
+                        <div class="product-details text-center">
+                            <!-- product name -->
+                            <div class="product-name">
+                                <a href="/Urunler/UrunDetay/31">İşçi Gömlek Ceket</a>
+                            </div>
+                            <!-- End product name -->
+                        </div>
+                        <!-- End product details -->
+                    </div>
+                    <div class="col-12 item">
+                        <!-- start product image -->
+                        <div class="product-image">
+                            <!-- start product image -->
+                            <a href="/Urunler/UrunDetay/32">
+                                <!-- image -->
+                                <img class="primary blur-up lazyload" data-src="/belle-multipurpose-bootstrap-html-template/assets/images/product-images/product-image9.jpg" src="/belle-multipurpose-bootstrap-html-template/assets/images/product-images/product-image9.jpg" alt="image" title="product">
+                                <!-- End image -->
+                                <!-- Hover image -->
+                                <img class="hover blur-up lazyload" data-src="/belle-multipurpose-bootstrap-html-template/assets/images/product-images/product-image9-1.jpg" src="/belle-multipurpose-bootstrap-html-template/assets/images/product-images/product-image9-1.jpg" alt="image" title="product">
+                                <!-- End hover image -->
+                            </a>
+                            <!-- end product image -->
+                        </div>
+                        <!-- end product image -->
+                        <!--start product details -->
+                        <div class="product-details text-center">
+                            <!-- product name -->
+                            <div class="product-name">
+                                <a href="/Urunler/UrunDetay/32">Mavi/Kahverengi Spor Ceket</a>
+                            </div>
+                            <!-- End product name -->
+                        </div>
+                        <!-- End product details -->
+                    </div>
+                    <div class="col-12 item">
+                        <!-- start product image -->
+                        <div class="product-image">
+                            <!-- start product image -->
+                            <a href="/Urunler/UrunDetay/33">
+                                <!-- image -->
+                                <img class="primary blur-up lazyload" data-src="/belle-multipurpose-bootstrap-html-template/assets/images/product-images/product-image10.jpg" src="/belle-multipurpose-bootstrap-html-template/assets/images/product-images/product-image10.jpg" alt="image" title="product">
+                                <!-- End image -->
+                                <!-- Hover image -->
+                                <img class="hover blur-up lazyload" data-src="/belle-multipurpose-bootstrap-html-template/assets/images/product-images/product-image10-1.jpg" src="/belle-multipurpose-bootstrap-html-template/assets/images/product-images/product-image10-1.jpg" alt="image" title="product">
+                                <!-- End hover image -->
+                            </a>
+                            <!-- end product image -->
+                        </div>
+                        <!-- end product image -->
+                        <!--start product details -->
+                        <div class="product-details text-center">
+                            <!-- product name -->
+                            <div class="product-name">
+                                <a href="/Urunler/UrunDetay/33">Yıkanmış Yün Ceket</a>
+                            </div>
+                            <!-- End product name -->
+                        </div>
+                        <!-- End product details -->
+                    </div>
+                    <div class="col-12 item">
+                        <!-- start product image -->
+                        <div class="product-image">
+                            <!-- start product image -->
+                            <a href="/Urunler/UrunDetay/34">
+                                <!-- image -->
+                                <img class="primary blur-up lazyload" data-src="/belle-multipurpose-bootstrap-html-template/assets/images/product-images/product-image13.jpg" src="/belle-multipurpose-bootstrap-html-template/assets/images/product-images/product-image13.jpg" alt="image" title="product">
+                                <!-- End image -->
+                                <!-- Hover image -->
+                                <img class="hover blur-up lazyload" data-src="/belle-multipurpose-bootstrap-html-template/assets/images/product-images/product-image13-1.jpg" src="/belle-multipurpose-bootstrap-html-template/assets/images/product-images/product-image13-1.jpg" alt="image" title="product">
+                                <!-- End hover image -->
+                            </a>
+                            <!-- end product image -->
+                        </div>
+
+                        <!-- end product image -->
+                        <!--start product details -->
+                        <div class="product-details text-center">
+                            <!-- product name -->
+                            <div class="product-name">
+                                <a href="/Urunler/UrunDetay/34">Ashton Kolye</a>
+                            </div>
+                            <!-- End product name -->
+                        </div>
+                        <!-- End product details -->
+                    </div>
+                    <div class="col-12 item">
+                        <!-- start product image -->
+                        <div class="product-image">
+                            <!-- start product image -->
+                            <a href="/Urunler/UrunDetay/35">
+                                <!-- image -->
+                                <img class="primary blur-up lazyload" data-src="/belle-multipurpose-bootstrap-html-template/assets/images/product-images/product-image14.jpg" src="/belle-multipurpose-bootstrap-html-template/assets/images/product-images/product-image14.jpg" alt="image" title="product">
+                                <!-- End image -->
+                                <!-- Hover image -->
+                                <img class="hover blur-up lazyload" data-src="/belle-multipurpose-bootstrap-html-template/assets/images/product-images/product-image14-1.jpg" src="/belle-multipurpose-bootstrap-html-template/assets/images/product-images/product-image14-1.jpg" alt="image" title="product">
+                                <!-- End hover image -->
+                            </a>
+                            <!-- end product image -->
+                        </div>
+                        <!-- end product image -->
+                        <!--start product details -->
+                        <div class="product-details text-center">
+                            <!-- product name -->
+                            <div class="product-name">
+                                <a href="/Urunler/UrunDetay/35">Ara Yüzük</a>
+                            </div>
+                            <!-- End product name -->
+                        </div>
+                        <!-- End product details -->
+                    </div>
+                    <div class="col-12 item">
+                        <!-- start product image -->
+                        <div class="product-image">
+                            <!-- start product image -->
+                            <a href="/Urunler/UrunDetay/36">
+                                <!-- image -->
+                                <img class="primary blur-up lazyload" data-src="/belle-multipurpose-bootstrap-html-template/assets/images/product-images/product-image15.jpg" src="/belle-multipurpose-bootstrap-html-template/assets/images/product-images/product-image15.jpg" alt="image" title="product">
+                                <!-- End image -->
+                                <!-- Hover image -->
+                                <img class="hover blur-up lazyload" data-src="/belle-multipurpose-bootstrap-html-template/assets/images/product-images/product-image15-1.jpg" src="/belle-multipurpose-bootstrap-html-template/assets/images/product-images/product-image15-1.jpg" alt="image" title="product">
+                                <!-- End hover image -->
+                            </a>
+                            <!-- end product image -->
+                        </div>
+                        <!-- end product image -->
+                        <!--start product details -->
+                        <div class="product-details text-center">
+                            <!-- product name -->
+                            <div class="product-name">
+                                <a href="/Urunler/UrunDetay/36">Asel Yüzük</a>
+                            </div>
+                            <!-- End product name -->
+                        </div>
+                        <!-- End product details -->
+                    </div>
+                </div>
+            </div>
+            <!--End Recently Product Slider-->
+         
+        </div>
+        <!--#ProductSection-product-template-->
+    </div>
+    </div>

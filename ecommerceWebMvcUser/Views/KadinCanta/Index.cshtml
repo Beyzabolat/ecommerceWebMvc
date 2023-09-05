@@ -7,11 +7,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
 <!--Collection Banner-->
 <div class="collection-header">
     <div class="collection-hero">
         <div class="collection-hero__image"><img class="blur-up lazyload" data-src="/belle-multipurpose-bootstrap-html-template/assets/images/cat-women.jpg" src="assets/images/cat-women.jpg" alt="Women" title="Women" /></div>
-        <div class="collection-hero__title-wrapper"><h1 class="collection-hero__title page-width">Shop Left Sidebar</h1></div>
+        <div class="collection-hero__title-wrapper"><h1 class="collection-hero__title page-width">ÇANTA</h1></div>
     </div>
 </div>
 <!--End Collection Banner-->
@@ -26,32 +27,32 @@
                 <!--Categories-->
                 <div class="sidebar_widget categories filter-widget">
                     <br />
-                    <div class="widget-title"><h2>Categories</h2></div>
+                    <div class="widget-title"><h2>Kategoriler</h2></div>
                     <div class="widget-content">
                         <ul class="sidebar_categories">
                             <li class="level1 sub-level">
-                                <a href="#;" class="site-nav">Clothing</a>
+                                <a href="#;" class="site-nav">Giyim</a>
                                 <ul class="sublinks">
-                                    <li class="level2"><a href="#;" class="site-nav">Men</a></li>
-                                    <li class="level2"><a href="#;" class="site-nav">Women</a></li>
-                                    <li class="level2"><a href="#;" class="site-nav">Child</a></li>
-                                    <li class="level2"><a href="#;" class="site-nav">View All Clothing</a></li>
+                                    <li class="level2"><a href="#;" class="site-nav">Erkek</a></li>
+                                    <li class="level2"><a href="#;" class="site-nav">Kadın</a></li>
+                                    <li class="level2"><a href="#;" class="site-nav">Çocuk</a></li>
+                                    <li class="level2"><a href="#;" class="site-nav">Tüm Kıyafetleri Göster</a></li>
                                 </ul>
                             </li>
                             <li class="level1 sub-level">
-                                <a href="#;" class="site-nav">Jewellery</a>
+                                <a href="#;" class="site-nav">Takı</a>
                                 <ul class="sublinks">
-                                    <li class="level2"><a href="#;" class="site-nav">Ring</a></li>
-                                    <li class="level2"><a href="#;" class="site-nav">Neckalses</a></li>
-                                    <li class="level2"><a href="#;" class="site-nav">Eaarings</a></li>
-                                    <li class="level2"><a href="#;" class="site-nav">View All Jewellery</a></li>
+                                    <li class="level2"><a href="#;" class="site-nav">Yüzük</a></li>
+                                    <li class="level2"><a href="#;" class="site-nav">Kolye</a></li>
+                                    <li class="level2"><a href="#;" class="site-nav">Küpe</a></li>
+                                    <li class="level2"><a href="#;" class="site-nav">Tüm Takıları Göster</a></li>
                                 </ul>
                             </li>
-                            <li class="lvl-1"><a href="#;" class="site-nav">Shoes</a></li>
-                            <li class="lvl-1"><a href="#;" class="site-nav">Accessories</a></li>
-                            <li class="lvl-1"><a href="#;" class="site-nav">Collections</a></li>
-                            <li class="lvl-1"><a href="#;" class="site-nav">Sale</a></li>
-                            <li class="lvl-1"><a href="#;" class="site-nav">Page</a></li>
+                            <li class="lvl-1"><a href="#;" class="site-nav">Ayakkabılar</a></li>
+                            <li class="lvl-1"><a href="#;" class="site-nav">Aksesuarlar</a></li>
+                            <li class="lvl-1"><a href="#;" class="site-nav">Çantalar</a></li>
+                            <li class="lvl-1"><a href="#;" class="site-nav">Kozmetik</a></li>
+
                         </ul>
                     </div>
                 </div>
@@ -79,22 +80,47 @@
                 </div>
                 <!--End Price Filter-->
                 <!--Size Swatches-->
+                @*<div class="sidebar_widget filterBox filter-widget size-swacthes">
+                        <div class="widget-title"><h2>Size</h2></div>
+                        <div class="filter-color swacth-list">
+                            <ul id="bedenler-listesi">
+                                @foreach (var b in Model)
+                                {
+                                    <li><span class="swacth-btn">@b.Beden</span></li>
+                                }
+                            </ul>
+                        </div>
+                    </div>*@
                 <div class="sidebar_widget filterBox filter-widget size-swacthes">
                     <div class="widget-title"><h2>Size</h2></div>
                     <div class="filter-color swacth-list">
                         <ul>
-                            <li><span class="swacth-btn checked">X</span></li>
-                            <li><span class="swacth-btn">XL</span></li>
-                            <li><span class="swacth-btn">XLL</span></li>
-                            <li><span class="swacth-btn">M</span></li>
-                            <li><span class="swacth-btn">L</span></li>
-                            <li><span class="swacth-btn">S</span></li>
-                            <li><span class="swacth-btn">XXXL</span></li>
-                            <li><span class="swacth-btn">XXL</span></li>
-                            <li><span class="swacth-btn">XS</span></li>
+                            <li><span class="swacth-btn" data-beden="X">XS</span></li>
+                            <li><span class="swacth-btn" data-beden="XL">S</span></li>
+                            <li><span class="swacth-btn" data-beden="XL">M</span></li>
+                            <li><span class="swacth-btn" data-beden="XL">L</span></li>
+                            <li><span class="swacth-btn" data-beden="XL">XL</span></li>
+                            <li><span class="swacth-btn" data-beden="XL">XXL</span></li>
                         </ul>
                     </div>
                 </div>
+
+                @*<div class="sidebar_widget filterBox filter-widget size-swacthes">
+                        <div class="widget-title"><h2>Size</h2></div>
+                        <div class="filter-color swacth-list">
+                            <ul>
+                                <li><span class="swacth-btn checked">X</span></li>
+                                <li><span class="swacth-btn">XL</span></li>
+                                <li><span class="swacth-btn">XLL</span></li>
+                                <li><span class="swacth-btn">M</span></li>
+                                <li><span class="swacth-btn">L</span></li>
+                                <li><span class="swacth-btn">S</span></li>
+                                <li><span class="swacth-btn">XXXL</span></li>
+                                <li><span class="swacth-btn">XXL</span></li>
+                                <li><span class="swacth-btn">XS</span></li>
+                            </ul>
+                        </div>
+                    </div>*@
                 <!--End Size Swatches-->
                 <!--Color Swatches-->
                 <div class="sidebar_widget filterBox filter-widget">
@@ -148,7 +174,7 @@
                 <!--End Brand-->
                 <!--Popular Products-->
                 <div class="sidebar_widget">
-                    <div class="widget-title"><h2>Popular Products</h2></div>
+                    <div class="widget-title"><h2>Popüler Ürünler</h2></div>
                     <div class="widget-content">
                         <div class="list list-sidebar-products">
                             <div class="grid">
@@ -204,60 +230,45 @@
                 <!--Banner-->
                 <!--Information-->
                 <div class="sidebar_widget">
-                    <div class="widget-title"><h2>Information</h2></div>
-                    <div class="widget-content"><p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p></div>
+                    <div class="widget-title"><h2>HOŞ GELDİNİZ!</h2></div>
+                    <div class="widget-content">
+                        <p>
+
+
+                            Biz, Bellesa, size özenle seçilmiş ve kaliteli ürünleri sunmanın mutluluğunu yaşıyoruz. Moda ve tarzın buluştuğu mağazamızda, sizin için özel parçaları bir araya getiriyoruz.
+
+                            Her bir ürünümüz, şıklık ve kalite standartlarını yansıtmak amacıyla tasarlanıyor. Eşsiz tarzımız ve özenli detaylarımızla, gardırobunuzu renklendirmenize yardımcı oluyoruz.
+
+                            Sizleri [Marka İsmi] dünyasına davet ediyoruz. Alışveriş yaparken keyif almanızı ve istediğiniz ürünü bulmanızı sağlamak için buradayız.
+
+                        </p>
+                    </div>
                 </div>
                 <!--end Information-->
-                <!--Product Tags-->
-                <div class="sidebar_widget">
-                    <div class="widget-title">
-                        <h2>Product Tags</h2>
-                    </div>
-                    <div class="widget-content">
-                        <ul class="product-tags">
-                            <li><a href="#" title="Show products matching tag $100 - $400">$100 - $400</a></li>
-                            <li><a href="#" title="Show products matching tag $400 - $600">$400 - $600</a></li>
-                            <li><a href="#" title="Show products matching tag $600 - $800">$600 - $800</a></li>
-                            <li><a href="#" title="Show products matching tag Above $800">Above $800</a></li>
-                            <li><a href="#" title="Show products matching tag Allen Vela">Allen Vela</a></li>
-                            <li><a href="#" title="Show products matching tag Black">Black</a></li>
-                            <li><a href="#" title="Show products matching tag Blue">Blue</a></li>
-                            <li><a href="#" title="Show products matching tag Cantitate">Cantitate</a></li>
-                            <li><a href="#" title="Show products matching tag Famiza">Famiza</a></li>
-                            <li><a href="#" title="Show products matching tag Gray">Gray</a></li>
-                            <li><a href="#" title="Show products matching tag Green">Green</a></li>
-                            <li><a href="#" title="Show products matching tag Hot">Hot</a></li>
-                            <li><a href="#" title="Show products matching tag jean shop">jean shop</a></li>
-                            <li><a href="#" title="Show products matching tag jesse kamm">jesse kamm</a></li>
-                            <li><a href="#" title="Show products matching tag L">L</a></li>
-                            <li><a href="#" title="Show products matching tag Lardini">Lardini</a></li>
-                            <li><a href="#" title="Show products matching tag lareida">lareida</a></li>
-                            <li><a href="#" title="Show products matching tag Lirisla">Lirisla</a></li>
-                            <li><a href="#" title="Show products matching tag M">M</a></li>
-                            <li><a href="#" title="Show products matching tag mini-dress">mini-dress</a></li>
-                            <li><a href="#" title="Show products matching tag Monark">Monark</a></li>
-                            <li><a href="#" title="Show products matching tag Navy">Navy</a></li>
-                            <li><a href="#" title="Show products matching tag new">new</a></li>
-                            <li><a href="#" title="Show products matching tag new arrivals">new arrivals</a></li>
-                            <li><a href="#" title="Show products matching tag Orange">Orange</a></li>
-                            <li><a href="#" title="Show products matching tag oxford">oxford</a></li>
-                            <li><a href="#" title="Show products matching tag Oxymat">Oxymat</a></li>
-                        </ul>
-                        <span class="btn btn--small btnview">View all</span>
-                    </div>
-                </div>
-                <!--end Product Tags-->
+
             </div>
         </div>
         <!--End Sidebar-->
         <!--Main Content-->
         <div class="col-12 col-sm-12 col-md-9 col-lg-9 main-col">
+            @*<div class="category-description">
+                    <br />
+                    <h3>Category Description</h3>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing.</p>
+                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.</p>
+                </div>*@
+
             <div class="category-description">
                 <br />
-                <h3>Category Description</h3>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing.</p>
-                <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.</p>
+                <h3>Hoş Geldiniz!</h3>
+                <p>
+                    Moda ve tarzın öne çıktığı bu dünyada, sizin için özel seçilmiş ürünlerimizle karşınızdayız. Tarzınızı ifade etmek ve benzersiz görünmek artık çok daha kolay.Sizleri en yeni ve trendy ürünlerimizi keşfetmeye davet ediyoruz. Her bir ürünümüz, özenle tasarlanmış ve seçilmiştir.Unutmayın, tarzınızı yansıtmak sadece giyimle sınırlı değil, aynı zamanda bir yaşam biçimidir. Biz, size bu benzersiz yaşam biçimini sunmak için buradayız.
+                </p>
             </div>
+
+
+
+
             <hr>
             <div class="productList product-load-more">
                 <!--Toolbar-->
@@ -274,7 +285,7 @@
                                 </a>
                             </div>
                             <div class="col-4 col-md-4 col-lg-4 text-center filters-toolbar__item filters-toolbar__item--count d-flex justify-content-center align-items-center">
-                                <span class="filters-toolbar__product-count">Showing: 22</span>
+                                <span class="filters-toolbar__product-count">Gösteriliyor: @ViewBag.UrunSayisi</span>
                             </div>
                             <div class="col-4 col-md-4 col-lg-4 text-right">
                                 <div class="filters-toolbar__item">
@@ -300,32 +311,28 @@
                 <div class="grid-products grid--view-items">
                     <div class="row">
                         @foreach (var b in Model)
-                          
+
                         {
                             <div class="col-6 col-sm-6 col-md-4 col-lg-3 item">
 
                                 <!-- start product image -->
                                 <div class="product-image">
                                     <!-- start product image -->
-                                    <a href="#">
+                                    <a href="/Urunler/UrunDetay/@b.UrunID">
                                         <!-- image -->
-                                        <img class="primary blur-up lazyload" data-src="/belle-multipurpose-bootstrap-html-template/assets/images/product-images/product-image1.jpg" src="/belle-multipurpose-bootstrap-html-template/assets/images/product-images/product-image1.jpg" alt="image" title="product">
+                                        <img class="primary blur-up lazyload" data-src="@b.UrunGorsel" src="@b.UrunGorsel" alt="image" title="product">
                                         <!-- End image -->
                                         <!-- Hover image -->
-                                        <img class="hover blur-up lazyload" data-src="/belle-multipurpose-bootstrap-html-template/assets/images/product-images/product-image1-1.jpg" src="/belle-multipurpose-bootstrap-html-template/assets/images/product-images/product-image1-1.jpg" alt="image" title="product">
+                                        <img class="hover blur-up lazyload" data-src="@b.UrunGorsel" src="@b.UrunGorsel" alt="image" title="product">
                                         <!-- End hover image -->
-                                        <!-- product label -->
-                                        <div class="product-labels rectangular"><span class="lbl on-sale">-16%</span> <span class="lbl pr-label1">new</span></div>
-                                        <!-- End product label -->
+
                                     </a>
-                                    <!-- end product image -->
-                                    <!-- countdown start -->
-                                    <div class="saleTime desktop" data-countdown="2022/03/01"></div>
-                                    <!-- countdown end -->
-                                    <!-- Start product button -->
+
+                                    @*Start product button*@
                                     <form class="variants add" action="#" onclick="window.location.href='cart.html'" method="post">
-                                        <button class="btn btn-addto-cart" type="button">Select Options</button>
+                                        <button class="btn btn-addto-cart" type="button">Sepete Ekle</button>
                                     </form>
+
                                     <div class="button-set">
                                         <a href="javascript:void(0)" title="Quick View" class="quick-view-popup quick-view" data-toggle="modal" data-target="#content_quickview">
                                             <i class="icon anm anm-search-plus-r"></i>
@@ -355,7 +362,7 @@
                                     <!-- End product name -->
                                     <!-- product price -->
                                     <div class="product-price">
-                                        <span class="price">@b.SatisFiyati</span>
+                                        <span class="price">@b.SatisFiyati₺</span>
                                     </div>
                                     <!-- End product price -->
 
@@ -366,17 +373,8 @@
                                         <i class="font-13 fa fa-star-o"></i>
                                         <i class="font-13 fa fa-star-o"></i>
                                     </div>
-                                    <!-- Variant -->
-                                    <ul class="swatches">
-                                        <li class="swatch medium rounded"><img src="/belle-multipurpose-bootstrap-html-template/assets/images/product-images/variant1.jpg" alt="image" /></li>
-                                        <li class="swatch medium rounded"><img src="/belle-multipurpose-bootstrap-html-template/assets/images/product-images/variant2.jpg" alt="image" /></li>
-                                        <li class="swatch medium rounded"><img src="/belle-multipurpose-bootstrap-html-template/assets/images/product-images/variant3.jpg" alt="image" /></li>
-                                        <li class="swatch medium rounded"><img src="/belle-multipurpose-bootstrap-html-template/assets/images/product-images/variant4.jpg" alt="image" /></li>
-                                        <li class="swatch medium rounded"><img src="/belle-multipurpose-bootstrap-html-template/assets/images/product-images/variant5.jpg" alt="image" /></li>
-                                        <li class="swatch medium rounded"><img src="/belle-multipurpose-bootstrap-html-template/assets/images/product-images/variant6.jpg" alt="image" /></li>
-                                    </ul>
-                                    <!-- End Variant -->
-                                   
+
+
                                 </div>
                                 <!-- End product details -->
                                 <!-- countdown start -->
@@ -394,7 +392,7 @@
 
 
                         }
-                        </div>
+                    </div>
                 </div>
             </div>
             <div class="infinitpaginOuter">
@@ -406,3 +404,21 @@
         <!--End Main Content-->
     </div>
 </div>
+
+@section scripts {
+    <script>
+        // Bedenlere göre filtreleme işlemini yapacak JavaScript kodu
+        $(document).ready(function () {
+            // Bedenlere tıklama işlemleri
+            $(".swacth-btn").click(function () {
+                var selectedBeden = $(this).data("beden");
+                if (selectedBeden === "all") {
+                    $(".item").show(); // Tüm ürünleri göster
+                } else {
+                    $(".item").hide(); // Tüm ürünleri gizle
+                    $(".item[data-beden='" + selectedBeden + "']").show(); // Seçilen bedene sahip ürünleri göster
+                }
+            });
+        });
+    </script>
+}

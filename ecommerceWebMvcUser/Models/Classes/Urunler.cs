@@ -19,13 +19,14 @@ namespace ecommerceWebMvcUser.Models.Classes
         public decimal SatisFiyati { get; set; }
 
         public string UrunGorsel { get; set; }
-
+        public bool Durum { get; set; }
         public string Renk { get; set; }
 
         public string Beden { get; set; }
 
-        public int Numara { get; set; }
+        public string Numara { get; set; }
         public int Kategoriid { get; set; }
         public virtual Kategori Kategori { get; set; }
+        public ICollection<SatisHareketi> SatisHareketis { get; set; }
     }
 }

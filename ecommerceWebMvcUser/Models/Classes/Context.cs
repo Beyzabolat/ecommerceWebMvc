@@ -10,7 +10,9 @@ namespace ecommerceWebMvcUser.Models.Classes
     {
         public DbSet<Urunler> Urunlers { get; set; }
         public DbSet<Kategori> Kategoris { get; set; }
-        //public DbSet<Detay> Detays { get; set; }
+        public DbSet<UrunDetay> UrunDetays { get; set; }
+        //public DbSet<Sepet> Sepets { get; set; }
+        public DbSet<SatisHareketi> ShoppingCartItems { get; set; }
 
     }
 }
