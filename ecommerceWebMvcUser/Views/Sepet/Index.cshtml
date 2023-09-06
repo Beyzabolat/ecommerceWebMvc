@@ -3,10 +3,8 @@
 @model List<SepetOgesi>
 
 
-@{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
+@{ ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml"; }
 <div class="page section-header text-center">
     <div class="page-title">
         <div class="wrapper"><h1 class="page-width">Sepetiniz</h1></div>
@@ -33,60 +31,64 @@
                         {
 
 
-                        <tr class="cart__row border-bottom line1 cart-flex border-top">
-                            <td class="cart__image-wrapper cart-flex-item">
-                                @*<img class="primary blur-up lazyload" data-src="@sepetOgesi.UrunGorseli" src="@sepetOgesi.UrunGorseli" alt="image" title="product">*@
-                                <a href="#"><img class="cart__image" src="@sepetOgesi.UrunGorseli" @*alt="Elastic Waist Dress - Navy / Small"*@></a>
-                            </td>
-                            <td class="cart__meta small--text-left cart-flex-item">
-                                <div class="list-view-item__title">
-                                    <a href="#">@sepetOgesi.UrunAdi </a>
-                                </div>
+            <tr class="cart__row border-bottom line1 cart-flex border-top">
+                <td class="cart__image-wrapper cart-flex-item">
+                    @*<img class="primary blur-up lazyload" data-src="@sepetOgesi.UrunGorseli" src="@sepetOgesi.UrunGorseli" alt="image" title="product">*@
+                    <a href="#"><img class="cart__image" src="@sepetOgesi.UrunGorseli" @*alt="Elastic Waist Dress - Navy / Small"*@></a>
+                </td>
+                <td class="cart__meta small--text-left cart-flex-item">
+                    <div class="list-view-item__title">
+                        <a href="#">@sepetOgesi.UrunAdi </a>
+                    </div>
 
-                                @*<div class="cart__meta-text">
-                Renk: @sepetOgesi.Rengi<br>Marka: @sepetOgesi.Marka<br>
-            </div>*@
-                            </td>
-                            <td class="cart__price-wrapper cart-flex-item">
-                                <span class="money">@sepetOgesi.Fiyat</span>
-                            </td>
-                            @*<td class="cart__total-wrapper cart-flex-item">
-            <span class="money" id="toplamFiyat_@sepetOgesi.UrunID">@sepetOgesi.Fiyat * sepetOgesi.Adet</span>
-        </td>*@
-                            <td class="cart__update-wrapper cart-flex-item text-right">
-                                <div class="cart__qty text-center">
-                                    <div class="qtyField">
-                                        <a class="qtyBtn minus" href="javascript:void(0);"><i class="icon icon-minus"></i></a>
-                                        <input class="cart__qty-input qty" type="text" name="updates[]" id="qty" value="1" pattern="[0-9]*">
-                                        <a class="qtyBtn plus" href="javascript:void(0);"><i class="icon icon-plus"></i></a>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="text-right small--hide cart-price">
-                                <div><span class="money">$735.00</span></div>
-                            </td>
+                    @*<div class="cart__meta-text">
+                            Renk: @sepetOgesi.Rengi<br>Marka: @sepetOgesi.Marka<br>
+                        </div>*@
+                </td>
+                <td class="cart__price-wrapper cart-flex-item">
+                    <span class="money">@sepetOgesi.Fiyat</span>
+                </td>
+                @*<td class="cart__total-wrapper cart-flex-item">
+                        <span class="money" id="toplamFiyat_@sepetOgesi.UrunID">@sepetOgesi.Fiyat * sepetOgesi.Adet</span>
+                    </td>*@
+                <td class="cart__update-wrapper cart-flex-item text-right">
+                    <div class="cart__qty text-center">
+                        <div class="qtyField">
+                            <a class="qtyBtn minus" href="javascript:void(0);"><i class="icon icon-minus"></i></a>
+                            <input class="cart__qty-input qty" type="text" name="updates[]" id="qty" value="1" pattern="[0-9]*">
+                            <a class="qtyBtn plus" href="javascript:void(0);"><i class="icon icon-plus"></i></a>
+                        </div>
+                    </div>
+                </td>
+                <td class="text-right small--hide cart-price">
+                    <div><span class="money">$735.00</span></div>
+                </td>
+                <td class="text-center small--hide">
+                    @*<a href="@Url.Action("UrunSil", "Sepet", new { urunId = sepetOgesi.UrunID })" class="btn btn--secondary cart__remove" title="Ürünü Sil">
+                            <i class="icon icon anm anm-times-l"></i>
+                        </a>*@
 
-                            <td class="text-center small--hide">
-                                <a href="/Sepet/UrunuSil/@sepetOgesi.UrunID" class="btn btn--secondary cart__remove" title="Remove tem">
-                                    <i class="icon icon anm anm-times-l"></i>
-                                </a>
-                            </td>
+                    <a href="@Url.Action("UrunSil", "Sepet", new { urunId = sepetOgesi.UrunID })" class="btn btn--secondary cart__remove" title="Ürünü Sil">
+                        <i class="icon icon anm anm-times-l"></i>
+                    </a>
 
-                        </tr>
-                          
-                        }
+                    @*<a href="/Sepet/UrunSil/@sepetOgesi.UrunID" class="btn btn--secondary cart__remove" title="Ürünü Sil">
+                            <i class="icon icon anm anm-times-l"></i>
+                        </a>*@
+                </td>
+
+
+                @*<td class="text-center small--hide"><a href="#" class="btn btn--secondary cart__remove" title="Remove tem"><i class="icon icon anm anm-times-l"></i></a></td>*@
+            </tr>
+}
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td colspan="3" class="text-left"><a href="/Urunler/Index" class="btn--link cart-continue"><i class="icon icon-arrow-circle-left"></i> Continue shopping</a></td>
-                          
+                            <td colspan="3" class="text-left"><a href="/Urunler/Index" class="btn--link cart-continue"><i class="icon icon-arrow-circle-left"></i>Alışverişe devam et</a></td>
 
                             <td colspan="3" class="text-right">
-                                @using (Html.BeginForm("Bosalt", "Sepet", FormMethod.Post))
-                                {
-                                    <button type="submit" class="btn btn-danger">Sepeti Boşalt</button>
-                                }
-                                @*<a href="/Sepet/Bosalt" class="btn btn-danger">Sepeti Boşalt</a>*@
+                                <a href="@Url.Action("Bosalt", "Sepet")" class="btn btn-danger">Sepeti Boşalt</a>
+
                             </td>
 
                         </tr>
@@ -95,7 +97,7 @@
 
                 <div class="currencymsg">We processes all orders in USD. While the content of your cart is currently displayed in USD, the checkout will use USD at the most current exchange rate.</div>
                 <hr>
-              
+
 
             </form>
         </div>
