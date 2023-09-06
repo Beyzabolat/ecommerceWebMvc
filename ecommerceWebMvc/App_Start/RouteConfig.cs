@@ -12,6 +12,11 @@ namespace ecommerceWebMvc
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            routes.MapRoute(
+    name: "BosaltSepet",
+    url: "Sepet/Bosalt",
+    defaults: new { controller = "Sepet", action = "Bosalt" }
+);
 
             routes.MapRoute(
                 name: "Default",
