@@ -130,9 +130,13 @@
                                         </a>
                                         <!-- end product image -->
                                         <!-- Start product button -->
-                                        <form class="variants add" action="#" onclick="window.location.href='cart.html'" method="post">
-                                            <button class="btn btn-addto-cart" type="button" tabindex="0">Select Options</button>
+                                       
+                                        <form class="variants add" action="/Sepet/UrunSepeteEkle" method="post">
+                                            <input type="hidden" name="urunId" value="@b.UrunID" /> <!-- Ürünün ID'sini buradan alıyoruz -->
+                                            <input type="hidden" name="adet" value="1" /> <!-- Varsayılan adet değeri -->
+                                            <button class="btn btn-addto-cart" type="submit">Sepete Ekle</button>
                                         </form>
+
                                         <div class="button-set">
                                             <a href="javascript:void(0)" title="Quick View" class="quick-view-popup quick-view" data-toggle="modal" data-target="#content_quickview">
                                                 <i class="icon anm anm-search-plus-r"></i>

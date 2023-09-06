@@ -41,7 +41,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-10 col-sm-8 col-md-5 col-lg-4">
-                       
+
                         <p class="phone-no"><i class="anm anm-phone-s"></i> +440 0(111) 044 833</p>
                     </div>
                     <div class="col-sm-4 col-md-4 col-lg-4 d-none d-lg-none d-md-block d-lg-block">
@@ -99,7 +99,7 @@
                                                     </li>
                                                     <li class="grid__item lvl-1 col-md-3 col-lg-3">
 
-                                                       
+
                                                         <!-- Diğer kategori seçenekleri için benzer bağlantıları ekleyebilirsiniz -->
 
                                                         <a href="/Urunler/Index/" class="site-nav lvl-1">Kadın</a>
@@ -137,7 +137,7 @@
                                         </ul>
                                     </div>
                                 </li>
-                              
+
                                 <li class="lvl1"><a href="#"><b>Buy Now!</b> <i class="anm anm-angle-down-l"></i></a></li>
                             </ul>
                         </nav>
@@ -626,6 +626,23 @@
         <script src="/belle-multipurpose-bootstrap-html-template/assets/js/popper.min.js"></script>
         <script src="/belle-multipurpose-bootstrap-html-template/assets/js/lazysizes.js"></script>
         <script src="/belle-multipurpose-bootstrap-html-template/assets/js/main.js"></script>
+        <script>
+            // Sayfa yüklendiğinde çalışacak olan işlev
+            document.addEventListener("DOMContentLoaded", function () {
+                // input elementini seçin
+                var adetInput = document.getElementById("qty");
+
+                // input değeri değiştikçe tetiklenen işlev
+                adetInput.addEventListener("change", function () {
+                    // Değişen adet değerini alın
+                    var yeniAdet = parseInt(this.value);
+
+                    // Şimdi yeniAdet'i kullanabilirsiniz, örneğin bir değişkene atayabilir veya başka bir işlem yapabilirsiniz
+                    console.log("Yeni Adet Değeri: " + yeniAdet);
+                });
+            });
+        </script>
+
         <!--For Newsletter Popup-->
         <script>
             jQuery(document).ready(function () {

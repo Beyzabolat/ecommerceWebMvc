@@ -14,6 +14,7 @@ namespace ecommerceWebMvcUser.Models.Classes
         public decimal Fiyat { get; set; }
         public int Adet { get; set; }
         public string UrunGorseli { get; set; }
+        public decimal ToplamFiyat => Fiyat * Adet;
         //public string Rengi { get; set; }
         //public string Marka { get; set; }
     }
@@ -26,7 +27,10 @@ namespace ecommerceWebMvcUser.Models.Classes
     public class Sepet
     {
         private List<SepetOgesi> sepetOgeleri = new List<SepetOgesi>();
-
+        public decimal ToplamFiyatHesapla()
+        {
+            return sepetOgeleri.Sum(o => o.ToplamFiyat);
+        }
         public void UrunEkle(Urunler urun, int adet)
         {
             // Sepet öğesini bellekteki koleksiyona ekle
@@ -57,6 +61,35 @@ namespace ecommerceWebMvcUser.Models.Classes
             {
                 sepetOgeleri.Remove(silinecekUrun);
             }
+        }
+        public class SepetViewModel
+        {
+            public List<SepetOgesi> SepetOgeleri { get; set; }
+            public decimal ToplamTutar { get; set; }
+        }
+
+        //public decimal ToplamTutarHesapla()
+        //{
+        //    decimal toplamTutar = 0;
+
+        //    foreach (var sepetOgesi in sepetOgeleri)
+        //    {
+        //        // Her ürünün adet ve fiyatını çarpıp toplam tutara ekleyin
+        //        toplamTutar += (sepetOgesi.Fiyat * sepetOgesi.Adet);
+        //    }
+
+        //    return toplamTutar;
+        //}
+        public decimal ToplamTutarHesapla()
+        {
+            decimal toplam = 0;
+
+            foreach (var urun in sepetOgeleri)
+            {
+                toplam += urun.Fiyat * urun.Adet;
+            }
+
+            return toplam;
         }
 
         public List<SepetOgesi> SepetOgeleriniGetir()

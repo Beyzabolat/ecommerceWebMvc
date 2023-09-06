@@ -33,7 +33,6 @@
 
             <tr class="cart__row border-bottom line1 cart-flex border-top">
                 <td class="cart__image-wrapper cart-flex-item">
-                    @*<img class="primary blur-up lazyload" data-src="@sepetOgesi.UrunGorseli" src="@sepetOgesi.UrunGorseli" alt="image" title="product">*@
                     <a href="#"><img class="cart__image" src="@sepetOgesi.UrunGorseli" @*alt="Elastic Waist Dress - Navy / Small"*@></a>
                 </td>
                 <td class="cart__meta small--text-left cart-flex-item">
@@ -41,15 +40,19 @@
                         <a href="#">@sepetOgesi.UrunAdi </a>
                     </div>
 
-                    @*<div class="cart__meta-text">
-                            Renk: @sepetOgesi.Rengi<br>Marka: @sepetOgesi.Marka<br>
-                        </div>*@
                 </td>
                 <td class="cart__price-wrapper cart-flex-item">
                     <span class="money">@sepetOgesi.Fiyat</span>
                 </td>
-                @*<td class="cart__total-wrapper cart-flex-item">
-                        <span class="money" id="toplamFiyat_@sepetOgesi.UrunID">@sepetOgesi.Fiyat * sepetOgesi.Adet</span>
+
+                @*<td class="cart__update-wrapper cart-flex-item text-right">
+                        <div class="cart__qty text-center">
+                            <div class="qtyField">
+                                <a class="qtyBtn minus" href="javascript:void(0);"><i class="icon icon-minus"></i></a>
+                                <input class="cart__qty-input qty" type="text" name="updates[]" id="qty" value="1" pattern="[0-9]*">
+                                <a class="qtyBtn plus" href="javascript:void(0);"><i class="icon icon-plus"></i></a>
+                            </div>
+                        </div>
                     </td>*@
                 <td class="cart__update-wrapper cart-flex-item text-right">
                     <div class="cart__qty text-center">
@@ -60,31 +63,37 @@
                         </div>
                     </div>
                 </td>
+
+                @*<td class="text-right small--hide cart-price">
+                        <div><span class="money">$735.00</span></div>
+                    </td>*@
                 <td class="text-right small--hide cart-price">
-                    <div><span class="money">$735.00</span></div>
+                    <div><span class="money">@ViewBag.ToplamTutar.ToString("C2")</span></div>
                 </td>
+
                 <td class="text-center small--hide">
-                    @*<a href="@Url.Action("UrunSil", "Sepet", new { urunId = sepetOgesi.UrunID })" class="btn btn--secondary cart__remove" title="Ürünü Sil">
-                            <i class="icon icon anm anm-times-l"></i>
-                        </a>*@
+
 
                     <a href="@Url.Action("UrunSil", "Sepet", new { urunId = sepetOgesi.UrunID })" class="btn btn--secondary cart__remove" title="Ürünü Sil">
                         <i class="icon icon anm anm-times-l"></i>
                     </a>
 
-                    @*<a href="/Sepet/UrunSil/@sepetOgesi.UrunID" class="btn btn--secondary cart__remove" title="Ürünü Sil">
-                            <i class="icon icon anm anm-times-l"></i>
-                        </a>*@
+
                 </td>
 
 
-                @*<td class="text-center small--hide"><a href="#" class="btn btn--secondary cart__remove" title="Remove tem"><i class="icon icon anm anm-times-l"></i></a></td>*@
             </tr>
 }
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td colspan="3" class="text-left"><a href="/Urunler/Index" class="btn--link cart-continue"><i class="icon icon-arrow-circle-left"></i>Alışverişe devam et</a></td>
+
+                            <td colspan="3" class="text-left">
+                                <a href="javascript:history.back()" class="btn--link cart-continue">
+                                    <i class="icon icon-arrow-circle-left"></i>Alışverişe devam et
+                                </a>
+                            </td>
+
 
                             <td colspan="3" class="text-right">
                                 <a href="@Url.Action("Bosalt", "Sepet")" class="btn btn-danger">Sepeti Boşalt</a>
@@ -95,7 +104,6 @@
                     </tfoot>
                 </table>
 
-                <div class="currencymsg">We processes all orders in USD. While the content of your cart is currently displayed in USD, the checkout will use USD at the most current exchange rate.</div>
                 <hr>
 
 
@@ -104,23 +112,23 @@
         <div class="col-12 col-sm-12 col-md-4 col-lg-4 cart__footer">
             <div class="cart-note">
                 <div class="solid-border">
-                    <h5><label for="CartSpecialInstructions" class="cart-note__label small--text-center">Add a note to your order</label></h5>
+                    <h5><label for="CartSpecialInstructions" class="cart-note__label small--text-center">Siparişinize not ekleyin</label></h5>
                     <textarea name="note" id="CartSpecialInstructions" class="cart-note__input"></textarea>
                 </div>
             </div>
             <div class="solid-border">
                 <div class="row">
-                    <span class="col-12 col-sm-6 cart__subtotal-title"><strong>Subtotal</strong></span>
+                    <span class="col-12 col-sm-6 cart__subtotal-title"><strong>Toplam Tutar</strong></span>
                     <span class="col-12 col-sm-6 cart__subtotal-title cart__subtotal text-right"><span class="money">$735.00</span></span>
                 </div>
-                <div class="cart__shipping">Shipping &amp; taxes calculated at checkout</div>
+                <div class="cart__shipping">Ödeme sırasında hesaplanan nakliye ve vergiler</div>
                 <p class="cart_tearm">
                     <label>
                         <input type="checkbox" name="tearm" id="cartTearm" class="checkbox" value="tearm" required="">
-                        I agree with the terms and conditions
+                        Şartlar ve koşulları kabul ediyorum
                     </label>
                 </p>
-                <input type="submit" name="checkout" id="cartCheckout" class="btn btn--small-wide checkout" value="Checkout" disabled="disabled">
+                <input type="submit" name="checkout" id="cartCheckout" class="btn btn--small-wide checkout" value="Onayla" disabled="disabled">
                 <div class="paymnet-img"><img src="/belle-multipurpose-bootstrap-html-template/assets/images/payment-img.jpg" alt="Payment"></div>
             </div>
 
