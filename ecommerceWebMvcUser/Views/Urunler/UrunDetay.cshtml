@@ -73,35 +73,40 @@
                         </ul>
                     </div>
                     <div id="quantity_message">Acele et! Sadece  <span class="items">4</span> adet stokta kaldı.</div>
-                    <form method="post" action="http://annimexweb.com/cart/add" id="product_form_10508262282" accept-charset="UTF-8" class="product-form product-form-product-template hidedropdown" enctype="multipart/form-data">
+                    <form method="post" action="/Sepet/UrunSepeteEkle" @*id="product_form_10508262282" accept-charset="UTF-8" class="product-form product-form-product-template hidedropdown" enctype="multipart/form-data"*@>
                         <div class="swatch clearfix swatch-0 option1" data-option-index="0">
                             <div class="product-form__item">
                                 <label class="header">Renk: <span class="slVariant">@Model.Renk</span></label>
 
                             </div>
                         </div>
-
                         <!-- Product Action -->
                         <div class="product-action clearfix">
                             <div class="product-form__item--quantity">
                                 <div class="wrapQtyBtn">
                                     <div class="qtyField">
-                                        <a class="qtyBtn minus" href="javascript:void(0);"><i class="fa anm anm-minus-r" aria-hidden="true"></i></a>
-                                        <input type="text" id="Quantity" name="quantity" value="1" class="product-form__input qty">
-                                        <a class="qtyBtn plus" href="javascript:void(0);"><i class="fa anm anm-plus-r" aria-hidden="true"></i></a>
+                                        <a class="qtyBtn minus" href="javascript:void(0);" onclick="decrementQuantity();"><i class="fa anm anm-minus-r" aria-hidden="true"></i></a>
+                                        <input type="text" id="Quantity" name="quantity" value="1" class="product-form__input qty" />
+                                        <a class="qtyBtn plus" href="javascript:void(0);" onclick="incrementQuantity();"><i class="fa anm anm-plus-r" aria-hidden="true"></i></a>
                                     </div>
                                 </div>
                             </div>
+
                             <div class="product-form__item--submit">
-                                <button type="button" name="add" class="btn product-form__cart-submit">
-                                    <span>Sepete ekle</span>
-                                </button>
+                                <form action="/Sepet/UrunSepeteEkle" method="post">
+                                    <input type="hidden" name="urunId" value="@Model.UrunID" />
+                                    <input type="hidden" name="adet" id="Adet" value="1" />
+                                    <button type="submit" name="add" class="btn product-form__cart-submit">
+                                        <span>Sepete ekle</span>
+                                    </button>
+                                </form>
                             </div>
+
                             <div class="shopify-payment-button" data-shopify="payment-button">
                                 <button type="button" class="shopify-payment-button__button shopify-payment-button__button--unbranded">Hemen satın al</button>
                             </div>
                         </div>
-                        <!-- End Product Action -->
+                        
                     </form>
                     <div class="display-table shareRow">
                         <div class="display-table-cell medium-up--one-third">
@@ -177,7 +182,7 @@
                             Bizim ürünlerimiz, zarif tasarımları, yüksek kaliteli malzemeleri ve işlevselliğiyle öne çıkar. Her ürünümüz, sizin ihtiyaçlarınızı karşılamak ve tarzınıza uygun bir seçenek sunmak için özenle tasarlanmıştır. Şıklığı ve dayanıklılığı bir arada sunan ürünlerimiz, günlük yaşamınızı kolaylaştırmak için ideal birer tercihtir. Ürünlerimiz hakkında daha fazla bilgi edinmek ve kaliteyi deneyimlemek için sizi mağazamıza bekliyoruz
 
 
-                            
+
                             <ul>
                                 <li>Belle marka çantamız, zarif tasarımı ve işlevselliği ile dikkatinizi çekecek.</li>
                                 <li> Bu şık çanta, her gün kullanımınıza uygun boyutlarıyla ve rahat taşıma seçenekleriyle öne çıkıyor.</li>
@@ -186,7 +191,7 @@
                                 <li>Çantanın bakımı oldukça kolaydır, sadece nemli bir bezle silmek yeterlidir.</li>
                             </ul>
                             <h3>
-                               Erkek Giyim Ürünlerimiz
+                                Erkek Giyim Ürünlerimiz
 
                             </h3>
 
@@ -194,8 +199,8 @@
 
 
 
-                            
-                          
+
+
                             <p>
                                 Erkek giyim ürünlerinde şıklık ve konforu bir arada bulabilirsiniz. Üstelik özel indirimlerle dilediğiniz ürünü uygun fiyatlarla satın alabilirsiniz.
                             </p>
@@ -649,7 +654,7 @@
             <div class="related-product grid-products">
                 <header class="section-header">
                     <h2 class="section-header__title text-center h2"><span>SON GÖRÜNTÜLENEN ÜRÜNLER</span></h2>
-                   
+
                 </header>
                 <div class="productPageSlider">
                     <div class="col-12 item">
@@ -860,8 +865,9 @@
                 </div>
             </div>
             <!--End Recently Product Slider-->
-         
+
         </div>
         <!--#ProductSection-product-template-->
     </div>
-    </div>
+</div>
+

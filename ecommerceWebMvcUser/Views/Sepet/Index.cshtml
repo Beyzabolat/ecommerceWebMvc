@@ -3,7 +3,7 @@
 @model List<SepetOgesi>
 
 
-@{ ViewBag.Title = "Index";
+@{ ViewBag.Title = "Sepet";
     Layout = "~/Views/Shared/_Layout.cshtml"; }
 <div class="page section-header text-center">
     <div class="page-title">
@@ -11,9 +11,48 @@
     </div>
 </div>
 <!--End Page Title-->
+@section scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function updateTotalPrice(urunId) {
+            var quantityInput = $('#Quantity-' + urunId);
+            var currentQuantity = parseInt(quantityInput.val());
+
+            var unitPrice = parseFloat($('#Fiyat-' + urunId).text().replace('$', ''));
+
+            if (!isNaN(currentQuantity)) {
+                var totalAmount = currentQuantity * unitPrice;
+                $('#totalAmount-' + urunId).text('$' + totalAmount.toFixed(2));
+            }
+        }
+
+        function iincrementQuantity(urunId) {
+            var quantityInput = $('#Quantity-' + urunId);
+            var currentQuantity = parseInt(quantityInput.val());
+
+            if (!isNaN(currentQuantity)) {
+                quantityInput.val(currentQuantity + 1);
+                updateTotalPrice(urunId);
+            }
+        }
+
+        function ddecrementQuantity(urunId) {
+            var quantityInput = $('#Quantity-' + urunId);
+            var currentQuantity = parseInt(quantityInput.val());
+
+            if (!isNaN(currentQuantity) && currentQuantity > 1) {
+                quantityInput.val(currentQuantity - 1);
+                updateTotalPrice(urunId);
+            }
+        }
+
+    </script>
+}
 
 <div class="container">
+
     <div class="row">
+
         <div class="col-12 col-sm-12 col-md-8 col-lg-8 main-col">
             <form action="#" method="post" class="cart style2">
                 <table>
@@ -29,109 +68,171 @@
                     <tbody>
                         @foreach (var sepetOgesi in Model)
                         {
-
-
             <tr class="cart__row border-bottom line1 cart-flex border-top">
                 <td class="cart__image-wrapper cart-flex-item">
-                    <a href="#"><img class="cart__image" src="@sepetOgesi.UrunGorseli" @*alt="Elastic Waist Dress - Navy / Small"*@></a>
+                    <a href="#"><img class="cart__image" src="@sepetOgesi.UrunGorseli" /></a>
                 </td>
                 <td class="cart__meta small--text-left cart-flex-item">
                     <div class="list-view-item__title">
-                        <a href="#">@sepetOgesi.UrunAdi </a>
+                        <a href="#">@sepetOgesi.UrunAdi</a>
                     </div>
-
                 </td>
                 <td class="cart__price-wrapper cart-flex-item">
-                    <span class="money">@sepetOgesi.Fiyat</span>
+                    <span class="money" id="Fiyat-@sepetOgesi.UrunID">$@sepetOgesi.Fiyat</span>
                 </td>
-
-                @*<td class="cart__update-wrapper cart-flex-item text-right">
-                        <div class="cart__qty text-center">
-                            <div class="qtyField">
-                                <a class="qtyBtn minus" href="javascript:void(0);"><i class="icon icon-minus"></i></a>
-                                <input class="cart__qty-input qty" type="text" name="updates[]" id="qty" value="1" pattern="[0-9]*">
-                                <a class="qtyBtn plus" href="javascript:void(0);"><i class="icon icon-plus"></i></a>
-                            </div>
-                        </div>
-                    </td>*@
                 <td class="cart__update-wrapper cart-flex-item text-right">
                     <div class="cart__qty text-center">
-                        <div class="qtyField">
-                            <a class="qtyBtn minus" href="javascript:void(0);"><i class="icon icon-minus"></i></a>
-                            <input class="cart__qty-input qty" type="text" name="updates[]" id="qty" value="1" pattern="[0-9]*">
-                            <a class="qtyBtn plus" href="javascript:void(0);"><i class="icon icon-plus"></i></a>
+                        <div class="qty-input">
+                            <a class="qtyBtn minus" href="javascript:void(0);" onclick="ddecrementQuantity(@sepetOgesi.UrunID);"><i class="fa anm anm-minus-r" aria-hidden="true"></i></a>
+                            <input type="text" id="Quantity-@sepetOgesi.UrunID" name="quantity" value="@sepetOgesi.Adet" class="product-form__input qty" />
+                            <a class="qtyBtn plus" href="javascript:void(0);" onclick="iincrementQuantity(@sepetOgesi.UrunID);"><i class="fa anm anm-plus-r" aria-hidden="true"></i></a>
                         </div>
                     </div>
                 </td>
-
-                @*<td class="text-right small--hide cart-price">
-                        <div><span class="money">$735.00</span></div>
-                    </td>*@
+            
                 <td class="text-right small--hide cart-price">
-                    <div><span class="money">@ViewBag.ToplamTutar.ToString("C2")</span></div>
+                    <span class="money" id="totalAmount-@sepetOgesi.UrunID">$@(sepetOgesi.Fiyat).ToString("0.00")</span>
                 </td>
 
                 <td class="text-center small--hide">
-
-
                     <a href="@Url.Action("UrunSil", "Sepet", new { urunId = sepetOgesi.UrunID })" class="btn btn--secondary cart__remove" title="Ürünü Sil">
                         <i class="icon icon anm anm-times-l"></i>
                     </a>
-
-
                 </td>
-
-
             </tr>
 }
                     </tbody>
-                    <tfoot>
-                        <tr>
-
-                            <td colspan="3" class="text-left">
-                                <a href="javascript:history.back()" class="btn--link cart-continue">
-                                    <i class="icon icon-arrow-circle-left"></i>Alışverişe devam et
-                                </a>
-                            </td>
-
-
-                            <td colspan="3" class="text-right">
-                                <a href="@Url.Action("Bosalt", "Sepet")" class="btn btn-danger">Sepeti Boşalt</a>
-
-                            </td>
-
-                        </tr>
-                    </tfoot>
                 </table>
-
-                <hr>
-
-
             </form>
         </div>
-        <div class="col-12 col-sm-12 col-md-4 col-lg-4 cart__footer">
-            <div class="cart-note">
-                <div class="solid-border">
-                    <h5><label for="CartSpecialInstructions" class="cart-note__label small--text-center">Siparişinize not ekleyin</label></h5>
-                    <textarea name="note" id="CartSpecialInstructions" class="cart-note__input"></textarea>
-                </div>
-            </div>
-            <div class="solid-border">
-                <div class="row">
-                    <span class="col-12 col-sm-6 cart__subtotal-title"><strong>Toplam Tutar</strong></span>
-                    <span class="col-12 col-sm-6 cart__subtotal-title cart__subtotal text-right"><span class="money">$735.00</span></span>
-                </div>
-                <div class="cart__shipping">Ödeme sırasında hesaplanan nakliye ve vergiler</div>
-                <p class="cart_tearm">
-                    <label>
-                        <input type="checkbox" name="tearm" id="cartTearm" class="checkbox" value="tearm" required="">
-                        Şartlar ve koşulları kabul ediyorum
-                    </label>
-                </p>
-                <input type="submit" name="checkout" id="cartCheckout" class="btn btn--small-wide checkout" value="Onayla" disabled="disabled">
-                <div class="paymnet-img"><img src="/belle-multipurpose-bootstrap-html-template/assets/images/payment-img.jpg" alt="Payment"></div>
-            </div>
-
-        </div>
     </div>
+
 </div>
+<script>
+    // Sayfa yüklendiğinde çalışacak kod
+    $(document).ready(function () {
+        // Her bir ürün için gerekli işlemleri yapın
+        $(".product-form__input.qty").each(function () {
+            var urunId = $(this).data("product-id"); // Ürün ID'sini alın
+            var quantityInput = $(this);
+            var currentQuantity = parseInt(quantityInput.val());
+
+            // Eğer mevcut adet bilgisi geçerli değilse veya 1'den küçükse, 1 olarak ayarlayın
+            if (isNaN(currentQuantity) || currentQuantity < 1) {
+                currentQuantity = 1;
+                quantityInput.val(currentQuantity);
+            }
+
+            // Toplam fiyatı güncelleyin
+            updateTotalPrice(urunId);
+        });
+    });
+
+    // Arttırma işlemi için
+    $(".qtyBtn.plus").on("click", function (e) {
+        e.preventDefault(); // Sayfa yenilenmesini engelle
+
+        var productId = $(this).data("product-id");
+
+        // AJAX isteği gönder
+        $.ajax({
+            url: "/Sepet/Arttir",
+            type: "POST",
+            data: { productId: productId },
+            success: function (result) {
+                // Başarıyla tamamlandığında, sepet sayfasını yenile
+                window.location.reload();
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    });
+
+    // Azaltma işlemi için
+    $(".qtyBtn.minus").on("click", function (e) {
+        e.preventDefault(); // Sayfa yenilenmesini engelle
+
+        var productId = $(this).data("product-id");
+
+        // AJAX isteği gönder
+        $.ajax({
+            url: "/Sepet/Azalt",
+            type: "POST",
+            data: { productId: productId },
+            success: function (result) {
+                // Başarıyla tamamlandığında, sepet sayfasını yenile
+                window.location.reload();
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    });
+</script>
+
+
+@*<script>
+        // Sayfa yüklendiğinde çalışacak kod
+        $(document).ready(function () {
+            // Her bir ürün için gerekli işlemleri yapın
+            $(".product-form__input.qty").each(function () {
+                var urunId = $(this).data("product-id"); // Ürün ID'sini alın
+                var quantityInput = $(this);
+                var currentQuantity = parseInt(quantityInput.val());
+
+                // Eğer mevcut adet bilgisi geçerli değilse veya 1'den küçükse, 1 olarak ayarlayın
+                if (isNaN(currentQuantity) || currentQuantity < 1) {
+                    currentQuantity = 1;
+                    quantityInput.val(currentQuantity);
+                }
+
+                // Toplam fiyatı güncelleyin
+                updateTotalPrice(urunId);
+            });
+        });
+
+        // Arttırma işlemi için
+        $(".qtyBtn.plus").on("click", function (e) {
+            e.preventDefault(); // Sayfa yenilenmesini engelle
+
+            var productId = $(this).data("product-id");
+
+            // AJAX isteği gönder
+            $.ajax({
+                url: "/Sepet/Arttir",
+                type: "POST",
+                data: { productId: productId },
+                success: function (result) {
+                    // Başarıyla tamamlandığında, sepet sayfasını yenile
+                    window.location.reload();
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+        });
+
+        // Azaltma işlemi için
+        $(".qtyBtn.minus").on("click", function (e) {
+            e.preventDefault(); // Sayfa yenilenmesini engelle
+
+            var productId = $(this).data("product-id");
+
+            // AJAX isteği gönder
+            $.ajax({
+                url: "/Sepet/Azalt",
+                type: "POST",
+                data: { productId: productId },
+                success: function (result) {
+                    // Başarıyla tamamlandığında, sepet sayfasını yenile
+                    window.location.reload();
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+        });
+    </script>*@
+
+

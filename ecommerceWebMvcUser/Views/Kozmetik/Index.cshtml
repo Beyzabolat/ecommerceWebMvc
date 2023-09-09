@@ -1,4 +1,7 @@
-﻿
+﻿@model ecommerceWebMvcUser.Models.Classes.Urunler
+
+@using ecommerceWebMvcUser.Models.Classes;
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -130,7 +133,7 @@
                                         </a>
                                         <!-- end product image -->
                                         <!-- Start product button -->
-                                       
+
                                         <form class="variants add" action="/Sepet/UrunSepeteEkle" method="post">
                                             <input type="hidden" name="urunId" value="@b.UrunID" /> <!-- Ürünün ID'sini buradan alıyoruz -->
                                             <input type="hidden" name="adet" value="1" /> <!-- Varsayılan adet değeri -->

@@ -9,79 +9,6 @@ namespace ecommerceWebMvcUser.Controllers
 
     public class SepetController : Controller
     {
-
-        // Sepet görüntülemek için eylem
-        //public ActionResult Index()
-        //{
-        //    // Sepeti al
-        //    Sepet sepet = Session["Sepet"] as Sepet;
-
-        //    // Eğer sepet boşsa, yeni bir sepet oluştur
-        //    if (sepet == null)
-        //    {
-        //        sepet = new Sepet();
-        //        Session["Sepet"] = sepet;
-        //    }
-
-        //    // Sepet öğelerini görüntüleme sayfasına gönder
-        //    return View(sepet.SepetOgeleriniGetir());
-        //}
-        //public ActionResult Index()
-        //{
-        //    // Sepeti al
-        //    Sepet sepet = Session["Sepet"] as Sepet;
-
-        //    // Eğer sepet boşsa, yeni bir sepet oluştur
-        //    if (sepet == null)
-        //    {
-        //        sepet = new Sepet();
-        //        Session["Sepet"] = sepet;
-        //    }
-
-        //    // Sepet öğelerini görüntüleme sayfasına gönder
-        //    var sepetOgeleri = sepet.SepetOgeleriniGetir();
-
-        //    // Toplam tutarı hesapla
-        //    decimal toplamTutar = 0;
-        //    foreach (var sepetOgesi in sepetOgeleri)
-        //    {
-        //        toplamTutar += sepetOgesi.Fiyat * sepetOgesi.Adet;
-        //    }
-
-        //    // Toplam tutarı ViewBag aracılığıyla view'e aktar
-        //    ViewBag.ToplamTutar = toplamTutar;
-
-        //    return View(sepetOgeleri);
-        //}
-
-        //public ActionResult Index()
-        //{
-        //    // Sepeti al
-        //    Sepet sepet = Session["Sepet"] as Sepet;
-
-        //    // Eğer sepet boşsa, yeni bir sepet oluştur
-        //    if (sepet == null)
-        //    {
-        //        sepet = new Sepet();
-        //        Session["Sepet"] = sepet;
-        //    }
-
-        //    // Sepet öğelerini görüntüleme sayfasına gönder
-        //    var sepetOgeleri = sepet.SepetOgeleriniGetir();
-
-        //    // Toplam tutarı hesapla
-        //    decimal toplamTutar = sepet.ToplamTutarHesapla();
-
-        //    // Sepet öğelerini ve toplam tutarı model olarak gönder
-        //    var model = new SepetViewModel
-        //    {
-        //        SepetOgeleri = sepetOgeleri,
-        //        ToplamTutar = toplamTutar
-        //    };
-
-        //    return View(model);
-        //}
-
         public ActionResult Index()
         {
             // Sepeti al
@@ -93,23 +20,12 @@ namespace ecommerceWebMvcUser.Controllers
                 sepet = new Sepet();
                 Session["Sepet"] = sepet;
             }
-
-            // Sepet öğelerini görüntüleme sayfasına gönder
-            var sepetOgeleri = sepet.SepetOgeleriniGetir();
-
-            // Sepetin toplam tutarını hesaplayın
-            decimal toplamTutar = sepet.ToplamTutarHesapla();
-
-            // ViewModel oluşturun (isteğe bağlı, ihtiyaca bağlı)
-            var viewModel = new SepetViewModel
-            {
-                SepetOgeleri = sepetOgeleri,
-                ToplamTutar = toplamTutar
-            };
-
-            return View(viewModel);
+            int toplamAdet = sepet.ToplamAdet();
+            decimal toplamTutar = sepet.ToplamTutar();
+            ViewBag.ToplamAdet = toplamAdet;
+            ViewBag.ToplamTutar = toplamTutar;
+            return View(sepet.SepetOgeleriniGetir());
         }
-
         [HttpPost]
         public ActionResult UrunSepeteEkle(int urunId, int adet)
         {
@@ -126,13 +42,57 @@ namespace ecommerceWebMvcUser.Controllers
             // Ürünü veritabanından alın (örneğin Entity Framework kullanarak)
             Urunler urun = GetUrunById(urunId);
 
+            // Adet sayısını JavaScript kodundan alın
+            int urunAdeti = adet;
+
             // Ürünü sepete ekle
-            sepet.UrunEkle(urun, adet);
+            sepet.UrunEkle(urun, urunAdeti);
 
             // Sepetin güncellenmiş halini göstermek için sepet sayfasına yönlendir
             return RedirectToAction("Index");
         }
 
+        //[HttpPost]
+        //public ActionResult UrunSepeteEkle(int urunId)
+        //{
+        //    // Sepeti al
+        //    Sepet sepet = Session["Sepet"] as Sepet;
+
+        //    // Eğer sepet boşsa, yeni bir sepet oluştur
+        //    if (sepet == null)
+        //    {
+        //        sepet = new Sepet();
+        //        Session["Sepet"] = sepet;
+        //    }
+
+        //    // Ürünü veritabanından alın (örneğin Entity Framework kullanarak)
+        //    Urunler urun = GetUrunById(urunId);
+        //    int adet = Convert.ToInt32(Request.Form["quantity"]);
+        //    // Ürünü sepete ekle
+        //    sepet.UrunEkle(urun, adet);
+
+        //    // Sepetin güncellenmiş halini göstermek için sepet sayfasına yönlendir
+        //    return RedirectToAction("Index");
+        //}
+        public ActionResult SepetiGoruntule()
+        {
+            List<SepetOgesi> sepet = Session["Sepet"] as List<SepetOgesi>;
+
+            // Toplam tutarı hesaplayın
+            decimal toplamTutar = 0;
+            if (sepet != null)
+            {
+                foreach (var sepetItem in sepet)
+                {
+                    toplamTutar += sepetItem.ToplamFiyat;
+                }
+            }
+
+            // Hesaplanan toplam tutarı ViewBag veya Model üzerinden View'e iletebilirsiniz
+            ViewBag.ToplamTutar = toplamTutar;
+
+            return View();
+        }
 
 
         public ActionResult Bosalt()
@@ -181,11 +141,11 @@ namespace ecommerceWebMvcUser.Controllers
                 return RedirectToAction("Index");
             }
 
-           
+
         }
 
 
-       
+
 
         private Urunler GetUrunById(int urunId)
         {
@@ -199,7 +159,7 @@ namespace ecommerceWebMvcUser.Controllers
 
 
 
-       
+
 
     }
 
