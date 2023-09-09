@@ -18,11 +18,11 @@
             var quantityInput = $('#Quantity-' + urunId);
             var currentQuantity = parseInt(quantityInput.val());
 
-            var unitPrice = parseFloat($('#Fiyat-' + urunId).text().replace('$', ''));
+            var unitPrice = parseFloat($('#Fiyat-' + urunId).text().replace(' ₺', ''));
 
             if (!isNaN(currentQuantity)) {
                 var totalAmount = currentQuantity * unitPrice;
-                $('#totalAmount-' + urunId).text('$' + totalAmount.toFixed(2));
+                $('#totalAmount-' + urunId).text(totalAmount.toFixed(2) + ' ₺'  );
             }
         }
 
@@ -78,20 +78,20 @@
                     </div>
                 </td>
                 <td class="cart__price-wrapper cart-flex-item">
-                    <span class="money" id="Fiyat-@sepetOgesi.UrunID">$@sepetOgesi.Fiyat</span>
+                    <span class="money" id="Fiyat-@sepetOgesi.UrunID">@sepetOgesi.Fiyat  ₺</span>
                 </td>
                 <td class="cart__update-wrapper cart-flex-item text-right">
                     <div class="cart__qty text-center">
                         <div class="qty-input">
                             <a class="qtyBtn minus" href="javascript:void(0);" onclick="ddecrementQuantity(@sepetOgesi.UrunID);"><i class="fa anm anm-minus-r" aria-hidden="true"></i></a>
-                            <input type="text" id="Quantity-@sepetOgesi.UrunID" name="quantity" value="@sepetOgesi.Adet" class="product-form__input qty" />
+                            <input type="text" id="Quantity-@sepetOgesi.UrunID" name="quantity" value="@sepetOgesi.Adet" class="product-form__input qty" style="border: 0px; width: 35px;">
                             <a class="qtyBtn plus" href="javascript:void(0);" onclick="iincrementQuantity(@sepetOgesi.UrunID);"><i class="fa anm anm-plus-r" aria-hidden="true"></i></a>
                         </div>
                     </div>
                 </td>
-            
+
                 <td class="text-right small--hide cart-price">
-                    <span class="money" id="totalAmount-@sepetOgesi.UrunID">$@(sepetOgesi.Fiyat).ToString("0.00")</span>
+                    <span class="money" id="totalAmount-@sepetOgesi.UrunID">@(sepetOgesi.Fiyat)  ₺</span>
                 </td>
 
                 <td class="text-center small--hide">
@@ -102,6 +102,23 @@
             </tr>
 }
                     </tbody>
+                    <tfoot>
+                        <tr>
+
+                            <td colspan="3" class="text-left">
+                                <a href="javascript:history.back()" class="btn--link cart-continue">
+                                    <i class="icon icon-arrow-circle-left"></i>Alışverişe devam et
+                                </a>
+                            </td>
+
+
+                            <td colspan="3" class="text-right">
+                                <a href="@Url.Action("Bosalt", "Sepet")" class="btn btn-danger">Sepeti Boşalt</a>
+
+                            </td>
+
+                        </tr>
+                    </tfoot>
                 </table>
             </form>
         </div>
