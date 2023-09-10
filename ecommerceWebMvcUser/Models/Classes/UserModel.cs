@@ -5,7 +5,14 @@ using System.Linq;
 using System.Web;
 
 namespace ecommerceWebMvcUser.Models.Classes
-{
+{ 
+    public class LoginModel
+    {
+        [Required]
+        public string KullaniciAdi { get; set; }
+        [Required]
+        public string Sifre { get; set; }
+    }
     public class Register
     {
         [Required]
