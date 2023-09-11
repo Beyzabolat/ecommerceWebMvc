@@ -8,5 +8,6 @@ namespace ecommerceWebMvcUser.Models.Classes
 {
     public class ApplicationRole : IdentityRole
     {
+
     }
 }

@@ -18,6 +18,21 @@ namespace ecommerceWebMvcUser.Controllers
         {
             var userStore = new UserStore<ApplicationUser>(new IdentityDataContext());
             userManager = new UserManager<ApplicationUser>(userStore);
+
+            userManager.PasswordValidator = new PasswordValidator()
+            {
+                RequireDigit=true,
+                RequiredLength=7,
+                RequireLowercase=true,
+                RequireUppercase=true,
+                RequireNonLetterOrDigit=true
+            };
+
+            userManager.UserValidator = new UserValidator<ApplicationUser>(userManager)
+            {
+                RequireUniqueEmail=true,
+                AllowOnlyAlphanumericUserNames=false
+            };
         }
         public ActionResult Index()
         {
@@ -31,6 +46,10 @@ namespace ecommerceWebMvcUser.Controllers
         [HttpGet]
         public ActionResult Login(string returnUrl)
         {
+            if(HttpContext.User.Identity.IsAuthenticated)
+            {
+                return View("Error", new string[] { "Erişim Hakkınız yok" });
+            }
             ViewBag.returnUrl = returnUrl;
             return View();
         }
