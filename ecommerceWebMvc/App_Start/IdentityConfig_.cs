@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.AspNet.Identity;
 
-[assembly: OwinStartup(typeof(ecommerceWebMvcUser.IdentityConfig_))]
+[assembly: OwinStartup(typeof(ecommerceWebMvc.IdentityConfig_))]
 
-namespace ecommerceWebMvcUser
+namespace ecommerceWebMvc
 {
     public class IdentityConfig_
     {
@@ -22,6 +22,6 @@ namespace ecommerceWebMvcUser
             });
 
             // İlerideki diğer yapılandırmaları buraya ekleyebilirsiniz.
-        }
+        }
     }
 }

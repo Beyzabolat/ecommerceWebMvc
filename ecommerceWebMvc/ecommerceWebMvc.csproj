@@ -629,7 +629,10 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig_.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ApplicationDbContext.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KategoriController.cs" />
@@ -639,6 +642,8 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Classes\Admin.cs" />
+    <Compile Include="Models\Classes\ApplicationRole.cs" />
+    <Compile Include="Models\Classes\ApplicationUser.cs" />
     <Compile Include="Models\Classes\Cari.cs" />
     <Compile Include="Models\Classes\Context.cs" />
     <Compile Include="Models\Classes\Departman.cs" />
@@ -646,6 +651,7 @@
     <Compile Include="Models\Classes\FaturaKalem.cs" />
     <Compile Include="Models\Classes\Faturalar.cs" />
     <Compile Include="Models\Classes\Gider.cs" />
+    <Compile Include="Models\Classes\IdentityDataContext.cs" />
     <Compile Include="Models\Classes\KargoDetay.cs" />
     <Compile Include="Models\Classes\KargoTakip.cs" />
     <Compile Include="Models\Classes\Kategori.cs" />
@@ -653,6 +659,7 @@
     <Compile Include="Models\Classes\Personel.cs" />
     <Compile Include="Models\Classes\SatisHareketi.cs" />
     <Compile Include="Models\Classes\Urunler.cs" />
+    <Compile Include="Models\Classes\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1390,11 +1397,6 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\Kategori\Index.cshtml" />
     <Content Include="Views\Kategori\KategoriEkleme.cshtml" />
@@ -1404,6 +1406,12 @@
     <Content Include="Views\Urun\UrunEkleme.cshtml" />
     <Content Include="Views\Urun\UrunGetirme.cshtml" />
     <Content Include="Views\Urun\UrunGuncelle.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

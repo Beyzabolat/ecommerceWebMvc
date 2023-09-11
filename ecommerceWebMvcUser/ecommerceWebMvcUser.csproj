@@ -245,14 +245,12 @@
     <Compile Include="Controllers\KadinTakiController.cs" />
     <Compile Include="Controllers\KozmetikController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
-    <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\RoleAdminController.cs" />
     <Compile Include="Controllers\SatisController.cs" />
     <Compile Include="Controllers\SepetController.cs" />
     <Compile Include="Controllers\TakiController.cs" />
     <Compile Include="Controllers\UrunDetayController.cs" />
     <Compile Include="Controllers\UrunlerController.cs" />
-    <Compile Include="dtos\registerdto\CreateNewUserDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -910,7 +908,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="dtos\logindto\" />
     <Folder Include="Views\Login\" />
     <Folder Include="Views\Satis\" />
   </ItemGroup>

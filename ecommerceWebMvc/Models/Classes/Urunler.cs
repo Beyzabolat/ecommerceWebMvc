@@ -35,7 +35,7 @@ namespace ecommerceWebMvc.Models.Classes
         [Display(Name = "Beden")]
         public string Beden { get; set; }
         [Display(Name = "Numara")]
-        public int Numara { get; set; }
+        public string Numara { get; set; }
         [Display(Name = "Cinsiyet")]
         public string Cinsiyet { get; set; }
         [Display(Name = "Kategori")]
