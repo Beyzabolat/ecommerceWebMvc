@@ -5,5 +5,36 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
+@using (Html.BeginForm())
+{
+    <input type="hidden" name="roleName" value="@Model.Role.Name" />
+    <input type="hidden" name="roleId" value="@Model.Role.Id" />
 
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            Ekle @Model.Role.Name
+        </div>
+        <table class="table table-striped">
+            @if (Model.NonMembers.Count() == 0)
+            {
+                <tr>
+                    <td colspan="2">
+                        Bu role eklenebilecek kullanıcı yok.
+                    </td>
+                </tr>
+            }
+                else
+                {
+                    <tr>
+                        <td>
+                            User Id
+                        </td>
+                    </tr>
+                }
+        </table>
+
+    </div>
+
+
+}
 
