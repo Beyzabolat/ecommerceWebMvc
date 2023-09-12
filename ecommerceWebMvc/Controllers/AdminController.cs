@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace ecommerceWebMvc.Controllers
 {
+    [Authorize]
     public class AdminController : Controller
     {
         private UserManager<ApplicationUser> userManager;

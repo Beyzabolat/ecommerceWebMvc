@@ -44,7 +44,7 @@
             src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2973766580778258"
             crossorigin="anonymous"></script>
     <script>
-    window.dataLayer = window.dataLayer || [];
+        window.dataLayer = window.dataLayer || [];
         function gtag() {
             dataLayer.push(arguments);
         }
@@ -53,7 +53,7 @@
         gtag("config", "G-GBZ3SGGX85");</script>
     <!-- Google Tag Manager -->
     <script>
-    (function (w, d, s, l, i) {
+        (function (w, d, s, l, i) {
             w[l] = w[l] || [];
             w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
             var f = d.getElementsByTagName(s)[0],
@@ -75,7 +75,7 @@
             </div>
             <div class="login-menu">
                 <ul>
-                    <li><a href="register.html">Kayıt Ol</a></li>
+                    <li><a href="/Account/Register">Kayıt Ol</a></li>
                 </ul>
             </div>
         </div>
@@ -91,87 +91,92 @@
                         <div class="login-title">
                             <h2 class="text-center text-primary">Giriş Yap</h2>
                         </div>
-                        <form>
-                            <div class="select-role">
-                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                    <label class="btn active">
-                                        <input type="radio" name="options" id="admin" />
-                                        <div class="icon">
-                                            <img src="/deskapp-master/vendors/images/briefcase.svg"
-                                                 class="svg"
-                                                 alt="" />
+
+                        @Html.ValidationSummary()
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="returnUrl" value="@ViewBag.returnUrl" />
+                            <form>
+                                <div class="select-role">
+                                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                        <label class="btn active">
+                                            <input type="radio" name="options" id="admin" />
+                                            <div class="icon">
+                                                <img src="/deskapp-master/vendors/images/briefcase.svg"
+                                                     class="svg"
+                                                     alt="" />
+                                            </div>
+                                            <span>Yöneticiyim</span>
+
+                                        </label>
+                                        <label class="btn">
+                                            <input type="radio" name="options" id="user" />
+                                            <div class="icon">
+                                                <img src="/deskapp-master/vendors/images/person.svg"
+                                                     class="svg"
+                                                     alt="" />
+                                            </div>
+                                            <span>Personelim</span>
+
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="input-group custom">
+                                    @Html.TextBoxFor(i => i.KullaniciAdi, new { @class = "form-control", placeholder = "Kullanıcı Adı" })
+                                    <div class="input-group-append custom">
+                                        <span class="input-group-text">
+                                            <i class="icon-copy dw dw-user1"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="input-group custom">
+                                    @Html.PasswordFor(i => i.Sifre, new { @class = "form-control", placeholder = "**********" })
+
+                                    <div class="input-group-append custom">
+                                        <span class="input-group-text">
+                                            <i class="dw dw-padlock1"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="row pb-30">
+                                    <div class="col-6">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox"
+                                                   class="custom-control-input"
+                                                   id="customCheck1" />
+                                            <label class="custom-control-label" for="customCheck1">Beni hatırla</label>
                                         </div>
-                                        <span>Yöneticiyim</span>
-                                        
-                                    </label>
-                                    <label class="btn">
-                                        <input type="radio" name="options" id="user" />
-                                        <div class="icon">
-                                            <img src="/deskapp-master/vendors/images/person.svg"
-                                                 class="svg"
-                                                 alt="" />
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="forgot-password">
+                                            <a href="forgot-password.html">Şifremi Unuttum</a>
                                         </div>
-                                        <span>Personelim</span>
-                                        
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="input-group custom">
-                                <input type="text"
-                                       class="form-control form-control-lg"
-                                       placeholder="Username" />
-                                <div class="input-group-append custom">
-                                    <span class="input-group-text">
-                                        <i class="icon-copy dw dw-user1"></i>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="input-group custom">
-                                <input type="password"
-                                       class="form-control form-control-lg"
-                                       placeholder="**********" />
-                                <div class="input-group-append custom">
-                                    <span class="input-group-text">
-                                        <i class="dw dw-padlock1"></i>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="row pb-30">
-                                <div class="col-6">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox"
-                                               class="custom-control-input"
-                                               id="customCheck1" />
-                                        <label class="custom-control-label" for="customCheck1">Remember</label>
                                     </div>
                                 </div>
-                                <div class="col-6">
-                                    <div class="forgot-password">
-                                        <a href="forgot-password.html">Forgot Password</a>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="input-group mb-0">
+
+
+                                            <input class="btn btn-primary btn-lg btn-block" type="submit" value="Giriş Yap">
+
+                                            @*<a class="btn btn-primary btn-lg btn-block"
+                                                href="index.html">Giriş Yap</a>*@
+                                            @*<button type="submit" class="btn btn-primary">Giriş Yap</button>*@
+                                        </div>
+                                        <div class="font-16 weight-600 pt-10 pb-10 text-center"
+                                             data-color="#707373">
+                                            YA DA
+                                        </div>
+                                        <div class="input-group mb-0">
+                                            <a class="btn btn-outline-primary btn-lg btn-block"
+                                               href="/Account/Register">Hesap Oluşturmak için Kaydol</a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="input-group mb-0">
-                                        <!--
-                                            use code for form submit
-                                            <input class="btn btn-primary btn-lg btn-block" type="submit" value="Sign In">
-                                        -->
-                                        <a class="btn btn-primary btn-lg btn-block"
-                                           href="index.html">Sign In</a>
-                                    </div>
-                                    <div class="font-16 weight-600 pt-10 pb-10 text-center"
-                                         data-color="#707373">
-                                        OR
-                                    </div>
-                                    <div class="input-group mb-0">
-                                        <a class="btn btn-outline-primary btn-lg btn-block"
-                                           href="register.html">Register To Create Account</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
+                            </form>
+                        }
                     </div>
                 </div>
             </div>
@@ -193,3 +198,4 @@
     <!-- End Google Tag Manager (noscript) -->
 </body>
 </html>
+

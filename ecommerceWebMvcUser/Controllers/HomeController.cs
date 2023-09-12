@@ -7,6 +7,7 @@ using ecommerceWebMvcUser.Models.Classes;
 
 namespace ecommerceWebMvcUser.Controllers
 {
+   
     public class HomeController : Controller
     {
         // GET: Home
@@ -20,6 +21,7 @@ namespace ecommerceWebMvcUser.Controllers
 
             return RedirectToAction("Sepet"); // Sepet sayfasına yönlendirme
         }
+        //[Authorize]
         public ActionResult Index()
         {
             var urunler = q.Urunlers.Where(x => x.Durum == true).ToList();

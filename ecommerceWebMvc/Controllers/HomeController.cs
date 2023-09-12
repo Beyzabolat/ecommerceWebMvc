@@ -6,10 +6,10 @@ using System.Web.Mvc;
 
 namespace ecommerceWebMvc.Controllers
 {
-
+    [Authorize]
     public class HomeController : Controller
     {
-        [Authorize]
+       
         public ActionResult Index()
         {
             return View();

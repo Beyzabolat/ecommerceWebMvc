@@ -16,7 +16,7 @@ namespace ecommerceWebMvcUser
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
                 AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
-                LoginPath = new PathString("/Account/Login"), // Doğru Login sayfası yolunu burada belirtin
+                LoginPath = new PathString("/Account/Login") // Doğru Login sayfası yolunu burada belirtin
 
                 // Diğer ayarlarınızı ekleyebilirsiniz.
             });

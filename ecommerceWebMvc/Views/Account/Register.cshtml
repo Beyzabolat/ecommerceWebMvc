@@ -130,7 +130,7 @@
                                             <div class="form-group row">
                                                 <label class="col-sm-4 col-form-label">Şifre*</label>
                                                 <div class="col-sm-8">
-                                                    @Html.TextBoxFor(i => i.Sifre, new { @class = "form-control" })
+                                                    @Html.PasswordFor(i => i.Sifre, new { @class = "form-control" })
                                                     @*<input type="password" class="form-control" name="Password" />*@
                                                 </div>
                                             </div>
@@ -157,51 +157,17 @@
 
                                                 </label>
                                             </div>
+
                                         }
+                                        <div class="row">
+                                            <div class="text-center col-12 col-sm-12 col-md-12 col-lg-12">
+                                                <button type="submit" class="btn btn-primary">Kaydol</button>
+
+                                            </div>
+                                        </div>
                                     </div>
                                 </section>
 
-                                @*<h5>Genel Bakış</h5>
-                                <section>
-                                    <div class="form-wrap max-width-600 mx-auto">
-                                        @using (Html.BeginForm())
-                                        {
-                                            <ul class="register-info">
-                                                <li>
-                                                    <div class="row">
-                                                        <div class="col-sm-4 weight-600">Email Addres</div>
-                                                        <div class="col-sm-8">example@abc.com</div>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="row">
-                                                        <div class="col-sm-4 weight-600">Kullanıcı Adı</div>
-                                                        <div class="col-sm-8">Example</div>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="row">
-                                                        <div class="col-sm-4 weight-600">Şifre</div>
-                                                        <div class="col-sm-8">.....000</div>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="row">
-                                                        <div class="col-sm-4 weight-600">İsim</div>
-                                                        <div class="col-sm-8">john smith</div>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="row">
-                                                        <div class="col-sm-4 weight-600">Soyisim</div>
-                                                        <div class="col-sm-8">123 Example</div>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                           
-                                        }
-                                        </div>
-                                </section>*@
                             </form>
                         </div>
                     </div>
@@ -210,8 +176,8 @@
         </div>
     </div>
 
-    <!-- success Popup html Start -->
-    <button type="button"
+     
+    @*<button type="button"
             id="success-modal-btn"
             hidden
             data-toggle="modal"
@@ -240,7 +206,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>*@
     <!-- success Popup html End -->
     <!-- welcome modal end -->
     <!-- js -->

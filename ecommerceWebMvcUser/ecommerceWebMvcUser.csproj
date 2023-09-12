@@ -229,7 +229,6 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\IdentityConfig_.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -244,7 +243,6 @@
     <Compile Include="Controllers\KadinKozmetikController.cs" />
     <Compile Include="Controllers\KadinTakiController.cs" />
     <Compile Include="Controllers\KozmetikController.cs" />
-    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\RoleAdminController.cs" />
     <Compile Include="Controllers\SatisController.cs" />
     <Compile Include="Controllers\SepetController.cs" />
@@ -265,7 +263,6 @@
     <Compile Include="Models\Classes\IdentityDataContext.cs" />
     <Compile Include="Models\Classes\IdentityModels.cs" />
     <Compile Include="Models\Classes\Kategori.cs" />
-    <Compile Include="Models\Classes\Login.cs" />
     <Compile Include="Models\Classes\SatisHareketi.cs" />
     <Compile Include="Models\Classes\Sepet.cs" />
     <Compile Include="Models\Classes\UrunDetay.cs" />
@@ -908,7 +905,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Login\" />
     <Folder Include="Views\Satis\" />
   </ItemGroup>
   <ItemGroup>

@@ -49,25 +49,27 @@
     <script async
             src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2973766580778258"
             crossorigin="anonymous"></script>
-    <script>window.dataLayer = window.dataLayer || [];
-			function gtag() {
-				dataLayer.push(arguments);
-			}
-			gtag("js", new Date());
+    <script>
+    window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag("js", new Date());
 
-			gtag("config", "G-GBZ3SGGX85");</script>
+        gtag("config", "G-GBZ3SGGX85");</script>
     <!-- Google Tag Manager -->
 
-    <script>(function (w, d, s, l, i) {
-				w[l] = w[l] || [];
-				w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-				var f = d.getElementsByTagName(s)[0],
-					j = d.createElement(s),
-					dl = l != "dataLayer" ? "&l=" + l : "";
-				j.async = true;
-				j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-				f.parentNode.insertBefore(j, f);
-			})(window, document, "script", "dataLayer", "GTM-NXZMQSS");</script>
+    <script>
+    (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != "dataLayer" ? "&l=" + l : "";
+            j.async = true;
+            j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, "script", "dataLayer", "GTM-NXZMQSS");</script>
     <!-- End Google Tag Manager -->
 </head>
 <body>
@@ -219,13 +221,20 @@
                         <span class="user-icon">
                             <img src="/deskapp-master/vendors/images/photo1.jpg" alt="" />
                         </span>
-                        <span class="user-name">Ross C. Lopez</span>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+
+                            <span class="user-name">@User.Identity.Name</span>
+
+                        }
+
+
                     </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
                         <a class="dropdown-item" href="profile.html"><i class="dw dw-user1"></i> Profilim</a>
                         <a class="dropdown-item" href="profile.html"><i class="dw dw-settings2"></i> Ayarlar</a>
                         <a class="dropdown-item" href="faq.html"><i class="dw dw-help"></i> Yardım</a>
-                        <a class="dropdown-item" href="login.html"><i class="dw dw-logout"></i> Çıkış Yap</a>
+                        <a class="dropdown-item" href="/Account/LogOut"><i class="dw dw-logout"></i> Çıkış Yap</a>
                     </div>
                 </div>
             </div>
@@ -236,7 +245,7 @@
     <div class="right-sidebar">
         <div class="sidebar-title">
             <h3 class="weight-600 font-16 text-blue">
-                Düzen Ayarları 
+                Düzen Ayarları
                 <span class="btn-block font-weight-400 font-12">Kullanıcı Arayüzü Ayarları</span>
             </h3>
             <div class="close-sidebar" data-toggle="right-sidebar-close">
@@ -408,7 +417,7 @@
                             <li><a href="image-dropzone.html">Image Dropzone</a></li>
                         </ul>
                     </li>
-                   
+
                     <li>
                         <a href="/Kategori/Index/" class="dropdown-toggle no-arrow">
                             <span class="micon bi bi-list-task"></span><span class="mtext">Kategori</span>
@@ -611,7 +620,7 @@
     <script src="/deskapp-master/src/plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
     <script src="/deskapp-master/src/plugins/datatables/js/dataTables.responsive.min.js"></script>
     <script src="/deskapp-master/src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
-    
+
     <script src="/deskapp-master/vendors/scripts/dashboard.js"></script>
     <!-- add sweet alert js & css in footer -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

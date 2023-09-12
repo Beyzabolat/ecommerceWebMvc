@@ -10,9 +10,11 @@ using System.Web;
 using System.Web.Mvc;
 namespace ecommerceWebMvcUser.Controllers
 {
+  
     public class AccountController : Controller
     {
         // GET: Account
+
         private UserManager<ApplicationUser> userManager;
         public AccountController()
         {
@@ -34,11 +36,12 @@ namespace ecommerceWebMvcUser.Controllers
                 AllowOnlyAlphanumericUserNames=false
             };
         }
+       
         public ActionResult Index()
         {
             return View();
         }
-
+        [AllowAnonymous]
         public ActionResult Register()
         {
             return View();
@@ -80,7 +83,7 @@ namespace ecommerceWebMvcUser.Controllers
                     authManager.SignOut();
                     authManager.SignIn(authProperties, identity);
 
-                    return Redirect(returnUrl ?? "/");
+                    return Redirect(string.IsNullOrEmpty(returnUrl)  ? "/": returnUrl);
 
 
 
@@ -107,6 +110,7 @@ namespace ecommerceWebMvcUser.Controllers
                 var user = new ApplicationUser();
                 user.UserName = model.KullaniciAdi;
                 user.Email = model.mail;
+                user.İsim = model.İsim+model.Soyisim;
 
                 var result = userManager.Create(user, model.Sifre);
                 if (result.Succeeded)
