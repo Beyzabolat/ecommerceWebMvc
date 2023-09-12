@@ -1,13 +1,8 @@
-﻿@model IEnumerable<ecommerceWebMvc.Models.Classes.ApplicationUser>
+﻿@model IEnumerable<Microsoft.AspNet.Identity.EntityFramework.IdentityRole>
 @{
     ViewBag.Title = "Index";
-
-}
-
-@*@{
-    ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
-}*@
+}
 
 
 
@@ -19,7 +14,7 @@
                 <div class="clearfix mb-20">
                     @*<h4 class="text-blue h4">Kategoriler</h4>*@
                     <div class="pull-left">
-                        <h4 class="text-blue h4">Kullanıcılar</h4>
+                        <h4 class="text-blue h4">Roller</h4>
 
                     </div>
                 </div>
@@ -33,8 +28,8 @@
                             <tr>
                                 <th class="table-plus datatable-nosort">ID</th>
 
-                                <th>Kullanıcı Adı</th>
-                                <th>Email</th>
+                                <th>İsim</th>
+                                <th></th>
                                 <th></th>
 
                             </tr>
@@ -49,22 +44,21 @@
                             }
                             else
                             {
-                                foreach (var item in Model)
+                                foreach (var role in Model)
                                 {
                                     <tr>
-                                        <td>@item.Id</td>
-                                        <td>@item.UserName</td>
-                                        <td>@item.Email</td>
-                                        @*<td>
+                                        <td>@role.Id</td>
+                                        <td>@role.Name</td>
+                                        <td>
                                             @using (Html.BeginForm("Delete", "RoleAdmin", new { id = role.Id }))
                                             {
                                                 <button type="submit" class="btn btn-danger btn-sm">Sil</button>
                                             }
-
+                                          
                                         </td>
                                         <td>
                                             @Html.ActionLink("Güncelle", "Edit", new { id = role.Id }, new { @class = "btn btn-success btn-sm" })
-                                        </td>*@
+                                        </td>
                                     </tr>
                                 }
 
@@ -78,41 +72,3 @@
         </div>
     </div>
 </div>
-
-
-@*<div class="panel panel-primary">
-        <div class="panel-heading">
-            Kullanıcılar
-
-        </div>
-        <table class="table table-striped">
-            <tr>
-                <td>Id</td>
-                <td>Kullanıcı Adı</td>
-                <td>Email</td>
-
-
-            </tr>
-            @if (Model.Count() == 0)
-            {
-                <tr>
-                    <td colspan="3" class="text-center">Kullanıcı Yok</td>
-                </tr>
-            }
-            else
-            {
-                foreach (var item in Model)
-                {
-                    <tr>
-                        <td>@item.Id</td>
-                        <td>@item.UserName</td>
-                        <td>@item.Email</td>
-                    </tr>
-                }
-
-            }
-        </table>
-
-
-
-    </div>*@

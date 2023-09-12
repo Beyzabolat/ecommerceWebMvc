@@ -636,6 +636,7 @@
     <Compile Include="Controllers\ApplicationDbContext.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KategoriController.cs" />
+    <Compile Include="Controllers\RoleAdminController.cs" />
     <Compile Include="Controllers\UrunController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -646,6 +647,7 @@
     <Compile Include="Models\Classes\ApplicationUser.cs" />
     <Compile Include="Models\Classes\Cari.cs" />
     <Compile Include="Models\Classes\Context.cs" />
+    <Compile Include="Models\Classes\CustomPasswordValidator.cs" />
     <Compile Include="Models\Classes\Departman.cs" />
     <Compile Include="Models\Classes\Detay.cs" />
     <Compile Include="Models\Classes\FaturaKalem.cs" />
@@ -1412,6 +1414,9 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\RoleAdmin\Create.cshtml" />
+    <Content Include="Views\RoleAdmin\Index.cshtml" />
+    <Content Include="Views\RoleAdmin\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
