@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace ecommerceWebMvc.Controllers
 {
+    [Authorize(Roles ="Admin")]
     public class RoleAdminController : Controller
     {
         // GET: RoleAdmin
@@ -20,7 +21,7 @@ namespace ecommerceWebMvc.Controllers
         {
             roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(new IdentityDataContext()));
             userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new IdentityDataContext()));
-            //var userStore = new UserStore<ApplicationUser>(new IdentityDataContext());
+          
 
         }
         public ActionResult Index()
@@ -88,7 +89,7 @@ namespace ecommerceWebMvc.Controllers
             var nonMembers = new List<ApplicationUser>();
 
 
-            foreach (var user in userManager.Users)
+            foreach (var user in userManager.Users.ToList())
             {
                 var list = userManager.IsInRole(user.Id, role.Name) ?
                     members : nonMembers;
@@ -101,6 +102,35 @@ namespace ecommerceWebMvc.Controllers
                 Members=members,
                 NonMembers=nonMembers
             });
+
+        }
+        [HttpPost]
+        public ActionResult Edit(RoleUpdateModel model)
+        {
+
+            IdentityResult result;
+            if(ModelState.IsValid)
+            {
+                foreach (var userId in model.IdsToAdd ?? new string[] { })
+                {
+                    result = userManager.AddToRole(userId, model.RoleName);
+                    if(!result.Succeeded)
+                    {
+                        return View("Error", result.Errors);
+                    }
+                }
+                foreach (var userId in model.IdsToDelete ?? new string[] { })
+                {
+                    result = userManager.RemoveFromRole(userId, model.RoleName);
+                    if (!result.Succeeded)
+                    {
+                        return View("Error", result.Errors);
+                    }
+                }
+                return RedirectToAction("Index");
+
+            }
+            return View("Error", new string[] {"Aranılan rol yok." });
 
         }
     }

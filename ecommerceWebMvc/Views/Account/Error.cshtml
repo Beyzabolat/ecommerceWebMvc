@@ -1,0 +1,29 @@
+﻿@model string[]
+@{
+    ViewBag.Title = "Error";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+
+<div class="main-container">
+       
+            
+                 <div class="col-md-10 col-sm-12">
+                     <div class="title">
+                         @foreach (var err in Model)
+                         {
+
+                             <p class="alert alert-warning" role="alert">@err</p>
+                         }
+                     </div>
+
+                 </div>
+             
+                    
+                        
+
+       
+        
+    </div>

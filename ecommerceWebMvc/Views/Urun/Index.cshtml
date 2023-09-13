@@ -20,7 +20,7 @@
                         <nav aria-label="breadcrumb" role="navigation">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
-                                    <a href="index.html">Anasayfa</a>
+                                    <a href="/Home/Index">Anasayfa</a>
                                 </li>
                                 <li class="breadcrumb-item active" aria-current="page">
                                     Ürünler
@@ -32,19 +32,19 @@
                 </div>
             </div>
             <div class="card-box mb-30">
-               
+
                 <div class="pb-20">
                     <table class="table hover multiple-select-row data-table-export nowrap">
                         <thead>
                             <tr>
                                 <th class="table-plus datatable-nosort">Ürün ID</th>
+                                <th>Ürün Görseli</th>
                                 <th>Ürün Adı</th>
                                 <th>Stok</th>
                                 <th>Marka</th>
                                 <th>Alış Fiyatı</th>
                                 <th>Satış Fiyatı</th>
                                 <th>Durum</th>
-                                <th>Ürün Görseli</th>
                                 <th>Renk</th>
                                 <th>Beden</th>
                                 <th>Numara</th>
@@ -55,51 +55,55 @@
                         <tbody>
                             @foreach (var b in Model)
                             {
-                            <tr>
-                                <td>@b.UrunID</td>
-                                <td>@b.UrunAdi</td>
-                                <td>@b.Stok</td>
-                                <td>@b.Marka</td>
-                                <td>@b.AlisFiyati</td>
-                                <td>@b.SatisFiyati</td>
-                                <td>
-                                    @if (b.Durum)
-                                    {
-                                        <span class="badge badge-success">Aktif</span>
-                                    }
-                                    else
-                                    {
-                                        <span class="badge badge-danger">Pasif</span>
-                                    }
-                                </td>
-                              
-                                <td>@b.UrunGorsel</td>
-                                <td>@b.Renk</td>
-                                <td>@b.Beden</td>
-                                <td>@b.Numara</td>
-                                <td>@b.Cinsiyet</td>
-                                <td>@b.Kategori.KategoriAd</td>
+                                <tr>
+                                    <td>@b.UrunID</td>
+                                    <td class="table-plus">
+                                        <img src="@b.UrunGorsel"
+                                             width="70"
+                                             height="70"
+                                             alt="" />
+                                    </td>
+                                    <td>@b.UrunAdi</td>
+                                    <td>@b.Stok</td>
+                                    <td>@b.Marka</td>
+                                    <td>@b.AlisFiyati</td>
+                                    <td>@b.SatisFiyati</td>
+                                    <td>
+                                        @if (b.Durum)
+                                        {
+                                            <span class="badge badge-success">Aktif</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge badge-danger">Pasif</span>
+                                        }
+                                    </td>
+                                    <td>@b.Renk</td>
+                                    <td>@b.Beden</td>
+                                    <td>@b.Numara</td>
+                                    <td>@b.Cinsiyet</td>
+                                    <td>@b.Kategori.KategoriAd</td>
 
 
-                                <td>
-                                    <div class="dropdown">
-                                        <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
-                                           href="#"
-                                           role="button"
-                                           data-toggle="dropdown">
-                                            <i class="dw dw-more"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                                            <a class="dropdown-item" href="#"><i class="dw dw-eye"></i> Görüntüle</a>
-                                            <a class="dropdown-item" href="/Urun/UrunGetirme/@b.UrunID">
-                                                <i class="dw dw-edit2"></i> Düzenle
+                                    <td>
+                                        <div class="dropdown">
+                                            <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
+                                               href="#"
+                                               role="button"
+                                               data-toggle="dropdown">
+                                                <i class="dw dw-more"></i>
                                             </a>
+                                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+                                                <a class="dropdown-item" href="/Urun/UrunDetay/@b.UrunID"><i class="dw dw-eye"></i> Görüntüle</a>
+                                                <a class="dropdown-item" href="/Urun/UrunGetirme/@b.UrunID">
+                                                    <i class="dw dw-edit2"></i> Düzenle
+                                                </a>
 
+                                            </div>
                                         </div>
-                                    </div>
-                                </td>
+                                    </td>
 
-                            </tr>
+                                </tr>
                             }
 
 
@@ -110,4 +114,4 @@
             </div>
         </div>
     </div>
- </div>
+</div>

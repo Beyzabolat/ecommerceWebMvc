@@ -4,37 +4,209 @@
     ViewBag.Title = "Edit";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-
 @using (Html.BeginForm())
 {
     <input type="hidden" name="roleName" value="@Model.Role.Name" />
     <input type="hidden" name="roleId" value="@Model.Role.Id" />
 
-    <div class="panel panel-primary">
-        <div class="panel-heading">
-            Ekle @Model.Role.Name
+
+    <div class="main-container">
+        <div class="pd-ltr-20 xs-pd-20-10">
+            <div class="min-height-200px">
+
+                <div class="pd-20 card-box mb-30">
+                    <div class="clearfix mb-20">
+
+                        <div class="pull-left">
+                            <h4 class="text-blue h4">Rolleri Güncelleme Sayfası</h4>
+
+                        </div>
+                    </div>
+
+
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <strong>@Model.Role.Name Ekle</strong>
+                        </div>
+
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                @if (Model.NonMembers.Count() == 0)
+                                {
+                                    <tr>
+                                        <td colspan="2">
+                                            Bu role eklenebilecek kullanıcı yok.
+                                        </td>
+                                    </tr>
+                                }
+                                else
+                                {
+                                    <tr>
+                                        <td>
+                                            User
+                                        </td>
+                                        <td>Role</td>
+                                    </tr>
+                                    foreach (var user in Model.NonMembers)
+                                    {
+                                        <tr>
+                                            <td>@user.UserName</td>
+                                            <td>
+                                                <input type="checkbox" name="IdsToAdd" value="@user.Id" />
+                                            </td>
+
+
+
+
+                                        </tr>
+
+                                    }
+
+                                }
+
+                            </table>
+                        </div>
+
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <strong>@Model.Role.Name Sil</strong>
+                            </div>
+
+                            <table class="table table-striped">
+                                @if (Model.Members.Count() == 0)
+                                {
+                                    <tr>
+                                        <td colspan="2">
+                                            Bu role eklenmiş bir kullanıcı yok.
+                                        </td>
+                                    </tr>
+                                }
+                                else
+                                {
+                                    <tr>
+                                        <td>
+                                            User
+                                        </td>
+                                        <td>Role</td>
+                                    </tr>
+                                    foreach (var user in Model.Members)
+                                    {
+                                        <tr>
+                                            <td>@user.UserName</td>
+                                            <td>
+                                                <input type="checkbox" name="IdsToDelete" value="@user.Id" />
+                                            </td>
+
+
+
+
+                                        </tr>
+
+                                    }
+
+                                }
+                            </table>
+
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Kaydet</button>
+
+
+
+                    </div>
+                </div>
+            </div>
         </div>
-        <table class="table table-striped">
-            @if (Model.NonMembers.Count() == 0)
-            {
-                <tr>
-                    <td colspan="2">
-                        Bu role eklenebilecek kullanıcı yok.
-                    </td>
-                </tr>
-            }
-                else
-                {
-                    <tr>
-                        <td>
-                            User Id
-                        </td>
-                    </tr>
-                }
-        </table>
-
-    </div>
-
-
+        </div>
 }
+        @*@using (Html.BeginForm())
+            {
+                <input type="hidden" name="roleName" value="@Model.Role.Name" />
+                <input type="hidden" name="roleId" value="@Model.Role.Id" />
+
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        Ekle @Model.Role.Name
+                    </div>
+                    <table class="table table-striped">
+                        @if (Model.NonMembers.Count() == 0)
+                        {
+                            <tr>
+                                <td colspan="2">
+                                    Bu role eklenebilecek kullanıcı yok.
+                                </td>
+                            </tr>
+                        }
+                        else
+                        {
+                            <tr>
+                                <td>
+                                    User
+                                </td>
+                                <td>Role</td>
+                            </tr>
+                            foreach (var user in Model.NonMembers)
+                            {
+                                <tr>
+                                    <td>@user.UserName</td>
+                                    <td>
+                                        <input type="checkbox" name="IdsToAdd" value="@user.Id" />
+                                    </td>
+
+
+
+
+                                </tr>
+
+                            }
+
+                        }
+                    </table>
+
+                </div>
+
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        Sil @Model.Role.Name
+                    </div>
+                    <table class="table table-striped">
+                        @if (Model.NonMembers.Count() == 0)
+                        {
+                            <tr>
+                                <td colspan="2">
+                                    Bu role eklenmiş bir kullanıcı yok.
+                                </td>
+                            </tr>
+                        }
+                        else
+                        {
+                            <tr>
+                                <td>
+                                    User
+                                </td>
+                                <td>Role</td>
+                            </tr>
+                            foreach (var user in Model.Members)
+                            {
+                                <tr>
+                                    <td>@user.UserName</td>
+                                    <td>
+                                        <input type="checkbox" name="IdsToDelete" value="@user.Id" />
+                                    </td>
+
+
+
+
+                                </tr>
+
+                            }
+
+                        }
+                    </table>
+
+                </div>
+
+                <button type="submit" class="btn btn-primary">Kaydet</button>
+
+            }*@
 

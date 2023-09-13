@@ -4,34 +4,49 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-
-
-<h2>Create Role</h2>
-
-<hr />
-@Html.ValidationSummary()
-@using (Html.BeginForm())
-{
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-4">
-                <div class="pd-20 card-box mb-30">
-                    <form>
-                        <div class="form-group">
-                            <label>İsim</label>
-                            <input name="Name" value="@Model" class="form-control" />
+<div class="main-container">
+    <div class="pd-ltr-20 xs-pd-20-10">
+        <div class="min-height-200px">
+            <div class="page-header">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="title">
+                            <h4 class="text-blue h4">Rol Oluştur</h4>
                         </div>
-                        <button type="submit" class="btn btn-primary">Oluştur</button>
-                    </form>
+                        
+                    </div>
+
                 </div>
             </div>
+            @*<div class="pd-20 card-box mb-30">*@
+
+                <div class="container">
+                    <div class="row justify-content-center mt-5">
+                       
+                        <div class="col-md-4">
+                            <div class="pd-20 card-box mb-30">
+                                @using (Html.BeginForm())
+                                {
+                                    <div class="form-group">
+                                        @Html.ValidationSummary()
+                                        <label>İsim</label>
+                                        <input name="Name" value="@Model" class="form-control" />
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Oluştur</button>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+            @*</div>*@
         </div>
     </div>
+</div>
 
-    @*<div class="form-group">
-            <label>İsim</label>
-            <input name="Name" value="@Model" class="form-control" />
-        </div>
-        <button type="submit" class="btn btn-primary">Oluştur</button>*@
-}
+
 

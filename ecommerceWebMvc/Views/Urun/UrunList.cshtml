@@ -1,0 +1,79 @@
+﻿@model IEnumerable<ecommerceWebMvc.Models.Classes.Urunler>
+@using ecommerceWebMvc.Models.Classes;
+
+
+
+@{
+    ViewBag.Title = "UrunList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="main-container">
+    <div class="pd-ltr-20 xs-pd-20-10">
+        <div class="min-height-200px">
+            <div class="page-header">
+                <div class="row">
+
+                    <div class="col-md-12 col-sm-12">
+                        <div class="title">
+                            <h4>Ürün Liste</h4>
+                        </div>
+                        <nav aria-label="breadcrumb" role="navigation">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a href="/Home/Index">Anasayfa</a>
+                                </li>
+                                <li class="breadcrumb-item active" aria-current="page">
+                                    Ürün Liste
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <div class="product-wrap">
+               
+                    <div class="product-list">
+
+                        <ul class="row">
+                            @foreach (var item in Model)
+                            {
+                                <li class="col-lg-4 col-md-6 col-sm-12">
+                                    <div class="product-box">
+                                        <div class="producct-img">
+                                            <img src="@item.UrunGorsel" alt="" />
+                                        </div>
+                                        <div class="product-caption">
+                                            <h4><a href="#">@item.UrunAdi</a></h4>
+                                            <div class="price"><ins>@item.SatisFiyati ₺</ins></div>
+                                            <a href="/Urun/UrunDetay/@item.UrunID" class="btn btn-outline-primary">Detaylar</a>
+                                        </div>
+                                    </div>
+                                </li>
+                            }
+                            </ul>
+                            
+
+                    </div>
+                    <div class="blog-pagination mb-30">
+                        <div class="btn-toolbar justify-content-center mb-15">
+                            <div class="btn-group">
+                                <a href="#" class="btn btn-outline-primary prev">
+                                    <i class="fa fa-angle-double-left"></i>
+                                </a>
+                                <a href="#" class="btn btn-outline-primary">1</a>
+                                <a href="#" class="btn btn-outline-primary">2</a>
+                                <span class="btn btn-primary current">3</span>
+                                <a href="#" class="btn btn-outline-primary">4</a>
+                                <a href="#" class="btn btn-outline-primary">5</a>
+                                <a href="#" class="btn btn-outline-primary next">
+                                    <i class="fa fa-angle-double-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                 </div>
+        </div>
+
+    </div>
+</div>

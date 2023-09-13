@@ -115,6 +115,7 @@ namespace ecommerceWebMvcUser.Controllers
                 var result = userManager.Create(user, model.Sifre);
                 if (result.Succeeded)
                 {
+                    userManager.AddToRole(user.Id, "User");
                     return RedirectToAction("Login");
                 }
                 else

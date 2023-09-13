@@ -1,0 +1,69 @@
+﻿@model ecommerceWebMvc.Models.Classes.Urunler
+
+
+@{
+    ViewBag.Title = "UrunDetay";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="main-container">
+    <div class="pd-ltr-20 xs-pd-20-10">
+        <div class="min-height-200px">
+            <div class="page-header">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <div class="title">
+                            <h4>Ürün Detay</h4>
+                        </div>
+                        <nav aria-label="breadcrumb" role="navigation">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a href="/Home/Index">Anasayfa</a>
+                                </li>
+                                <li class="breadcrumb-item active" aria-current="page">
+                                    Ürün Detay
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <div class="product-wrap">
+                <div class="product-detail-wrap mb-30">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <!-- Ürün resmi ve slider -->
+                            <div class="product-slider slider-arrow">
+                                <div class="product-slide">
+                                    <img src="@Model.UrunGorsel" alt="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-8 col-md-6 col-sm-12">
+                            <!-- Ürün detayları -->
+                            <div class="product-detail-desc pd-20 card-box height-100-p">
+                                <h4 class="mb-20 pt-20">@Model.UrunAdi</h4>
+                                <p>
+                                    @Model.Beden
+                                </p>
+                                <p>
+                                    @Model.Numara
+                                </p>
+                                <div class="price"><ins>@Model.SatisFiyati ₺</ins></div>
+
+                                <div class="row">
+                                    <div class="col-md-6 col-6">
+                                        <a href="#" class="btn btn-primary btn-block">Add To Cart</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+               
+            </div>
+        </div>
+    </div>
+</div>

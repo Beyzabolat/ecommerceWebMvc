@@ -36,6 +36,7 @@ namespace ecommerceWebMvc.Models.Classes
     }
     public class RoleUpdateModel
     {
+        [Required]
         public string RoleName { get; set; }
         public string RoleId { get; set; }
         public string[] IdsToAdd  { get; set; }

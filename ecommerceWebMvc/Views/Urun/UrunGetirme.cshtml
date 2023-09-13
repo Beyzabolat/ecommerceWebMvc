@@ -26,7 +26,7 @@
                                     Ürünler
                                 </li>
                                 <li class="breadcrumb-item active" aria-current="page">
-                                    Ürün Güncelleme 
+                                    Ürün Güncelleme
                                 </li>
                             </ol>
                         </nav>
@@ -37,86 +37,85 @@
             <div class="pd-20 card-box mb-30">
                 @using (Html.BeginForm("UrunGuncelle", "Urun", FormMethod.Post))
                 {
-                <div class="form-row">
-                    <div class="form-group col-md-4">
-                        @Html.LabelFor(model => model.UrunAdi)
-                        @Html.TextBoxFor(model => model.UrunAdi, new { @class = "form-control" })
-                    </div>
-                    <div class="form-group col-md-4">
-                        @Html.LabelFor(model => model.Stok)
-                        @Html.TextBoxFor(model => model.Stok, new { @class = "form-control" })
-                    </div>
-                    <div class="form-group col-md-4">
-                        @Html.LabelFor(model => model.Marka)
-                        @Html.TextBoxFor(model => model.Marka, new { @class = "form-control" })
-                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            @Html.LabelFor(model => model.UrunAdi)
+                            @Html.TextBoxFor(model => model.UrunAdi, new { @class = "form-control" })
+                        </div>
+                        <div class="form-group col-md-4">
+                            @Html.LabelFor(model => model.Stok)
+                            @Html.TextBoxFor(model => model.Stok, new { @class = "form-control" })
+                        </div>
+                        <div class="form-group col-md-4">
+                            @Html.LabelFor(model => model.Marka)
+                            @Html.TextBoxFor(model => model.Marka, new { @class = "form-control" })
+                        </div>
 
 
-                    <div class="form-group col-md-4">
-                        @Html.LabelFor(model => model.AlisFiyati)
-                        @Html.TextBoxFor(model => model.AlisFiyati, new { @class = "form-control", type = "text" })
-                    </div>
-                    <div class="form-group col-md-4">
-                        @Html.LabelFor(model => model.SatisFiyati)
-                        @Html.TextBoxFor(model => model.SatisFiyati, new { @class = "form-control", type = "text" })
-                    </div>
+                        <div class="form-group col-md-4">
+                            @Html.LabelFor(model => model.AlisFiyati)
+                            @Html.TextBoxFor(model => model.AlisFiyati, new { @class = "form-control", type = "text" })
+                        </div>
+                        <div class="form-group col-md-4">
+                            @Html.LabelFor(model => model.SatisFiyati)
+                            @Html.TextBoxFor(model => model.SatisFiyati, new { @class = "form-control", type = "text" })
+                        </div>
 
-                    <div class="form-group col-md-4">
-                        @Html.LabelFor(model => model.Durum)
-                        @Html.DropDownListFor(model => model.Durum, new SelectList(new[]
-                        {
-                            new SelectListItem { Text = "Aktif", Value = "true" },
-                            new SelectListItem { Text = "Pasif", Value = "false" }
-                        }, "Value", "Text"), "Lütfen bir seçenek seçin", new { @class = "form-control" })
-                    </div>
-
-                    <div class="form-group col-md-4">
-                        @Html.LabelFor(model => model.UrunGorsel)
-                        @Html.TextBoxFor(model => model.UrunGorsel, new { @class = "form-control" })
-                    </div>
-                    <div class="form-group col-md-4">
-                        @Html.LabelFor(model => model.Renk)
-                        @Html.TextBoxFor(model => model.Renk, new { @class = "form-control" })
-                    </div>
-
-
-                    <div class="form-group col-md-4">
-                        @Html.LabelFor(model => model.Beden)
-                        @Html.DropDownListFor(model => model.Beden, new SelectList(new[]
-                        {
-                            new SelectListItem { Text = "XS", Value = "XS" },
-                            new SelectListItem { Text = "S", Value = "S" },
-                            new SelectListItem { Text = "M", Value = "M" },
-                            new SelectListItem { Text = "L", Value = "L" },
-                            new SelectListItem { Text = "XL", Value = "XL" },
-                            new SelectListItem { Text = "XXL", Value = "XXL" }
-                        }, "Value", "Text"), "Lütfen bir seçenek seçin", new { @class = "form-control" })
-                    </div>
-
-                    <div class="form-group col-md-4">
-                        @Html.LabelFor(model => model.Numara)
-                        @Html.TextBoxFor(model => model.Numara, new { @class = "form-control" })
-                    </div>
-
-                    <div class="form-group col-md-4">
-                        @Html.LabelFor(model => model.Cinsiyet)
-                        @Html.DropDownListFor(model => model.Cinsiyet, new SelectList(new[]
-                        {
-                            new SelectListItem { Text = "Kadın", Value = "Kadın" },
-                            new SelectListItem { Text = "Erkek", Value = "Erkek" },
-                            new SelectListItem { Text = "Çocuk", Value = "Çocuk" }
-                        }, "Value", "Text"), "Lütfen bir seçenek seçin", new { @class = "form-control" })
-                    </div>
-                    <div class="form-group col-md-4">
-                        @Html.LabelFor(model => model.Kategori)
-                        @Html.DropDownListFor(x => x.Kategoriid, (List<SelectListItem>)ViewBag.dgr1, "Lütfen bir seçenek seçin", new
-                       {
-                           @class = "form-control"
-                       })
-                    </div>
+                        <div class="form-group col-md-4">
+                            @Html.LabelFor(model => model.Durum)
+                            @Html.DropDownListFor(model => model.Durum, new SelectList(new[]
+                            {
+                                new SelectListItem { Text = "Aktif", Value = "true" },
+                                new SelectListItem { Text = "Pasif", Value = "false" }
+                            }, "Value", "Text"), "Lütfen bir seçenek seçin", new { @class = "form-control" })
+                        </div>
+                        <div class="form-group col-md-4">
+                            @Html.LabelFor(model => model.UrunGorsel)
+                            @Html.TextBoxFor(model => model.UrunGorsel, new { @class = "form-control" })
+                        </div>
+                        <div class="form-group col-md-4">
+                            @Html.LabelFor(model => model.Renk)
+                            @Html.TextBoxFor(model => model.Renk, new { @class = "form-control" })
+                        </div>
 
 
-                </div>
+                        <div class="form-group col-md-4">
+                            @Html.LabelFor(model => model.Beden)
+                            @Html.DropDownListFor(model => model.Beden, new SelectList(new[]
+                            {
+                                new SelectListItem { Text = "XS", Value = "XS" },
+                                new SelectListItem { Text = "S", Value = "S" },
+                                new SelectListItem { Text = "M", Value = "M" },
+                                new SelectListItem { Text = "L", Value = "L" },
+                                new SelectListItem { Text = "XL", Value = "XL" },
+                                new SelectListItem { Text = "XXL", Value = "XXL" }
+                            }, "Value", "Text"), "Lütfen bir seçenek seçin", new { @class = "form-control" })
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            @Html.LabelFor(model => model.Numara)
+                            @Html.TextBoxFor(model => model.Numara, new { @class = "form-control" })
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            @Html.LabelFor(model => model.Cinsiyet)
+                            @Html.DropDownListFor(model => model.Cinsiyet, new SelectList(new[]
+                            {
+                                new SelectListItem { Text = "Kadın", Value = "Kadın" },
+                                new SelectListItem { Text = "Erkek", Value = "Erkek" },
+                                new SelectListItem { Text = "Çocuk", Value = "Çocuk" }
+                            }, "Value", "Text"), "Lütfen bir seçenek seçin", new { @class = "form-control" })
+                        </div>
+                        <div class="form-group col-md-4">
+                            @Html.LabelFor(model => model.Kategori)
+                            @Html.DropDownListFor(x => x.Kategoriid, (List<SelectListItem>)ViewBag.dgr1, "Lütfen bir seçenek seçin", new
+                           {
+                               @class = "form-control"
+                           })
+                        </div>
+
+
+                    </div>
                     <!-- Diğer alanları da aynı mantıkla ekleyebilirsiniz -->
 
                     <button class="btn btn-primary">Güncelle</button>

@@ -19,7 +19,13 @@ namespace ecommerceWebMvc.Controllers
             return View(urunler);
         }
 
+        public ActionResult UrunList()
+        {
+            var urunler = q.Urunlers.Where(x => x.Durum == true).ToList();
+            return View(urunler);
 
+        }
+            
         [HttpGet]  //sayfa çalıştığında boş olarak bunu açacak
         public ActionResult UrunEkleme()
         {
@@ -38,7 +44,7 @@ namespace ecommerceWebMvc.Controllers
         [HttpPost]
         public ActionResult UrunEkleme(Urunler m)
         {
-           
+
 
 
             try
@@ -80,24 +86,7 @@ namespace ecommerceWebMvc.Controllers
             ViewBag.dgr1 = deger1;
             var uruun = q.Urunlers.Find(id);
             return View("UrunGuncelle", uruun);
-            //return View("UrunGetirme", uruun);
-            //Urunler urun = q.Urunlers.Find(id);
-
-            //if (urun == null)
-            //{
-            //    return HttpNotFound();
-            //}
-
-            //List<SelectListItem> kategoriListesi = (from x in q.Kategoris.ToList()
-            //                                        select new SelectListItem
-            //                                        {
-            //                                            Text = x.KategoriAd,
-            //                                            Value = x.KategoriID.ToString()
-            //                                        }).ToList();
-
-            //ViewBag.dgr1 = kategoriListesi;
-
-            //return View(urun);
+            ;
         }
         [HttpPost]
         public ActionResult UrunGuncelle(Urunler p)
@@ -130,120 +119,19 @@ namespace ecommerceWebMvc.Controllers
             return View("UrunGuncelle", p);
 
         }
-        //var urunnnn = q.Urunlers.Find(p.UrunID);
 
-        //if (urunnnn == null)
-        //{
-        //    return HttpNotFound();
-        //}
+        public ActionResult UrunDetay(int id)
+        {
+            // id parametresini kullanarak ürün detaylarını çekin
+            var urunDetay = q.Urunlers.FirstOrDefault(u => u.UrunID == id);
 
-        //urunnnn.AlisFiyati = p.AlisFiyati;
-        //urunnnn.SatisFiyati = p.SatisFiyati;
-        //urunnnn.Durum = p.Durum;
-        //urunnnn.Kategoriid = p.Kategoriid;
-        //urunnnn.Marka = p.Marka;
-        //urunnnn.Stok = p.Stok;
-        //urunnnn.UrunAdi = p.UrunAdi;
-        //urunnnn.UrunGorsel = p.UrunGorsel;
-        //urunnnn.Renk = p.Renk;
-        //urunnnn.Beden = p.Beden;
-        //urunnnn.Numara = p.Numara;
-        //urunnnn.Cinsiyet = p.Cinsiyet;
+            // Eğer urunDetay null ise, uygun bir hata işleme mekanizması kullanabilirsiniz.
 
-        //q.SaveChanges();
-        //return RedirectToAction("Index");
-        //}
-
-        //[HttpPost]
-        //public ActionResult UrunGuncelle(Urunler p)
-        //{
-        //    var urunnnn = q.Urunlers.Find(p.UrunID);
-        //    urunnnn.AlisFiyati = p.AlisFiyati;
-        //    urunnnn.Durum = p.Durum;
-        //    urunnnn.Kategoriid = p.Kategoriid;
-        //    urunnnn.Marka = p.Marka;
-        //    urunnnn.SatisFiyati = p.SatisFiyati;
-        //    urunnnn.Stok = p.Stok;
-        //    urunnnn.UrunAdi = p.UrunAdi;
-        //    urunnnn.UrunGorsel = p.UrunGorsel; // Eksik kısmı burada güncelle
-        //    urunnnn.Renk = p.Renk;
-        //    urunnnn.Beden = p.Beden;
-        //    urunnnn.Numara = p.Numara;
-        //    urunnnn.Cinsiyet = p.Cinsiyet;
-
-        //    q.SaveChanges();
-        //    return RedirectToAction("Index");
-        //}
-        //public ActionResult UrunGetirme(int id)
-        //{
-        //    Urunler urun = q.Urunlers.Find(id);
-
-        //    if (urun == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-
-        //    List<SelectListItem> kategoriListesi = (from x in q.Kategoris.ToList()
-        //                                            select new SelectListItem
-        //                                            {
-        //                                                Text = x.KategoriAd,
-        //                                                Value = x.KategoriID.ToString()
-        //                                            }).ToList();
-
-        //    ViewBag.dgr1 = kategoriListesi;
-
-        //    return View(urun);
-        //}
-
-        //[HttpPost]
-        //public ActionResult UrunGuncelle(Urunler p)
-        //{
-        //    var urunnnn = q.Urunlers.Find(p.UrunID);
-        //    urunnnn.AlisFiyati = p.AlisFiyati;
-        //    urunnnn.Durum = p.Durum;
-        //    urunnnn.Kategoriid = p.Kategoriid;
-        //    urunnnn.Marka = p.Marka;
-        //    urunnnn.SatisFiyati = p.SatisFiyati;
-        //    urunnnn.Stok = p.Stok;
-        //    urunnnn.UrunAdi = p.UrunAdi;
-        //    urunnnn.UrunGorsel = p.UrunGorsel;
-        //    urunnnn.
-        //    q.SaveChanges();
-        //    return RedirectToAction("Index");
-
-        //}
-        // Hatalı model durumunda aynı sayfayı tekrar d
-
-        //public ActionResult UrunGetirme(int id)
-        //{
-        //    List<SelectListItem> deger1 = (from x in q.Kategoris.ToList()
-        //                                   select new SelectListItem
-        //                                   {
-        //                                       Text = x.KategoriAd,
-        //                                       Value = x.KategoriID.ToString()
-        //                                   }).ToList();
-        //    ViewBag.dgr1 = deger1;
-        //    var uruun = q.Urunlers.Find(id);
-        //    return View("UrunGetirme", uruun);
+            return View(urunDetay);
+        }
 
 
 
-        //}
-        //public ActionResult UrunGuncelle(Urunler p)
-        //{
-        //    var urunnnn = q.Urunlers.Find(p.UrunID);
-        //    urunnnn.AlisFiyati = p.AlisFiyati;
-        //    urunnnn.Durum = p.Durum;
-        //    urunnnn.Kategoriid = p.Kategoriid;
-        //    urunnnn.Marka = p.Marka;
-        //    urunnnn.SatisFiyati = p.SatisFiyati;
-        //    urunnnn.Stok = p.Stok;
-        //    urunnnn.UrunAdi = p.UrunAdi;
-        //    urunnnn.UrunGorsel = p.UrunGorsel;
-        //    q.SaveChanges();
-        //    return RedirectToAction("Index");
-
-        //}
         public ActionResult UrunListesi()
         {
             var deegerler = q.Urunlers.ToList();
@@ -279,5 +167,6 @@ namespace ecommerceWebMvc.Controllers
             q.SaveChanges();
             return RedirectToAction("Index", "Satis");
         }
+       
     }
 }
