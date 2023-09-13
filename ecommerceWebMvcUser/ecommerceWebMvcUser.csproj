@@ -249,6 +249,7 @@
     <Compile Include="Controllers\TakiController.cs" />
     <Compile Include="Controllers\UrunDetayController.cs" />
     <Compile Include="Controllers\UrunlerController.cs" />
+    <Compile Include="Controllers\WishlistController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -268,6 +269,7 @@
     <Compile Include="Models\Classes\UrunDetay.cs" />
     <Compile Include="Models\Classes\Urunler.cs" />
     <Compile Include="Models\Classes\UserModel.cs" />
+    <Compile Include="Models\Classes\Wishlist.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -902,6 +904,7 @@
     <Content Include="Views\RoleAdmin\Create.cshtml" />
     <Content Include="Views\RoleAdmin\Index.cshtml" />
     <Content Include="Views\RoleAdmin\Error.cshtml" />
+    <Content Include="Views\Wishlist\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

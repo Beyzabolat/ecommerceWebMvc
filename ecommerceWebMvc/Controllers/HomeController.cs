@@ -14,7 +14,8 @@ namespace ecommerceWebMvc.Controllers
         public ActionResult Index()
         {
             var urunler = q.Urunlers.Where(x => x.Durum == true && x.Kategoriid == 1).ToList();
-           
+            var degeer4 = q.Urunlers.Sum(x => x.Stok).ToString();
+            ViewBag.d4 = degeer4;
             return View(urunler);
            
         }

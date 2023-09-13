@@ -26,6 +26,8 @@ namespace ecommerceWebMvcUser.Controllers
             
 
         }
+
+      
         public ActionResult UrunDetay(int urunId)
         {
             // id parametresini kullanarak ürün detaylarını çekin

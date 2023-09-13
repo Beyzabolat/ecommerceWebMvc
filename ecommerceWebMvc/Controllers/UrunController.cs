@@ -25,7 +25,7 @@ namespace ecommerceWebMvc.Controllers
             return View(urunler);
 
         }
-            
+
         [HttpGet]  //sayfa çalıştığında boş olarak bunu açacak
         public ActionResult UrunEkleme()
         {
@@ -137,6 +137,9 @@ namespace ecommerceWebMvc.Controllers
             var deegerler = q.Urunlers.ToList();
             return View(deegerler);
         }
+
+
+
         [HttpGet]
         public ActionResult SatisYap(int id)
         {
@@ -167,6 +170,7 @@ namespace ecommerceWebMvc.Controllers
             q.SaveChanges();
             return RedirectToAction("Index", "Satis");
         }
-       
+
     }
 }
+
