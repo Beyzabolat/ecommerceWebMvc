@@ -174,7 +174,6 @@
                 </div>
                 <!--End Brand-->
                 <!--Popular Products-->
-             
                 <!--End Popular Products-->
                 <!--Banner-->
                 <div class="sidebar_widget static-banner">
@@ -204,7 +203,7 @@
         <!--End Sidebar-->
         <!--Main Content-->
         <div class="col-12 col-sm-12 col-md-9 col-lg-9 main-col">
-         
+
 
             <div class="category-description">
                 <br />
@@ -228,7 +227,7 @@
                                 <a href="shop-left-sidebar.html" title="Grid View" class="change-view change-view--active">
                                     <img src="/belle-multipurpose-bootstrap-html-template/assets/images/grid.jpg" alt="Grid" />
                                 </a>
-                              
+
                             </div>
                             <div class="col-4 col-md-4 col-lg-4 text-center filters-toolbar__item filters-toolbar__item--count d-flex justify-content-center align-items-center">
                                 <span class="filters-toolbar__product-count">Gösteriliyor: @ViewBag.UrunSayisi</span>
@@ -280,25 +279,21 @@
                                         <button class="btn btn-addto-cart" type="submit">Sepete Ekle</button>
                                     </form>
 
-
                                     <div class="button-set">
-                                       <div class="wishlist-btn">
-                                           <form class="wishlist add-to-wishlist" action="/Wishlist/UrunSepeteEkle" method="post">
-                                               <input type="hidden" name="urunId" value="@b.UrunID" /> <!-- Ürünün ID'sini buradan alıyoruz -->
-                                               <input type="hidden" name="adet" value="1" /> <!-- Varsayılan adet değeri -->
-                                               <button type="submit" title="Favorilerime ekle">
-                                                   <i class="icon anm anm-heart-l"></i>
-                                               </button>
-                                           </form>
-                                        </div>
-
-                                        @*<div class="wishlist-btn">
-                                                <a class="wishlist add-to-wishlist" href="/Wishlist/Index/@b.UrunID" title="Favorilerime ekle">
+                                        <div class="wishlist-btn">
+                                            <form action="/Sepet/UrunFavorilereEkle" method="post">
+                                                <input type="hidden" name="urunId" value="@b.UrunID" />
+                                                <input type="hidden" name="adet" value="1" /> <!-- Sabit adet değeri -->
+                                                <button type="submit" title="Favorilere Ekle">
                                                     <i class="icon anm anm-heart-l"></i>
-                                                </a>
-                                            </div>*@
-                                       
+                                                </button>
+                                            </form>
+                                        </div>
                                     </div>
+
+
+
+                                  
                                     <!-- end product button -->
                                 </div>
                                 <!-- end product image -->

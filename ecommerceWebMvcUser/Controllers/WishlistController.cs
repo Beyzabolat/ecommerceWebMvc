@@ -22,11 +22,12 @@ namespace ecommerceWebMvcUser.Controllers
                 Session["Wishlist"] = wishlist;
             }
 
-
+            int toplamAdet = wishlist.ToplamAdet();
+            ViewBag.ToplamAdet = toplamAdet;
             return View(wishlist.FavOgeleriniGetir());
         }
         [HttpPost]
-        public ActionResult UrunSepeteEkle(int urunId, int adet)
+        public ActionResult UrunFavorilereEkle(int urunId, int adet)
         {
             // Sepeti al
             Wishlist wishlist = Session["Wishlist"] as Wishlist;
@@ -35,7 +36,7 @@ namespace ecommerceWebMvcUser.Controllers
             if (wishlist == null)
             {
                 wishlist = new Wishlist();
-                Session["Sepet"] = wishlist;
+                Session["Wishlist"] = wishlist;
             }
 
             // Ürünü veritabanından alın (örneğin Entity Framework kullanarak)

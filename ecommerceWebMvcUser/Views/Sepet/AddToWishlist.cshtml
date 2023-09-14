@@ -1,0 +1,86 @@
+﻿@using ecommerceWebMvcUser.Models.Classes;
+@model List<SepetOgesi>
+
+@{ ViewBag.Title = "AddToWishlist";
+    Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+
+<div id="page-content">
+    <!--Page Title-->
+    <div class="page section-header text-center">
+        <div class="page-title">
+            <div class="wrapper"><h1 class="page-width">Favorilerim</h1></div>
+        </div>
+    </div>
+    <!--End Page Title-->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 main-col">
+                <form action="#">
+                    <div class="wishlist-table table-content table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th class="product-name text-center alt-font">Kaldır</th>
+                                    <th class="product-price text-center alt-font">Görsel</th>
+                                    <th class="product-name alt-font">Ürün Adı</th>
+                                    <th class="product-price text-center alt-font">Fiyat</th>
+                                    <th class="product-subtotal text-center alt-font">Sepete Ekle</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var sepetOgesi in Model)
+                                {
+                    <tr>
+                        <td class="product-remove text-center" valign="middle">
+                            <a href="@Url.Action("UrunFavoriSil", "Sepet", new { urunId = sepetOgesi.UrunID })" title="Ürünü Sil">
+                                <i class="icon icon anm anm-times-l"></i>
+                            </a>
+                        </td>
+                        <td class="product-thumbnail text-center">
+                            <a href="#"><img src="@sepetOgesi.UrunGorseli" alt="" title="" /></a>
+                        </td>
+                        <td class="product-name"><h4 class="no-margin"><a href="/Urunler/UrunDetay/@sepetOgesi.UrunID">@sepetOgesi.UrunAdi</a></h4></td>
+                        <td class="product-price text-center"><span class="amount">@sepetOgesi.Fiyat ₺</span></td>
+
+                        <td class="product-subtotal text-center">
+                            <form action="/Sepet/UrunSepeteEkle" method="post">
+                                <input type="hidden" name="urunId" value="@sepetOgesi.UrunID" />
+                                <input type="hidden" name="adet" value="1" />
+                                <button class="btn btn-small" type="submit">Sepete Ekle</button>
+                            </form>
+                        </td>
+
+                        @*<td class="product-subtotal text-center"><button type="submit" class="btn btn-small">Sepete Ekle</button></td>*@
+                    </tr>
+}
+
+
+
+                            </tbody>
+                            <tfoot>
+                                <tr>
+
+                                    <td colspan="3" class="text-left">
+                                        <a href="javascript:history.back()" class="btn--link cart-continue">
+                                            <i class="icon icon-arrow-circle-left"></i>Alışverişe devam et
+                                        </a>
+                                    </td>
+
+
+                                    <td colspan="3" class="text-right">
+                                        <a href="@Url.Action("BosaltFavori", "Sepet")" class="btn btn-danger">Favorileri Boşalt</a>
+
+                                    </td>
+
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>

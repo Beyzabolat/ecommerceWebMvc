@@ -2,7 +2,7 @@
 @model List<FavOgesi>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Wishlist";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -33,25 +33,25 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach (var item in Model)
+                                @foreach (var favOgesi in Model)
                                 {
                                     <tr>
-                                        <td class="product-remove text-center" valign="middle"><a href="/Wishlist/UrunSil/@item.UrunID"><i class="icon icon anm anm-times-l"></i></a></td>
+                                        <td class="product-remove text-center" valign="middle"><a href="/Wishlist/UrunSil/@favOgesi.UrunID"><i class="icon icon anm anm-times-l"></i></a></td>
                                         <td class="product-thumbnail text-center">
-                                            <a href="#"><img src="@item.UrunGorseli" alt="" title="" /></a>
+                                            <a href="#"><img src="@favOgesi.UrunGorseli" alt="" title="" /></a>
                                         </td>
-                                        <td class="product-name"><h4 class="no-margin"><a href="#">@item.UrunAdi</a></h4></td>
-                                        <td class="product-price text-center"><span class="amount">@item.Fiyat</span></td>
+                                        <td class="product-name"><h4 class="no-margin"><a href="#">@favOgesi.UrunAdi</a></h4></td>
+                                        <td class="product-price text-center"><span class="amount">@favOgesi.Fiyat</span></td>
                                         <td class="stock text-center">
-                                            <span class="in-stock">@item.Kategori</span>
+                                            <span class="in-stock">@favOgesi.Kategori</span>
                                         </td>
-                                        <td>
+                                        <!--<td>
                                             <form class="variants add" action="/Sepet/UrunSepeteEkle" method="post">
-                                                <input type="hidden" name="urunId" value="@item.UrunID" /> <!-- Ürünün ID'sini buradan alıyoruz -->
-                                                <input type="hidden" name="adet" value="1" /> <!-- Varsayılan adet değeri -->
-                                                <button class="btn btn-addto-cart" type="submit">Sepete Ekle</button>
+                                                <input type="hidden" name="urunId" value="@favOgesi.UrunID" />--> <!-- Ürünün ID'sini buradan alıyoruz -->
+                                                <!--<input type="hidden" name="adet" value="1" />--> <!-- Varsayılan adet değeri -->
+                                                <!--<button class="btn btn-addto-cart" type="submit">Sepete Ekle</button>
                                             </form>
-                                        </td>
+                                        </td>-->
                                         @*<td class="product-subtotal text-center"><button type="button" class="btn btn-small">Sepete Ekle</button></td>*@
                                     </tr>
                                 }

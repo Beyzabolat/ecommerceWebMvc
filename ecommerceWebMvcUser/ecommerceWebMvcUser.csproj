@@ -905,6 +905,7 @@
     <Content Include="Views\RoleAdmin\Index.cshtml" />
     <Content Include="Views\RoleAdmin\Error.cshtml" />
     <Content Include="Views\Wishlist\Index.cshtml" />
+    <Content Include="Views\Sepet\AddToWishlist.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

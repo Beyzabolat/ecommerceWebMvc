@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
+using System.Web;
 
 namespace ecommerceWebMvcUser.Controllers
 {
@@ -30,6 +31,11 @@ namespace ecommerceWebMvcUser.Controllers
         public ActionResult UrunSepeteEkle(int urunId, int adet)
         {
             // Sepeti al
+            if (!User.Identity.IsAuthenticated)
+            {
+                // Kullanıcı oturum açmamışsa, favorilere eklemeye izin vermeyin.
+                return RedirectToAction("Login", "Account"); // Giriş sayfasına yönlendirme yapabilirsiniz.
+            }
             Sepet sepet = Session["Sepet"] as Sepet;
 
             // Eğer sepet boşsa, yeni bir sepet oluştur
@@ -51,30 +57,55 @@ namespace ecommerceWebMvcUser.Controllers
             // Sepetin güncellenmiş halini göstermek için sepet sayfasına yönlendir
             return RedirectToAction("Index");
         }
+        public ActionResult UrunFavorilereEkle(int urunId, int adet)
+        {
 
-        //[HttpPost]
-        //public ActionResult UrunSepeteEkle(int urunId)
-        //{
-        //    // Sepeti al
-        //    Sepet sepet = Session["Sepet"] as Sepet;
+            // Sepeti al
+            if (!User.Identity.IsAuthenticated)
+            {
+                // Kullanıcı oturum açmamışsa, favorilere eklemeye izin vermeyin.
+                return RedirectToAction("Login", "Account"); // Giriş sayfasına yönlendirme yapabilirsiniz.
+            }
+            Sepet sepet = Session["Sepet"] as Sepet;
 
-        //    // Eğer sepet boşsa, yeni bir sepet oluştur
-        //    if (sepet == null)
-        //    {
-        //        sepet = new Sepet();
-        //        Session["Sepet"] = sepet;
-        //    }
+            // Eğer sepet boşsa, yeni bir sepet oluştur
+            if (sepet == null)
+            {
+                sepet = new Sepet();
+                Session["Sepet"] = sepet;
+            }
 
-        //    // Ürünü veritabanından alın (örneğin Entity Framework kullanarak)
-        //    Urunler urun = GetUrunById(urunId);
-        //    int adet = Convert.ToInt32(Request.Form["quantity"]);
-        //    // Ürünü sepete ekle
-        //    sepet.UrunEkle(urun, adet);
+            // Ürünü veritabanından alın (örneğin Entity Framework kullanarak)
+            Urunler urun = GetUrunById(urunId);
 
-        //    // Sepetin güncellenmiş halini göstermek için sepet sayfasına yönlendir
-        //    return RedirectToAction("Index");
-        //}
-        public ActionResult SepetiGoruntule()
+            // Adet sayısını JavaScript kodundan alın
+            int urunAdeti = adet;
+
+            // Ürünü sepete ekle
+            sepet.UrunEkle(urun, urunAdeti);
+
+
+            // Sepetin güncellenmiş halini göstermek için sepet sayfasına yönlendir
+            return RedirectToAction("AddToWishlist");
+        }
+        public ActionResult AddToWishlist()
+        {
+            Sepet sepet = Session["Sepet"] as Sepet;
+
+            // Eğer sepet boşsa, yeni bir sepet oluştur
+            if (sepet == null)
+            {
+                sepet = new Sepet();
+                Session["Sepet"] = sepet;
+            }
+            int toplamAdet = sepet.ToplamAdet();
+            
+            ViewBag.ToplamAdet = toplamAdet;
+            
+            return View(sepet.SepetOgeleriniGetir());
+          
+        }
+            public ActionResult SepetiGoruntule()
         {
             List<SepetOgesi> sepet = Session["Sepet"] as List<SepetOgesi>;
 
@@ -99,6 +130,11 @@ namespace ecommerceWebMvcUser.Controllers
         {
             Session["Sepet"] = new List<SepetOgesi>();
             return RedirectToAction("Index");
+        }
+        public ActionResult BosaltFavori()
+        {
+            Session["Sepet"] = new List<SepetOgesi>();
+            return RedirectToAction("AddToWishlist");
         }
         public ActionResult DevamEt()
         {
@@ -145,7 +181,35 @@ namespace ecommerceWebMvcUser.Controllers
         }
 
 
+        public ActionResult UrunFavoriSil(int urunId)
+        {
+            try
+            {
+                // Sepeti al
+                Sepet sepet = Session["Sepet"] as Sepet;
 
+                // Eğer sepet boşsa veya ürün ID'si hatalıysa, Index sayfasına yönlendir
+                if (sepet == null || urunId <= 0)
+                {
+                    return RedirectToAction("AddToWishlist");
+                }
+
+                // Ürünü sepetten kaldır
+                sepet.UrunuSil(urunId);
+
+                // Ürünü başarıyla kaldırdıktan sonra, sepetin ana sayfasına yönlendir
+                return RedirectToAction("AddToWishlist");
+            }
+            catch (Exception ex)
+            {
+                // Hata ayıklama için hatayı göster
+                Console.WriteLine(ex.Message);
+                // Hata durumunda yapılacak işlemi burada belirleyebilirsiniz.
+                return RedirectToAction("AddToWishlist");
+            }
+
+
+        }
 
         private Urunler GetUrunById(int urunId)
         {

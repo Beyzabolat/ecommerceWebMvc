@@ -5,6 +5,7 @@
 
 @{ ViewBag.Title = "Sepet";
     Layout = "~/Views/Shared/_Layout.cshtml"; }
+
 <div class="page section-header text-center">
     <div class="page-title">
         <div class="wrapper"><h1 class="page-width">Sepetiniz</h1></div>
@@ -22,7 +23,7 @@
 
             if (!isNaN(currentQuantity)) {
                 var totalAmount = currentQuantity * unitPrice;
-                $('#totalAmount-' + urunId).text(totalAmount.toFixed(2) + ' ₺'  );
+                $('#totalAmount-' + urunId).text(totalAmount.toFixed(2) + ' ₺');
             }
         }
 
@@ -188,68 +189,5 @@
     });
 </script>
 
-
-@*<script>
-        // Sayfa yüklendiğinde çalışacak kod
-        $(document).ready(function () {
-            // Her bir ürün için gerekli işlemleri yapın
-            $(".product-form__input.qty").each(function () {
-                var urunId = $(this).data("product-id"); // Ürün ID'sini alın
-                var quantityInput = $(this);
-                var currentQuantity = parseInt(quantityInput.val());
-
-                // Eğer mevcut adet bilgisi geçerli değilse veya 1'den küçükse, 1 olarak ayarlayın
-                if (isNaN(currentQuantity) || currentQuantity < 1) {
-                    currentQuantity = 1;
-                    quantityInput.val(currentQuantity);
-                }
-
-                // Toplam fiyatı güncelleyin
-                updateTotalPrice(urunId);
-            });
-        });
-
-        // Arttırma işlemi için
-        $(".qtyBtn.plus").on("click", function (e) {
-            e.preventDefault(); // Sayfa yenilenmesini engelle
-
-            var productId = $(this).data("product-id");
-
-            // AJAX isteği gönder
-            $.ajax({
-                url: "/Sepet/Arttir",
-                type: "POST",
-                data: { productId: productId },
-                success: function (result) {
-                    // Başarıyla tamamlandığında, sepet sayfasını yenile
-                    window.location.reload();
-                },
-                error: function (error) {
-                    console.log(error);
-                }
-            });
-        });
-
-        // Azaltma işlemi için
-        $(".qtyBtn.minus").on("click", function (e) {
-            e.preventDefault(); // Sayfa yenilenmesini engelle
-
-            var productId = $(this).data("product-id");
-
-            // AJAX isteği gönder
-            $.ajax({
-                url: "/Sepet/Azalt",
-                type: "POST",
-                data: { productId: productId },
-                success: function (result) {
-                    // Başarıyla tamamlandığında, sepet sayfasını yenile
-                    window.location.reload();
-                },
-                error: function (error) {
-                    console.log(error);
-                }
-            });
-        });
-    </script>*@
 
 
