@@ -21,21 +21,21 @@ namespace ecommerceWebMvcUser.Controllers
                 wishlist = new Wishlist();
                 Session["Wishlist"] = wishlist;
             }
-           
-           
+
+
             return View(wishlist.FavOgeleriniGetir());
         }
         [HttpPost]
         public ActionResult UrunSepeteEkle(int urunId, int adet)
         {
             // Sepeti al
-            Sepet sepet = Session["Sepet"] as Sepet;
+            Wishlist wishlist = Session["Wishlist"] as Wishlist;
 
             // Eğer sepet boşsa, yeni bir sepet oluştur
-            if (sepet == null)
+            if (wishlist == null)
             {
-                sepet = new Sepet();
-                Session["Sepet"] = sepet;
+                wishlist = new Wishlist();
+                Session["Sepet"] = wishlist;
             }
 
             // Ürünü veritabanından alın (örneğin Entity Framework kullanarak)
@@ -45,55 +45,37 @@ namespace ecommerceWebMvcUser.Controllers
             int urunAdeti = adet;
 
             // Ürünü sepete ekle
-            sepet.UrunEkle(urun, urunAdeti);
+            wishlist.UrunEkle(urun, urunAdeti);
 
             // Sepetin güncellenmiş halini göstermek için sepet sayfasına yönlendir
             return RedirectToAction("Index");
         }
 
-     
-        public ActionResult SepetiGoruntule()
-        {
-            List<SepetOgesi> sepet = Session["Sepet"] as List<SepetOgesi>;
 
-            // Toplam tutarı hesaplayın
-            decimal toplamTutar = 0;
-            if (sepet != null)
-            {
-                foreach (var sepetItem in sepet)
-                {
-                    toplamTutar += sepetItem.ToplamFiyat;
-                }
-            }
 
-            // Hesaplanan toplam tutarı ViewBag veya Model üzerinden View'e iletebilirsiniz
-            ViewBag.ToplamTutar = toplamTutar;
-
-            return View();
-        }
 
 
         public ActionResult Bosalt()
         {
-            Session["Sepet"] = new List<SepetOgesi>();
+            Session["Wishlist"] = new List<FavOgesi>();
             return RedirectToAction("Index");
         }
-       
+
         public ActionResult UrunSil(int urunId)
         {
             try
             {
                 // Sepeti al
-                Sepet sepet = Session["Sepet"] as Sepet;
+                Wishlist wishlist = Session["Wishlist"] as Wishlist;
 
                 // Eğer sepet boşsa veya ürün ID'si hatalıysa, Index sayfasına yönlendir
-                if (sepet == null || urunId <= 0)
+                if (wishlist == null || urunId <= 0)
                 {
                     return RedirectToAction("Index");
                 }
 
                 // Ürünü sepetten kaldır
-                sepet.UrunuSil(urunId);
+                wishlist.UrunuSil(urunId);
 
                 // Ürünü başarıyla kaldırdıktan sonra, sepetin ana sayfasına yönlendir
                 return RedirectToAction("Index");
@@ -120,11 +102,5 @@ namespace ecommerceWebMvcUser.Controllers
                 return urun;
             }
         }
-
-
-
-
-
-
     }
 }
