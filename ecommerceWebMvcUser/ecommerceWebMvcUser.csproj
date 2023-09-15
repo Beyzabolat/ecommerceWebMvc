@@ -246,6 +246,7 @@
     <Compile Include="Controllers\RoleAdminController.cs" />
     <Compile Include="Controllers\SatisController.cs" />
     <Compile Include="Controllers\SepetController.cs" />
+    <Compile Include="Controllers\SiparisController.cs" />
     <Compile Include="Controllers\TakiController.cs" />
     <Compile Include="Controllers\UrunDetayController.cs" />
     <Compile Include="Controllers\UrunlerController.cs" />
@@ -906,6 +907,8 @@
     <Content Include="Views\RoleAdmin\Error.cshtml" />
     <Content Include="Views\Wishlist\Index.cshtml" />
     <Content Include="Views\Sepet\AddToWishlist.cshtml" />
+    <Content Include="Views\Siparis\SiparisDetay.cshtml" />
+    <Content Include="Views\Sepet\SiparisOnay.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

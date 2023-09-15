@@ -21,12 +21,45 @@ namespace ecommerceWebMvcUser.Controllers
                 sepet = new Sepet();
                 Session["Sepet"] = sepet;
             }
+           
+            decimal toplamsepet = sepet.ToplamSepet();
             int toplamAdet = sepet.ToplamAdet();
             decimal toplamTutar = sepet.ToplamTutar();
             ViewBag.ToplamAdet = toplamAdet;
             ViewBag.ToplamTutar = toplamTutar;
+            ViewBag.ToplamSepet = toplamsepet;
             return View(sepet.SepetOgeleriniGetir());
         }
+        public ActionResult SiparisOnay()
+        {
+            Sepet sepet = Session["Sepet"] as Sepet;
+            decimal kargoUcreti = 50.00M; // Kargo ücreti
+           //decimal toplamOdenecek = sepet.ToplamTutar() + kargoUcreti;
+            ViewBag.ToplamOdenecek = sepet.ToplamTutar() + kargoUcreti;
+
+            decimal toplamsepet = sepet.ToplamSepet();
+            int toplamAdet = sepet.ToplamAdet();
+            decimal toplamTutar = sepet.ToplamTutar();
+            ViewBag.ToplamAdet = toplamAdet;
+            ViewBag.ToplamTutar = toplamTutar;
+            ViewBag.ToplamSepet = toplamsepet;
+            //ViewBag.ToplamOdenecek = toplamOdenecek; // Yeni değişkeni ViewBag ile görünüme aktarın
+            return View(sepet.SepetOgeleriniGetir());
+        }
+
+        //public ActionResult SiparisOnay()
+        //{
+
+        //    Sepet sepet = Session["Sepet"] as Sepet;
+        //    decimal toplamOdenecek = sepet.ToplamTutar + sepet.;
+        //    decimal toplamsepet = sepet.ToplamSepet();
+        //    int toplamAdet = sepet.ToplamAdet();
+        //    decimal toplamTutar = sepet.ToplamTutar();
+        //    ViewBag.ToplamAdet = toplamAdet;
+        //    ViewBag.ToplamTutar = toplamTutar;
+        //    ViewBag.ToplamSepet = toplamsepet;
+        //    return View(sepet.SepetOgeleriniGetir());
+        //}
         [HttpPost]
         public ActionResult UrunSepeteEkle(int urunId, int adet)
         {

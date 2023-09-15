@@ -15,6 +15,10 @@
 @section scripts {
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
+
+
+
+
         function updateTotalPrice(urunId) {
             var quantityInput = $('#Quantity-' + urunId);
             var currentQuantity = parseInt(quantityInput.val());
@@ -100,8 +104,7 @@
                         <i class="icon icon anm anm-times-l"></i>
                     </a>
                 </td>
-            </tr>
-}
+            </tr>}
                     </tbody>
                     <tfoot>
                         <tr>
@@ -122,6 +125,27 @@
                     </tfoot>
                 </table>
             </form>
+        </div>
+        <div class="col-12 col-sm-12 col-md-4 col-lg-4 cart__footer">
+           
+            <div class="solid-border">
+                <div class="row">
+                    <span class="col-12 col-sm-6 cart__subtotal-title"><strong>Toplam Tutar</strong></span>
+                    <span class="col-12 col-sm-6 cart__subtotal-title cart__subtotal text-right"><span class="money">@ViewBag.ToplamSepet ₺</span></span>
+                </div>
+              
+                <form action="/Sepet/SiparisOnay" method="post">
+                    <!-- Sepet içeriği burada listelenebilir. -->
+
+                    <input type="submit" name="checkout" class="btn btn--small-wide checkout" value="Sepeti Onayla">
+                </form>
+
+                @*<input type="submit" name="checkout" id="cartCheckout" class="btn btn--small-wide checkout" value="Sepeti Onayla">*@
+
+                @*<input type="submit" name="checkout" id="cartCheckout" class="btn btn--small-wide checkout" value="Sepeti Onayla" disabled="disabled">*@
+                <div class="paymnet-img"><img src="/belle-multipurpose-bootstrap-html-template/assets/images/payment-img.jpg" alt="Payment"></div>
+            </div>
+
         </div>
     </div>
 
@@ -188,6 +212,4 @@
         });
     });
 </script>
-
-
 
