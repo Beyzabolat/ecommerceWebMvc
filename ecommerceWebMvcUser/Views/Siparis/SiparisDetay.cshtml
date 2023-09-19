@@ -28,7 +28,7 @@
                                 <th class="text-center">Fiyat</th>
                                 <th class="text-center">Adet</th>
                                 <th class="text-center">Toplam</th>
-                                <th class="action">&nbsp;</th>
+                                @*<th class="action">&nbsp;</th>*@
                             </tr>
                         </thead>
                         <tbody>
@@ -57,7 +57,7 @@
                     @*<td class="text-right small--hide cart-price">
                             <div><span class="money">@sepetOgesi.ToplamFiyat</span></div>
                         </td>*@
-                    <td class="text-center small--hide"><a href="@Url.Action("UrunSil", "Sepet", new { urunId = sepetOgesi.UrunID })" class="btn btn--secondary cart__remove" title="Remove tem"><i class="icon icon anm anm-times-l"></i></a></td>
+                    @*<td class="text-center small--hide"><a href="@Url.Action("UrunSil", "Sepet", new { urunId = sepetOgesi.UrunID })" class="btn btn--secondary cart__remove" title="Remove tem"><i class="icon icon anm anm-times-l"></i></a></td>*@
                 </tr>}
                         </tbody>
                         <tfoot>
@@ -78,27 +78,30 @@
         </div>
 
         <fieldset>
-            <h2 class="login-title mb-3">FATURA DETAYLARI</h2>
-            <div class="row">
-                <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
-                    <label for="input-firstname">İsim <span class="required-f">*</span></label>
-                    <input name="firstname" value="@ViewBag.Isim" id="input-firstname" type="text">
-                </div>
-                <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
-                    <label for="input-lastname">Soyisim <span class="required-f">*</span></label>
-                    <input name="lastname" value="@ViewBag.Soyisim" id="input-lastname" type="text">
-                </div>
-            </div>
-            <div class="row">
-                <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
-                    <label for="input-email">E-Mail <span class="required-f">*</span></label>
-                    <input name="email" value="@ViewBag.Email" id="input-email" type="email">
-                </div>
-                <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
-                    <label for="input-telephone">Telefon <span class="required-f">*</span></label>
-                    <input name="telephone" value="@ViewBag.Telefon" id="input-telephone" type="tel">
-                </div>
-            </div>
+            @foreach (var sepetOgesi in Model)
+            {
+        <h2 class="login-title mb-3">FATURA DETAYLARI</h2>
+                       
+                        @*<div class="row">
+                        <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
+                            <label for="input-firstname">İsim <span class="required-f">*</span></label>
+                            <input name="firstname" value="@sepetOgesi.siparisAdi" id="input-firstname" type="text">
+                        </div>
+                        <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
+                            <label for="input-lastname">Soyisim <span class="required-f">*</span></label>
+                            <input name="lastname" value="@ViewBag.Soyisim" id="input-lastname" type="text">
+                        </div>
+                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
+                                            <label for="input-email">E-Mail <span class="required-f">*</span></label>
+                                            <input name="email" value="@ViewBag.Email" id="input-email" type="email">
+                                        </div>
+                                        <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
+                                            <label for="input-telephone">Telefon <span class="required-f">*</span></label>
+                                            <input name="telephone" value="@ViewBag.Telefon" id="input-telephone" type="tel">
+                                        </div>
+                                    </div>}*@            }
         </fieldset>
 
 
@@ -143,6 +146,6 @@
             <td>Adres</td>
             <td>@ViewBag.Adres</td>
         </tr>-->
-        <!-- Diğer kullanıcı bilgileri -->
-    <!--</tbody>
+<!-- Diğer kullanıcı bilgileri -->
+<!--</tbody>
 </table>-->

@@ -16,6 +16,14 @@ namespace ecommerceWebMvcUser.Models.Classes
         public string UrunGorseli { get; set; }
        public decimal kargoUcreti { get; set; }
         public decimal ToplamFiyat => Fiyat * Adet;
+        //public string siparisAdi { get; set; }
+        //public string siparisSoyadi { get; set; }
+        //public string siparisMail { get; set; }
+        //public string siparisTelefon { get; set; }
+        //public string siparisİl { get; set; }
+        //public string siparisİlce { get; set; }
+        //public string siparisAdres { get; set; }
+        //public string siparisNot { get; set; }
 
      
     }

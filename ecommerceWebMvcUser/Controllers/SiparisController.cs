@@ -77,38 +77,5 @@ namespace ecommerceWebMvcUser.Controllers
 
 
 
-        //    // Sepet bilgilerini toplamak için kodlar buraya gelecek.
-        //    Sepet sepet = Session["Sepet"] as Sepet;
-
-        //    // Eğer sepet boşsa veya oturum süresi dolmuşsa uygun bir kontrol ekleyin.
-        //    if (sepet == null)
-        //    {
-        //        // Sepet boş veya oturum süresi dolmuşsa bir işlem yapın (örneğin, başka bir sayfaya yönlendirme).
-        //        return RedirectToAction("Index", "Home"); // Örnek olarak anasayfaya yönlendirme yapabilirsiniz.
-        //    }
-
-        //    // Kullanıcı bilgilerini almak için giriş yapmış kullanıcıyı kontrol edebilirsiniz.
-        //    // Örnek: var kullanici = User.Identity.Name;
-
-        //    // Sipariş bilgilerini toplamak ve ViewBag aracılığıyla görünüme iletmek için aşağıdaki kodları kullanabilirsiniz.
-        //    decimal toplamsepet = sepet.ToplamSepet();
-        //    int toplamAdet = sepet.ToplamAdet();
-        //    decimal toplamTutar = sepet.ToplamTutar();
-
-        //    ViewBag.ToplamAdet = toplamAdet;
-        //    ViewBag.ToplamTutar = toplamTutar;
-        //    ViewBag.ToplamSepet = toplamsepet;
-
-        //    return View(sepet.SepetOgeleriniGetir());
-        //}
-
-        //// Kullanıcı bilgilerini almak için giriş yapmış kullanıcıyı kontrol edebilirsiniz.
-        //// Örnek: var kullanici = User.Identity.Name;
-
-        //// ViewModel veya ViewBag aracılığıyla bilgileri iletebilirsiniz.
-        //ViewBag.Sepet = sepet;
-        //ViewBag.Kullanici = kullanici;
-
-        //return View(); // Sipariş bilgilerini gösteren Razor görünümünü döndürün.
     }
 }

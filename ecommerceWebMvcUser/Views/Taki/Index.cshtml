@@ -1,11 +1,13 @@
 ﻿@model ecommerceWebMvcUser.Models.Classes.Urunler
-
 @using ecommerceWebMvcUser.Models.Classes;
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+
+
 
 <!--Home slider-->
 <div class="slideshow slideshow-wrapper pb-section">
@@ -17,9 +19,10 @@
                     <div class="slideshow__text-content middle">
                         <div class="container">
                             <div class="wrap-caption right">
-                                <h2 class="h1 mega-title slideshow__title">Wedding bands</h2>
-                                <span class="mega-subtitle slideshow__subtitle">Wedding bands will be one of the most tangible elements of your wedding<br> day, and a lasting symbol of your love.</span>
-                                <span class="btn">Shop now</span>
+                                <h2 class="h1 mega-title slideshow__title" style="color:dimgray;">Nişan yüzükleri</h2>
+                                <span class="mega-subtitle slideshow__subtitle" style="color: darkgrey;">Nişan yüzükleri, düğün gününüzün en somut unsurlarından biri olacak ve aşkınızın kalıcı sembolü olacaktır.</span>
+                                <a href="@Url.Action("Index", "KadinTaki")" class="btn">Şimdi alışveriş yapın</a>
+
                             </div>
                         </div>
                     </div>
@@ -33,9 +36,9 @@
                     <div class="slideshow__text-content middle">
                         <div class="container">
                             <div class="wrap-caption left">
-                                <h2 class="h1 mega-title slideshow__title">Shop New Collection</h2>
-                                <span class="mega-subtitle slideshow__subtitle">From Hight to low, classic or modern. We have you<br>covered</span>
-                                <span class="btn">Shop now</span>
+                                <h2 class="h1 mega-title slideshow__title" style="color:grey;">Yeni Koleksiyonu İnceleyin</h2>
+                                <span class="mega-subtitle slideshow__subtitle" style="color:darkgrey;">Yüksekten düşüğe, klasik veya modern. Sizi önemsiyoruz.</span>
+                                <a href="@Url.Action("Index", "KadinTaki")" class="btn" >Şimdi alışveriş yapın</a>
                             </div>
                         </div>
                     </div>
@@ -52,31 +55,31 @@
             <div class="row">
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="section-header text-center">
-                        <h2 class="h2 heading-font">New Collections</h2>
-                        <p>Modern and classic designs to suit every style.</p>
+                        <h2 class="h2 heading-font">Yeni Koleksiyonlar</h2>
+                        <p>Her tarza uygun modern ve klasik tasarımlar.</p>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-12 col-sm-6 col-md-6 col-lg-6 pl-0">
                     <div class="inner btmleft">
-                        <a href="#">
+                        <a href="/KadinTaki/Index/">
                             <img data-src="/belle-multipurpose-bootstrap-html-template/assets/images/collection/jewellery-collection1.jpg" src="/belle-multipurpose-bootstrap-html-template/assets/images/collection/jewellery-collection1.jpg" alt="" class="blur-up lazyload" />
-                            <span class="ttl">LAYERS OF DELICATE DESIRE</span>
+                            <span class="ttl">NAZİK ARZULAR</span>
                         </a>
                     </div>
                 </div>
                 <div class="col-12 col-sm-6 col-md-6 col-lg-6 pr-0">
                     <div class="inner center">
-                        <a href="#">
+                        <a href="/KadinTaki/Index/">
                             <img data-src="/belle-multipurpose-bootstrap-html-template/assets/images/collection/jewellery-collection2.jpg" src="/belle-multipurpose-bootstrap-html-template/assets/images/collection/jewellery-collection2.jpg" alt="" class="blur-up lazyload" />
-                            <span class="ttl">GIFT FOR HER</span>
+                            <span class="ttl">ONUN İÇİN HEDİYE</span>
                         </a>
                     </div>
                     <div class="inner btmright mt-4">
-                        <a href="#">
+                        <a href="/KadinTaki/Index/">
                             <img data-src="/belle-multipurpose-bootstrap-html-template/assets/images/collection/jewellery-collection3.jpg" src="/belle-multipurpose-bootstrap-html-template/assets/images/collection/jewellery-collection3.jpg" alt="" class="blur-up lazyload" />
-                            <span class="ttl">FOR YOUR LOVED ONE</span>
+                            <span class="ttl">SEVDİKLERİNİZ İÇİN</span>
                         </a>
                     </div>
                 </div>
@@ -91,8 +94,8 @@
         <div class="row">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="section-header text-center">
-                    <h2 class="h2 heading-font">Hot picks</h2>
-                    <p>Jewellery is the next best thing to Love!</p>
+                    <h2 class="h2 heading-font">En Çok Tercih Edilenler</h2>
+                    <p>Mücevher, Aşk'tan sonraki en güzel şeydir!</p>
                 </div>
             </div>
         </div>
@@ -101,7 +104,7 @@
                 <!-- start product image -->
                 <div class="product-image">
                     <!-- start product image -->
-                    <a href="product-layout-1.html" class="grid-view-item__link">
+                    <a href="/Urunler/UrunDetay/74" class="grid-view-item__link">
                         <!-- image -->
                         <img class="primary blur-up lazyload" data-src="/belle-multipurpose-bootstrap-html-template/assets/images/jewellery-products/jewellery-products1.jpg" src="/belle-multipurpose-bootstrap-html-template/assets/images/jewellery-products/jewellery-products1.jpg" alt="image" title="product">
                         <!-- End image -->
@@ -109,39 +112,18 @@
                         <img class="hover blur-up lazyload" data-src="/belle-multipurpose-bootstrap-html-template/assets/images/jewellery-products/jewellery-products1-1.jpg" src="/belle-multipurpose-bootstrap-html-template/assets/images/jewellery-products/jewellery-products1-1.jpg" alt="image" title="product">
                         <!-- End hover image -->
                     </a>
-                    <!-- end product image -->
-                    <!-- Start product button -->
-                    <form class="variants add" action="#" onclick="window.location.href='cart.html'" method="post">
-                        <button class="btn btn-addto-cart" type="button" tabindex="0">Add To Cart</button>
-                    </form>
-                    <div class="button-set">
-                        <a href="javascript:void(0)" title="Quick View" class="quick-view-popup quick-view" data-toggle="modal" data-target="#content_quickview">
-                            <i class="icon anm anm-search-plus-r"></i>
-                        </a>
-                        <div class="wishlist-btn">
-                            <a class="wishlist add-to-wishlist" href="wishlist.html">
-                                <i class="icon anm anm-heart-l"></i>
-                            </a>
-                        </div>
-                        <div class="compare-btn">
-                            <a class="compare add-to-compare" href="compare.html" title="Add to Compare">
-                                <i class="icon anm anm-random-r"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- end product button -->
-                </div>
+                   </div>
                 <!-- end product image -->
                 <!--start product details -->
                 <div class="product-details text-center">
                     <!-- product name -->
                     <div class="product-name">
-                        <a href="product-layout-1.html">Silver Designer Pendant Set</a>
+                        <a href="/Urunler/UrunDetay/74">Silver Designer Pendant Set</a>
                     </div>
                     <!-- End product name -->
                     <!-- product price -->
                     <div class="product-price">
-                        <span class="price">$15.00</span>
+                        <span class="price">2500,00 ₺</span>
                     </div>
                     <!-- End product price -->
                 </div>
@@ -151,7 +133,7 @@
                 <!-- start product image -->
                 <div class="product-image">
                     <!-- start product image -->
-                    <a href="product-layout-1.html" class="grid-view-item__link">
+                    <a href="/Urunler/UrunDetay/77" class="grid-view-item__link">
                         <!-- image -->
                         <img class="primary blur-up lazyload" data-src="/belle-multipurpose-bootstrap-html-template/assets/images/jewellery-products/jewellery-products2.jpg" src="/belle-multipurpose-bootstrap-html-template/assets/images/jewellery-products/jewellery-products2.jpg" alt="image" title="product">
                         <!-- End image -->
@@ -159,39 +141,18 @@
                         <img class="hover blur-up lazyload" data-src="/belle-multipurpose-bootstrap-html-template/assets/images/jewellery-products/jewellery-products2-1.jpg" src="/belle-multipurpose-bootstrap-html-template/assets/images/jewellery-products/jewellery-products2-1.jpg" alt="image" title="product">
                         <!-- End hover image -->
                     </a>
-                    <!-- end product image -->
-                    <!-- Start product button -->
-                    <form class="variants add" action="#" onclick="window.location.href='cart.html'" method="post">
-                        <button class="btn btn-addto-cart" type="button" tabindex="0">Select Options</button>
-                    </form>
-                    <div class="button-set">
-                        <a href="javascript:void(0)" title="Quick View" class="quick-view-popup quick-view" data-toggle="modal" data-target="#content_quickview">
-                            <i class="icon anm anm-search-plus-r"></i>
-                        </a>
-                        <div class="wishlist-btn">
-                            <a class="wishlist add-to-wishlist" href="wishlist.html">
-                                <i class="icon anm anm-heart-l"></i>
-                            </a>
-                        </div>
-                        <div class="compare-btn">
-                            <a class="compare add-to-compare" href="compare.html" title="Add to Compare">
-                                <i class="icon anm anm-random-r"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- end product button -->
                 </div>
                 <!-- end product image -->
                 <!--start product details -->
                 <div class="product-details text-center">
                     <!-- product name -->
                     <div class="product-name">
-                        <a href="product-layout-1.html">Cardinal Necklace Set for Women</a>
+                        <a href="/Urunler/UrunDetay/77">Cardinal Kolye Set</a>
                     </div>
                     <!-- End product name -->
                     <!-- product price -->
                     <div class="product-price">
-                        <span class="price">$70.00</span>
+                        <span class="price">5500,00 ₺</span>
                     </div>
                     <!-- End product price -->
                 </div>
@@ -201,7 +162,7 @@
                 <!-- start product image -->
                 <div class="product-image">
                     <!-- start product image -->
-                    <a href="product-layout-1.html" class="grid-view-item__link">
+                    <a href="/Urunler/UrunDetay/78" class="grid-view-item__link">
                         <!-- image -->
                         <img class="primary blur-up lazyload" data-src="/belle-multipurpose-bootstrap-html-template/assets/images/jewellery-products/jewellery-products3.jpg" src="/belle-multipurpose-bootstrap-html-template/assets/images/jewellery-products/jewellery-products3.jpg" alt="image" title="product">
                         <!-- End image -->
@@ -209,39 +170,18 @@
                         <img class="hover blur-up lazyload" data-src="/belle-multipurpose-bootstrap-html-template/assets/images/jewellery-products/jewellery-products3-1.jpg" src="/belle-multipurpose-bootstrap-html-template/assets/images/jewellery-products/jewellery-products3-1.jpg" alt="image" title="product">
                         <!-- End hover image -->
                     </a>
-                    <!-- end product image -->
-                    <!-- Start product button -->
-                    <form class="variants add" action="#" onclick="window.location.href='cart.html'" method="post">
-                        <button class="btn btn-addto-cart" type="button" tabindex="0">Add To Cart</button>
-                    </form>
-                    <div class="button-set">
-                        <a href="javascript:void(0)" title="Quick View" class="quick-view-popup quick-view" data-toggle="modal" data-target="#content_quickview">
-                            <i class="icon anm anm-search-plus-r"></i>
-                        </a>
-                        <div class="wishlist-btn">
-                            <a class="wishlist add-to-wishlist" href="wishlist.html">
-                                <i class="icon anm anm-heart-l"></i>
-                            </a>
-                        </div>
-                        <div class="compare-btn">
-                            <a class="compare add-to-compare" href="compare.html" title="Add to Compare">
-                                <i class="icon anm anm-random-r"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- end product button -->
                 </div>
                 <!-- end product image -->
                 <!--start product details -->
                 <div class="product-details text-center">
                     <!-- product name -->
                     <div class="product-name">
-                        <a href="product-layout-1.html">Posh Diamond Bracelet</a>
+                        <a href="/Urunler/UrunDetay/78">Posh Diamond Yüzük</a>
                     </div>
                     <!-- End product name -->
                     <!-- product price -->
                     <div class="product-price">
-                        <span class="price">$50.00</span>
+                        <span class="price">2500,00 ₺</span>
                     </div>
                     <!-- End product price -->
                 </div>
@@ -251,7 +191,7 @@
                 <!-- start product image -->
                 <div class="product-image">
                     <!-- start product image -->
-                    <a href="product-layout-1.html" class="grid-view-item__link">
+                    <a href="/Urunler/UrunDetay/81" class="grid-view-item__link">
                         <!-- image -->
                         <img class="primary blur-up lazyload" data-src="/belle-multipurpose-bootstrap-html-template/assets/images/jewellery-products/jewellery-products4.jpg" src="/belle-multipurpose-bootstrap-html-template/assets/images/jewellery-products/jewellery-products4.jpg" alt="image" title="product" />
                         <!-- End image -->
@@ -259,40 +199,19 @@
                         <img class="hover blur-up lazyload" data-src="/belle-multipurpose-bootstrap-html-template/assets/images/jewellery-products/jewellery-products4-1.jpg" src="/belle-multipurpose-bootstrap-html-template/assets/images/jewellery-products/jewellery-products4-1.jpg" alt="image" title="product" />
                         <!-- End hover image -->
                     </a>
-                    <!-- end product image -->
-                    <!-- Start product button -->
-                    <form class="variants add" action="#" onclick="window.location.href='cart.html'" method="post">
-                        <button class="btn btn-addto-cart" type="button" tabindex="0">Add To Cart</button>
-                    </form>
-                    <div class="button-set">
-                        <a href="javascript:void(0)" title="Quick View" class="quick-view-popup quick-view" data-toggle="modal" data-target="#content_quickview">
-                            <i class="icon anm anm-search-plus-r"></i>
-                        </a>
-                        <div class="wishlist-btn">
-                            <a class="wishlist add-to-wishlist" href="wishlist.html">
-                                <i class="icon anm anm-heart-l"></i>
-                            </a>
-                        </div>
-                        <div class="compare-btn">
-                            <a class="compare add-to-compare" href="compare.html" title="Add to Compare">
-                                <i class="icon anm anm-random-r"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- end product button -->
                 </div>
                 <!-- end product image -->
                 <!--start product details -->
                 <div class="product-details text-center">
                     <!-- product name -->
                     <div class="product-name">
-                        <a href="product-layout-1.html">Posh Diamond Bracelet</a>
+                        <a href="/Urunler/UrunDetay/81">Posh Diamond Bileklik</a>
                     </div>
                     <!-- End product name -->
                     <!-- product price -->
                     <div class="product-price">
-                        <span class="old-price">$900.00</span>
-                        <span class="price">$788.00</span>
+                        <span class="old-price">3500,00 ₺</span>
+                        <span class="price">3000,00 ₺</span>
                     </div>
                     <!-- End product price -->
                 </div>
@@ -302,7 +221,7 @@
                 <!-- start product image -->
                 <div class="product-image">
                     <!-- start product image -->
-                    <a href="product-layout-1.html" class="grid-view-item__link">
+                    <a href="/Urunler/UrunDetay/82" class="grid-view-item__link">
                         <!-- image -->
                         <img class="primary blur-up lazyload" data-src="/belle-multipurpose-bootstrap-html-template/assets/images/jewellery-products/jewellery-products5.jpg" src="/belle-multipurpose-bootstrap-html-template/assets/images/jewellery-products/jewellery-products5.jpg" alt="image" title="product" />
                         <!-- End image -->
@@ -310,39 +229,18 @@
                         <img class="hover blur-up lazyload" data-src="/belle-multipurpose-bootstrap-html-template/assets/images/jewellery-products/jewellery-products5-1.jpg" src="/belle-multipurpose-bootstrap-html-template/assets/images/jewellery-products/jewellery-products5-1.jpg" alt="image" title="product" />
                         <!-- End hover image -->
                     </a>
-                    <!-- end product image -->
-                    <!-- Start product button -->
-                    <form class="variants add" action="#" onclick="window.location.href='cart.html'" method="post">
-                        <button class="btn btn-addto-cart" type="button" tabindex="0">Select Options</button>
-                    </form>
-                    <div class="button-set">
-                        <a href="javascript:void(0)" title="Quick View" class="quick-view-popup quick-view" data-toggle="modal" data-target="#content_quickview">
-                            <i class="icon anm anm-search-plus-r"></i>
-                        </a>
-                        <div class="wishlist-btn">
-                            <a class="wishlist add-to-wishlist" href="wishlist.html">
-                                <i class="icon anm anm-heart-l"></i>
-                            </a>
-                        </div>
-                        <div class="compare-btn">
-                            <a class="compare add-to-compare" href="compare.html" title="Add to Compare">
-                                <i class="icon anm anm-random-r"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- end product button -->
                 </div>
                 <!-- end product image -->
                 <!--start product details -->
                 <div class="product-details text-center">
                     <!-- product name -->
                     <div class="product-name">
-                        <a href="product-layout-1.html">Eye-Catchy Fancy Bracelet</a>
+                        <a href="/Urunler/UrunDetay/82">Eye-Catchy Fancy Bileklik </a>
                     </div>
                     <!-- End product name -->
                     <!-- product price -->
                     <div class="product-price">
-                        <span class="price">$55.00</span>
+                        <span class="price">2500,00 ₺</span>
                     </div>
                     <!-- End product price -->
                 </div>
@@ -352,7 +250,7 @@
                 <!-- start product image -->
                 <div class="product-image">
                     <!-- start product image -->
-                    <a href="product-layout-1.html" class="grid-view-item__link">
+                    <a href="/Urunler/UrunDetay/83" class="grid-view-item__link">
                         <!-- image -->
                         <img class="primary blur-up lazyload" data-src="/belle-multipurpose-bootstrap-html-template/assets/images/jewellery-products/jewellery-products6.jpg" src="/belle-multipurpose-bootstrap-html-template/assets/images/jewellery-products/jewellery-products6.jpg" alt="image" title="product" />
                         <!-- End image -->
@@ -360,39 +258,18 @@
                         <img class="hover blur-up lazyload" data-src="/belle-multipurpose-bootstrap-html-template/assets/images/jewellery-products/jewellery-products6-1.jpg" src="/belle-multipurpose-bootstrap-html-template/assets/images/jewellery-products/jewellery-products6-1.jpg" alt="image" title="product" />
                         <!-- End hover image -->
                     </a>
-                    <!-- end product image -->
-                    <!-- Start product button -->
-                    <form class="variants add" action="#" onclick="window.location.href='cart.html'" method="post">
-                        <button class="btn btn-addto-cart" type="button" tabindex="0">Select Options</button>
-                    </form>
-                    <div class="button-set">
-                        <a href="javascript:void(0)" title="Quick View" class="quick-view-popup quick-view" data-toggle="modal" data-target="#content_quickview">
-                            <i class="icon anm anm-search-plus-r"></i>
-                        </a>
-                        <div class="wishlist-btn">
-                            <a class="wishlist add-to-wishlist" href="wishlist.html">
-                                <i class="icon anm anm-heart-l"></i>
-                            </a>
-                        </div>
-                        <div class="compare-btn">
-                            <a class="compare add-to-compare" href="compare.html" title="Add to Compare">
-                                <i class="icon anm anm-random-r"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- end product button -->
                 </div>
                 <!-- end product image -->
                 <!--start product details -->
                 <div class="product-details text-center">
                     <!-- product name -->
                     <div class="product-name">
-                        <a href="product-layout-1.html">Tibetan Stone Beads Necklace Set</a>
+                        <a href="/Urunler/UrunDetay/83">Tibetan Stone Beads Necklace Set</a>
                     </div>
                     <!-- End product name -->
                     <!-- product price -->
                     <div class="product-price">
-                        <span class="price">$55.00</span>
+                        <span class="price">7000,00 ₺</span>
                     </div>
                     <!-- End product price -->
                 </div>
@@ -408,7 +285,7 @@
         <div class="row">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="section-header text-center">
-                    <h2 class="h2">Trendy necklace</h2>
+                    <h2 class="h2">Trend Kolyeler</h2>
                 </div>
             </div>
         </div>
@@ -418,21 +295,21 @@
         <div class="row">
             <div class="col-6 col-sm-6 col-md-4 col-lg-4">
                 <div class="collection-grid-item">
-                    <a href="collection-page.html" class="collection-grid-item__link">
+                    <a href="/KadinTaki/Index/" class="collection-grid-item__link">
                         <img data-src="/belle-multipurpose-bootstrap-html-template/assets/images/collection/jewellery-collection4.jpg" src="/belle-multipurpose-bootstrap-html-template/assets/images/collection/jewellery-collection4.jpg" alt="Hot" class="blur-up lazyload" />
                     </a>
                 </div>
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-4">
                 <div class="collection-grid-item">
-                    <a href="collection-page.html" class="collection-grid-item__link">
+                    <a href="/KadinTaki/Index/" class="collection-grid-item__link">
                         <img data-src="/belle-multipurpose-bootstrap-html-template/assets/images/collection/jewellery-collection5.jpg" src="/belle-multipurpose-bootstrap-html-template/assets/images/collection/jewellery-collection5.jpg" alt="Denim" class="blur-up lazyload" />
                     </a>
                 </div>
             </div>
             <div class="col-6 col-sm-6 col-md-4 col-lg-4">
                 <div class="collection-grid-item">
-                    <a href="collection-page.html" class="collection-grid-item__link">
+                    <a href="/KadinTaki/Index/" class="collection-grid-item__link">
                         <img data-src="/belle-multipurpose-bootstrap-html-template/assets/images/collection/jewellery-collection6.jpg" src="/belle-multipurpose-bootstrap-html-template/assets/images/collection/jewellery-collection6.jpg" alt="Summer" class="blur-up lazyload" />
                     </a>
                 </div>
@@ -449,24 +326,23 @@
                 <ul class="display-table store-info">
                     <li class="display-table-cell">
                         <i class="icon anm anm-truck-l"></i>
-                        <h5>Free Shipping Worldwide</h5>
-                        <span class="sub-text">
-                            Diam augue augue in fusce voluptatem
-                        </span>
+                        <h5>Ücretsiz Kargo ve İade</h5>
+                        <span class="sub-text">Tüm ABD siparişlerinde ücretsiz kargo</span>
                     </li>
                     <li class="display-table-cell">
-                        <i class="icon anm anm-money-bill-ar"></i>
-                        <h5>Money Back Guarantee</h5>
-                        <span class="sub-text">
-                            Use this text to display your store information
-                        </span>
+                        <i class="icon anm anm-dollar-sign-r"></i>
+                        <h5>Para İade Garantisi</h5>
+                        <span class="sub-text">30 gün para iade garantisi</span>
                     </li>
                     <li class="display-table-cell">
                         <i class="icon anm anm-comments-l"></i>
-                        <h5>24/7 Help Center</h5>
-                        <span class="sub-text">
-                            Use this text to display your store information
-                        </span>
+                        <h5>Online Destek</h5>
+                        <span class="sub-text">Online olarak 7/24 destek sağlıyoruz</span>
+                    </li>
+                    <li class="display-table-cell">
+                        <i class="icon anm anm-credit-card-front-r"></i>
+                        <h5>Güvenli Ödemeler</h5>
+                        <span class="sub-text">Tüm ödemeler güvence altında ve güvenilirdir.</span>
                     </li>
                 </ul>
             </div>
@@ -480,9 +356,10 @@
     <div class="hero__inner">
         <div class="container">
             <div class="wrap-text right text-medium font-bold">
-                <h2 class="h2 mega-title">MAKE IT PERSONAL</h2>
-                <div class="rte-setting mega-subtitle">Make your jewels even more meaningful by <br> personalizing them with a name, monogram, coordinates, date,<br>  or a special message.</div>
-                <a href="#" class="btn">personalize Now</a>
+                <h2 class="h2 mega-title">KİŞİSELLEŞTİRİN</h2>
+                <div class="rte-setting mega-subtitle">Mücevherlerinizi isim, monogram, koordinatlar, tarih veya özel bir mesajla kişiselleştirerek daha anlamlı hale getirin.</div>
+                <a href="@Url.Action("Index", "KadinTaki")" class="btn">Şimdi Kişiselleştirin</a>
+
             </div>
         </div>
     </div>

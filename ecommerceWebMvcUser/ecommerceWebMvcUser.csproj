@@ -267,6 +267,7 @@
     <Compile Include="Models\Classes\Kategori.cs" />
     <Compile Include="Models\Classes\SatisHareketi.cs" />
     <Compile Include="Models\Classes\Sepet.cs" />
+    <Compile Include="Models\Classes\SiparisViewModel.cs" />
     <Compile Include="Models\Classes\UrunDetay.cs" />
     <Compile Include="Models\Classes\Urunler.cs" />
     <Compile Include="Models\Classes\UserModel.cs" />

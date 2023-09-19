@@ -17,7 +17,7 @@
     <div class="row billing-fields">
         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 sm-margin-30px-bottom">
             <div class="create-ac-content bg-light-gray padding-20px-all">
-                <form>
+                <form action="/Siparis/SiparisOnay" method="post">
                     <fieldset>
                         <h2 class="login-title mb-3">FATURA DETAYLARI</h2>
                         <div class="row">
@@ -30,49 +30,145 @@
                                 <input name="lastname" value="" id="input-lastname" type="text">
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
-                                <label for="input-email">E-Mail <span class="required-f">*</span></label>
-                                <input name="email" value="" id="input-email" type="email">
-                            </div>
-                            <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
-                                <label for="input-telephone">Telefon <span class="required-f">*</span></label>
-                                <input name="telephone" value="" id="input-telephone" type="tel">
-                            </div>
-                        </div>
-                    </fieldset>
+                        <!-- Diğer alanlar (e-mail, telefon, il, ilçe, adres, sipariş notu) -->
+                        @*<button type ="submit">Siparişi Onayla</button>*@
+                        <form action="@Url.Action("SiparisOnay", "Sepet")" method="post">
+                            <!-- Form içeriği buraya gelecek -->
+                            <button type="submit">Siparişi Onayla</button>
+                        </form>
 
-                    <fieldset>
-                        <div class="row">
-                            <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
-                                <label for="input-city">İl <span class="required-f">*</span></label>
-                                <input name="city" value="" id="input-city" type="text">
-                            </div>
-                            <div class="form-group col-md-6 col-lg-6 col-xl-6">
-                                <label for="input-address-2">İlçe <span class="required-f">*</span></label>
-                                <input name="address_2" value="" id="input-address-2" type="text">
-                            </div>
-
-                        </div>
-                        <div class="row">
-                            <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
-                                <label for="input-address-1">Adres <span class="required-f">*</span></label>
-                                <input name="address_1" value="" id="input-address-1" type="text">
-                            </div>
-
-                        </div>
-
-
-                    </fieldset>
-                    <fieldset>
-                        <div class="row">
-                            <div class="form-group col-md-12 col-lg-12 col-xl-12">
-                                <label for="input-company">Sipariş Notu <span class="required-f">*</span></label>
-                                <textarea class="form-control resize-both" rows="3"></textarea>
-                            </div>
-                        </div>
                     </fieldset>
                 </form>
+
+                <!--<form action="/Siparis/SiparisOnay" method="post">
+        <fieldset>
+            <h2 class="login-title mb-3">FATURA DETAYLARI</h2>
+            <div class="row">
+                <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
+                    <label for="input-firstname">İsim <span class="required-f">*</span></label>
+                    <input name="firstname" value="" id="input-firstname" type="text">
+                </div>
+                <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
+                    <label for="input-lastname">Soyisim <span class="required-f">*</span></label>
+                    <input name="lastname" value="" id="input-lastname" type="text">
+                </div>
+            </div>-->
+                <!-- Diğer alanlar (e-mail, telefon, il, ilçe, adres, sipariş notu) -->
+                <!--<button type="submit">Siparişi Onayla</button>
+        </fieldset>
+    </form>-->
+                @*<form action="/Sepet/SiparisOnay" method="post">
+            <fieldset>
+                <h2 class="login-title mb-3">FATURA DETAYLARI</h2>
+                <div class="row">
+                    <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
+                        <label for="input-firstname">İsim <span class="required-f">*</span></label>
+                        <input name="firstname" value="" id="input-firstname" type="text">
+                    </div>
+                    <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
+                        <label for="input-lastname">Soyisim <span class="required-f">*</span></label>
+                        <input name="lastname" value="" id="input-lastname" type="text">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
+                        <label for="input-email">E-Mail <span class="required-f">*</span></label>
+                        <input name="email" value="" id="input-email" type="email">
+                    </div>
+                    <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
+                        <label for="input-telephone">Telefon <span class="required-f">*</span></label>
+                        <input name="telephone" value="" id="input-telephone" type="tel">
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <div class="row">
+                    <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
+                        <label for="input-city">İl <span class="required-f">*</span></label>
+                        <input name="city" value="" id="input-city" type="text">
+                    </div>
+                    <div class="form-group col-md-6 col-lg-6 col-xl-6">
+                        <label for="input-address-2">İlçe <span class="required-f">*</span></label>
+                        <input name="address_2" value="" id="input-address-2" type="text">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
+                        <label for="input-address-1">Adres <span class="required-f">*</span></label>
+                        <input name="address_1" value="" id="input-address-1" type="text">
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <div class="row">
+                    <div class="form-group col-md-12 col-lg-12 col-xl-12">
+                        <label for="input-company">Sipariş Notu <span class="required-f">*</span></label>
+                        <textarea name="siparisnotu" class="form-control resize-both" rows="3"></textarea>
+                    </div>
+                </div>
+            </fieldset>
+
+            <button type="submit">Onayla</button>
+        </form>*@
+
+                @*<form>
+            <fieldset>
+                <h2 class="login-title mb-3">FATURA DETAYLARI</h2>
+                <div class="row">
+                    <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
+                        <label for="input-firstname">İsim <span class="required-f">*</span></label>
+                        <input name="firstname" value="" id="input-firstname" type="text">
+                    </div>
+                    <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
+                        <label for="input-lastname">Soyisim <span class="required-f">*</span></label>
+                        <input name="lastname" value="" id="input-lastname" type="text">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
+                        <label for="input-email">E-Mail <span class="required-f">*</span></label>
+                        <input name="email" value="" id="input-email" type="email">
+                    </div>
+                    <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
+                        <label for="input-telephone">Telefon <span class="required-f">*</span></label>
+                        <input name="telephone" value="" id="input-telephone" type="tel">
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <div class="row">
+                    <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
+                        <label for="input-city">İl <span class="required-f">*</span></label>
+                        <input name="city" value="" id="input-city" type="text">
+                    </div>
+                    <div class="form-group col-md-6 col-lg-6 col-xl-6">
+                        <label for="input-address-2">İlçe <span class="required-f">*</span></label>
+                        <input name="address_2" value="" id="input-address-2" type="text">
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
+                        <label for="input-address-1">Adres <span class="required-f">*</span></label>
+                        <input name="address_1" value="" id="input-address-1" type="text">
+                    </div>
+
+                </div>
+
+
+            </fieldset>
+            <fieldset>
+                <div class="row">
+                    <div class="form-group col-md-12 col-lg-12 col-xl-12">
+                        <label for="input-company">Sipariş Notu <span class="required-f">*</span></label>
+                        <textarea class="form-control resize-both" rows="3"></textarea>
+                    </div>
+                </div>
+            </fieldset>
+        </form>*@
             </div>
         </div>
 
@@ -113,51 +209,9 @@
                                                             <p>@ViewBag.ToplamOdenecek ₺</p>
                                                         </td>
                                                     </tr>
-                                                </tfoot> @*<tfoot class="font-weight-600">
-                                                                        <tr>
-                                                                            <td colspan="3" class="text-right">Shipping</td>
-                                                                            <td>$50.00</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td colspan="3" class="text-right">Total</td>
-                                                                            <td>$845.00</td>
-                                                                        </tr>
-                                                                    </tfoot>*@}
+                                                </tfoot>}
                         </table>
 
-                        @*<table class="bg-white table table-bordered table-hover text-center">
-                                    <thead>
-                                        <tr>
-                                            <th class="text-left">Ürün Adı</th>
-                                            <th>Fiyat</th>
-                                            <th>Adet</th>
-                                            <th>Tutar</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach (var sepetOgesi in Model)
-                                        {
-                            <tr>
-                                <td class="text-left">@sepetOgesi.UrunAdi</td>
-                                <td>@sepetOgesi.Fiyat</td>
-
-                                <td>@sepetOgesi.Adet</td>
-                                <td>@sepetOgesi.ToplamFiyat</td>
-                            </tr>
-
-                                                            }
-                                    </tbody>
-                                    <tfoot class="font-weight-600">
-                                        <tr>
-                                            <td colspan="4" class="text-right">Shipping </td>
-                                            <td>$50.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="4" class="text-right">Total</td>
-                                            <td>$845.00</td>
-                                        </tr>
-                                    </tfoot>
-                                </table>*@
                     </div>
                 </div>
 
