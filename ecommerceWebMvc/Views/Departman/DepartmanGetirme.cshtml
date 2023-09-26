@@ -1,0 +1,72 @@
+﻿@model ecommerceWebMvc.Models.Classes.Departman
+
+
+@{
+    ViewBag.Title = "DepartmanGetirme";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="main-container">
+    <div class="pd-ltr-20 xs-pd-20-10">
+        <div class="min-height-200px">
+            <div class="page-header">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="title">
+                            <h4 class="text-blue h4">Departman Güncelle</h4>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            @*<div class="pd-20 card-box mb-30">*@
+
+        <div class="container">
+            <div class="row justify-content-center mt-5">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title text-blue">Departman Güncelle</h4>
+                            @if (Model.DepartmanID == 0)
+                            {
+                                using (Html.BeginForm("DepartmanEkleme", "Departman", FormMethod.Post))
+                                {
+                                    <div class="form-group">
+                                        @Html.LabelFor(x => x.DepartmanAd)
+                                        @Html.TextBoxFor(x => x.DepartmanAd, new { @class = "form-control" })
+                                    </div>
+                                    <button type="submit" class="btn btn-info">Kaydet</button>
+                                }
+                            }
+                            else
+                            {
+                                using (Html.BeginForm("DepartmanGuncelleme", "Departman", FormMethod.Post))
+                                {
+                                    @Html.HiddenFor(x => x.DepartmanID)
+                                    <div class="form-group">
+                                        @Html.LabelFor(x => x.DepartmanAd)
+                                        @Html.TextBoxFor(x => x.DepartmanAd, new { @class = "form-control" })
+                                    </div>
+                                    <button type="submit" class="btn btn-warning">Güncelle</button>
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+            @*</div>*@
+        </div>
+    </div>
+</div>
+
+
+
+

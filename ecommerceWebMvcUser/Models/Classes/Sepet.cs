@@ -24,8 +24,39 @@ namespace ecommerceWebMvcUser.Models.Classes
         //public string siparisİlce { get; set; }
         //public string siparisAdres { get; set; }
         //public string siparisNot { get; set; }
+        [Required(ErrorMessage = "İsim alanı gereklidir.")]
+        public string Isim { get; set; }
 
-     
+        [Required(ErrorMessage = "Soyisim alanı gereklidir.")]
+        public string Soyisim { get; set; }
+
+        [Required(ErrorMessage = "E-Mail alanı gereklidir.")]
+        [EmailAddress(ErrorMessage = "Geçerli bir e-posta adresi giriniz.")]
+        public string Email { get; set; }
+
+        [Required(ErrorMessage = "Telefon alanı gereklidir.")]
+        public string Telefon { get; set; }
+
+        [Required(ErrorMessage = "İl alanı gereklidir.")]
+        public string Il { get; set; }
+
+        [Required(ErrorMessage = "İlçe alanı gereklidir.")]
+        public string Ilce { get; set; }
+
+        [Required(ErrorMessage = "Adres alanı gereklidir.")]
+        public string Adres { get; set; }
+        [Required(ErrorMessage = "İsim alanı gereklidir.")]
+        public string kartisim { get; set; }
+        [Required(ErrorMessage = "Kart alanı gereklidir.")]
+        public string kkarti { get; set; }
+        [Required(ErrorMessage = "Numara alanı gereklidir.")]
+        public string kknumara { get; set; }
+        [Required(ErrorMessage = "Cvv alanı gereklidir.")]
+        public string kkcvv { get; set; }
+        [Required(ErrorMessage = "Tarih alanı gereklidir.")]
+        public string kkskk { get; set; }
+        public string SiparisNotu { get; set; }
+
     }
 
     public class SepetDbContext : DbContext

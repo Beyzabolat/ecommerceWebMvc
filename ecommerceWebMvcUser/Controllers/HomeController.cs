@@ -7,7 +7,7 @@ using ecommerceWebMvcUser.Models.Classes;
 
 namespace ecommerceWebMvcUser.Controllers
 {
-   
+
     public class HomeController : Controller
     {
         // GET: Home
@@ -30,6 +30,15 @@ namespace ecommerceWebMvcUser.Controllers
             ViewBag.UrunSayisi = urunSayisi;
 
             return View(urunler);
+        }
+
+        public ActionResult AboutUs()
+        {
+            return View();
+        }
+        public ActionResult SSS()
+        {
+            return View();
         }
     }
 }

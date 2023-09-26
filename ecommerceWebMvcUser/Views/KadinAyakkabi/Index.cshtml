@@ -246,23 +246,17 @@
                                         <input type="hidden" name="adet" value="1" /> <!-- Varsayılan adet değeri -->
                                         <button class="btn btn-addto-cart" type="submit">Sepete Ekle</button>
                                     </form>
-
                                     <div class="button-set">
-                                        <a href="javascript:void(0)" title="Quick View" class="quick-view-popup quick-view" data-toggle="modal" data-target="#content_quickview">
-                                            <i class="icon anm anm-search-plus-r"></i>
-                                        </a>
                                         <div class="wishlist-btn">
-                                            <a class="wishlist add-to-wishlist" href="#" title="Add to Wishlist">
-                                                <i class="icon anm anm-heart-l"></i>
-                                            </a>
-                                        </div>
-                                        <div class="compare-btn">
-                                            <a class="compare add-to-compare" href="compare.html" title="Add to Compare">
-                                                <i class="icon anm anm-random-r"></i>
-                                            </a>
+                                            <form action="/Sepet/UrunFavorilereEkle" method="post">
+                                                <input type="hidden" name="urunId" value="@b.UrunID" />
+                                                <input type="hidden" name="adet" value="1" /> <!-- Sabit adet değeri -->
+                                                <button type="submit" title="Favorilere Ekle">
+                                                    <i class="icon anm anm-heart-l"></i>
+                                                </button>
+                                            </form>
                                         </div>
                                     </div>
-                                    <!-- end product button -->
                                 </div>
                                 <!-- end product image -->
                                 <!--start product details -->

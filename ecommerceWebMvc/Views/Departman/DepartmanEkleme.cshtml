@@ -1,0 +1,50 @@
+﻿@model ecommerceWebMvc.Models.Classes.Departman
+
+@{
+    ViewBag.Title = "DepartmanEkleme";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="main-container">
+    <div class="pd-ltr-20 xs-pd-20-10">
+        <div class="min-height-200px">
+            <div class="page-header">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="title">
+                            <h4 class="text-blue h4">Departman Oluştur</h4>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            @*<div class="pd-20 card-box mb-30">*@
+
+            <div class="container">
+                <div class="row justify-content-center mt-5">
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title text-blue">Departman Ekle</h4>
+                                <form asp-controller="Departman" asp-action="DepartmanEkleme" method="post">
+                                    <div class="form-group">
+                                        @Html.LabelFor(x => x.DepartmanAd)
+                                        @Html.TextBoxFor(x => x.DepartmanAd, new { @class = "form-control" })
+                                    </div>
+                                    <button class="btn btn-info">Kaydet</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+            @*</div>*@
+        </div>
+    </div>
+</div>

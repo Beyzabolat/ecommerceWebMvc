@@ -267,10 +267,13 @@
     <Compile Include="Models\Classes\Kategori.cs" />
     <Compile Include="Models\Classes\SatisHareketi.cs" />
     <Compile Include="Models\Classes\Sepet.cs" />
+    <Compile Include="Models\Classes\ShippingDetails.cs" />
+    <Compile Include="Models\Classes\SiparisDetayViewModel.cs" />
     <Compile Include="Models\Classes\SiparisViewModel.cs" />
     <Compile Include="Models\Classes\UrunDetay.cs" />
     <Compile Include="Models\Classes\Urunler.cs" />
     <Compile Include="Models\Classes\UserModel.cs" />
+    <Compile Include="Models\Classes\UserOrderModel.cs" />
     <Compile Include="Models\Classes\Wishlist.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -910,6 +913,9 @@
     <Content Include="Views\Sepet\AddToWishlist.cshtml" />
     <Content Include="Views\Siparis\SiparisDetay.cshtml" />
     <Content Include="Views\Sepet\SiparisOnay.cshtml" />
+    <Content Include="Views\Urunler\Erkek.cshtml" />
+    <Content Include="Views\Home\AboutUs.cshtml" />
+    <Content Include="Views\Home\SSS.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

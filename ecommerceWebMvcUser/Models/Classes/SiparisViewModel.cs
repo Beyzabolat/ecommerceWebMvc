@@ -10,7 +10,7 @@ namespace ecommerceWebMvcUser.Models.Classes
     {
         
             // Sipariş ViewModel'inin diğer özellikleri
-            public List<SepetOgesi> SepetOgesiListesi { get; set; }
+            public List<SepetOgesi> sepetOgesis { get; set; }
         
 
         [Required(ErrorMessage = "İsim alanı gereklidir.")]
@@ -36,7 +36,7 @@ namespace ecommerceWebMvcUser.Models.Classes
         public string Adres { get; set; }
 
         public string SiparisNotu { get; set; }
-
+        public List<SepetOgesi> SepetOgeleri { get; set; }
     }
 }
 

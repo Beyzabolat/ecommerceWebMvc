@@ -3,18 +3,35 @@
 
 
 @{ ViewBag.Title = "SiparisDetay";
-    Layout = "~/Views/Shared/_Layout.cshtml"; }
-
+    Layout = "~/Views/Shared/_Layout.cshtml"; }-->
 <!--Page Title-->
 <div class="page section-header text-center">
     <div class="page-title">
         <div class="wrapper"><h1 class="page-width">Siparişleriniz</h1></div>
     </div>
 </div>
-<!--End Page Title-->
 
+<!--End Page Title-->
 <div class="container">
     <div class="row">
+        <dl class="row">
+            <dt class="col-sm-3">İsim</dt>
+            <dd class="col-sm-9">Beyza</dd>
+
+            <dt class="col-sm-3">Soyisim</dt>
+            <dd class="col-sm-9">
+                <p>Bolat</p>
+            </dd>
+
+            <dt class="col-sm-3">Email</dt>
+            <dd class="col-sm-9">Byzbolatttt155@gmail.com</dd>
+
+            <dt class="col-sm-3 text-truncate">Adres</dt>
+            <dd class="col-sm-9">deneme</dd>
+
+            <dt class="col-sm-3">Telefon numarası</dt>
+            <dd class="col-sm-9">1111111111</dd>
+        </dl>
         <div class="col-12 col-sm-12 col-md-12 col-lg-12 main-col">
             <div class="alert alert-success text-uppercase" role="alert">
                 <i class="icon anm anm-truck-l icon-large"></i> &nbsp;<strong>Siparişiniz oluşturuldu!</strong> En kısa sürede size ulaştırılacaktır.
@@ -28,7 +45,7 @@
                                 <th class="text-center">Fiyat</th>
                                 <th class="text-center">Adet</th>
                                 <th class="text-center">Toplam</th>
-                                @*<th class="action">&nbsp;</th>*@
+
                             </tr>
                         </thead>
                         <tbody>
@@ -54,11 +71,8 @@
                     </td>
                     <td class="product-price text-center"><span class="amount">@sepetOgesi.ToplamFiyat ₺</span></td>
 
-                    @*<td class="text-right small--hide cart-price">
-                            <div><span class="money">@sepetOgesi.ToplamFiyat</span></div>
-                        </td>*@
-                    @*<td class="text-center small--hide"><a href="@Url.Action("UrunSil", "Sepet", new { urunId = sepetOgesi.UrunID })" class="btn btn--secondary cart__remove" title="Remove tem"><i class="icon icon anm anm-times-l"></i></a></td>*@
-                </tr>}
+                </tr>
+}
                         </tbody>
                         <tfoot>
                             <tr>
@@ -76,76 +90,11 @@
                 </div>
             </form>
         </div>
-
-        <fieldset>
-            @foreach (var sepetOgesi in Model)
-            {
-        <h2 class="login-title mb-3">FATURA DETAYLARI</h2>
-                       
-                        @*<div class="row">
-                        <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
-                            <label for="input-firstname">İsim <span class="required-f">*</span></label>
-                            <input name="firstname" value="@sepetOgesi.siparisAdi" id="input-firstname" type="text">
-                        </div>
-                        <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
-                            <label for="input-lastname">Soyisim <span class="required-f">*</span></label>
-                            <input name="lastname" value="@ViewBag.Soyisim" id="input-lastname" type="text">
-                        </div>
-                    </div>
-                                    <div class="row">
-                                        <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
-                                            <label for="input-email">E-Mail <span class="required-f">*</span></label>
-                                            <input name="email" value="@ViewBag.Email" id="input-email" type="email">
-                                        </div>
-                                        <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
-                                            <label for="input-telephone">Telefon <span class="required-f">*</span></label>
-                                            <input name="telephone" value="@ViewBag.Telefon" id="input-telephone" type="tel">
-                                        </div>
-                                    </div>}*@            }
-        </fieldset>
-
+        
 
 
     </div>
 </div>
 
 
-<!--<table class="table table-bordered">
-    <thead>
-        <tr>
-            <th>Bilgi Türü</th>
-            <th>Bilgi</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>İsim</td>
-            <td>@ViewBag.Isim</td>
-        </tr>
-        <tr>
-            <td>Soyisim</td>
-            <td>@ViewBag.Soyisim</td>
-        </tr>
-        <tr>
-            <td>E-Mail</td>
-            <td>@ViewBag.Email</td>
-        </tr>
-        <tr>
-            <td>Telefon</td>
-            <td>@ViewBag.Telefon</td>
-        </tr>
-        <tr>
-            <td>İl</td>
-            <td>@ViewBag.Il</td>
-        </tr>
-        <tr>
-            <td>İlçe</td>
-            <td>@ViewBag.Ilce</td>
-        </tr>
-        <tr>
-            <td>Adres</td>
-            <td>@ViewBag.Adres</td>
-        </tr>-->
-<!-- Diğer kullanıcı bilgileri -->
-<!--</tbody>
-</table>-->
+

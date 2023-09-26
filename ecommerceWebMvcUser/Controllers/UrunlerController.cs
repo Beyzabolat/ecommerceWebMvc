@@ -17,17 +17,29 @@ namespace ecommerceWebMvcUser.Controllers
         public ActionResult Index()
         {
             //_favoriService = new FavoriService();
-            var urunler = q.Urunlers.Where(x => x.Durum == true).ToList();
-                int urunSayisi = urunler.Count;
+            //var urunler = q.Urunlers.Where(x => x.Durum == true).ToList();
+            var urunler = q.Urunlers.Where(x => x.Durum ==true || x.Kategoriid == 1).ToList();
 
-                ViewBag.UrunSayisi = urunSayisi;
+            int urunSayisi = urunler.Count;
 
-                return View(urunler);
-            
+            ViewBag.UrunSayisi = urunSayisi;
+
+            return View(urunler);
+
 
         }
 
-      
+        public ActionResult Erkek()
+        {
+            var urunler = q.Urunlers.Where(x => x.Kategoriid == 11 && x.Durum == true).ToList();
+
+            int urunSayisi = urunler.Count;
+
+            ViewBag.UrunSayisi = urunSayisi;
+
+            return View(urunler);
+
+        }
         public ActionResult UrunDetay(int urunId)
         {
             // id parametresini kullanarak ürün detaylarını çekin

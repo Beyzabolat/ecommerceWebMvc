@@ -1,9 +1,24 @@
 ﻿@using ecommerceWebMvcUser.Models.Classes;
-@model List<SepetOgesi>
+@*@model List<SepetOgesi>*@
+@model ecommerceWebMvcUser.Models.Classes.SiparisViewModel
+
+
 
 @{ ViewBag.Title = "SiparisOnay";
     Layout = "~/Views/Shared/_Layout.cshtml"; }
-
+@{
+    List<string> iller = new List<string>
+{
+        "Adana", "Adıyaman", "Afyonkarahisar", "Ağrı", "Amasya", "Ankara", "Antalya", "Artvin", "Aydın", "Balıkesir",
+        "Bilecik", "Bingöl", "Bitlis", "Bolu", "Burdur", "Bursa", "Çanakkale", "Çankırı", "Çorum", "Denizli",
+        "Diyarbakır", "Düzce", "Edirne", "Elazığ", "Erzincan", "Erzurum", "Eskişehir", "Gaziantep", "Giresun",
+        "Gümüşhane", "Hakkari", "Hatay", "Iğdır", "Isparta", "İstanbul", "İzmir", "Kahramanmaraş", "Karabük",
+        "Karaman", "Kars", "Kastamonu", "Kayseri", "Kırıkkale", "Kırklareli", "Kırşehir", "Kilis", "Kocaeli",
+        "Konya", "Kütahya", "Malatya", "Manisa", "Mardin", "Mersin", "Muğla", "Muş", "Nevşehir", "Niğde", "Ordu",
+        "Osmaniye", "Rize", "Sakarya", "Samsun", "Siirt", "Sinop", "Sivas", "Şanlıurfa", "Şırnak", "Tekirdağ",
+        "Tokat", "Trabzon", "Tunceli", "Uşak", "Van", "Yalova", "Yozgat", "Zonguldak"
+    };
+}
 <!--Page Title-->
 <div class="page section-header text-center">
     <div class="page-title">
@@ -12,211 +27,110 @@
 </div>
 <!--End Page Title-->
 
+
+
 <div class="container">
 
     <div class="row billing-fields">
         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 sm-margin-30px-bottom">
             <div class="create-ac-content bg-light-gray padding-20px-all">
-                <form action="/Siparis/SiparisOnay" method="post">
-                    <fieldset>
-                        <h2 class="login-title mb-3">FATURA DETAYLARI</h2>
-                        <div class="row">
-                            <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
+                <form>
+                    @using (Html.BeginForm())
+                    {
+
+
+                        <fieldset>
+
+                            <h2 class="login-title mb-3">FATURA DETAYLARI</h2>
+
+                            <div class="row">
+                                <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
+                                    <label for="input-firstname">İsim <span class="required-f">*</span></label>
+                                    @Html.TextBoxFor(x => x.Isim, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(x => x.Isim, "", new { @class = "text-danger" })
+                                </div>
+
+                                <!--<div class="form-group col-md-6 col-lg-6 col-xl-6 required">
                                 <label for="input-firstname">İsim <span class="required-f">*</span></label>
-                                <input name="firstname" value="" id="input-firstname" type="text">
-                            </div>
-                            <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
-                                <label for="input-lastname">Soyisim <span class="required-f">*</span></label>
-                                <input name="lastname" value="" id="input-lastname" type="text">
-                            </div>
-                        </div>
-                        <!-- Diğer alanlar (e-mail, telefon, il, ilçe, adres, sipariş notu) -->
-                        @*<button type ="submit">Siparişi Onayla</button>*@
-                        <form action="@Url.Action("SiparisOnay", "Sepet")" method="post">
-                            <!-- Form içeriği buraya gelecek -->
-                            <button type="submit">Siparişi Onayla</button>
-                        </form>
 
-                    </fieldset>
+                                @*<input name="firstname" value="" id="input-firstname" type="text">*@
+                                <!--</div>-->
+                                <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
+                                    <label for="input-lastname">Soyisim <span class="required-f">*</span></label>
+                                    @Html.TextBoxFor(x => x.Soyisim, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(x => x.Soyisim, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
+                                    <label for="input-email">E-Mail <span class="required-f">*</span></label>
+                                    @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(x => x.Email, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
+                                    <label for="input-telephone">Telefon Numarası <span class="required-f">*</span></label>
+                                    @Html.TextBoxFor(x => x.Telefon, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(x => x.Telefon, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <div class="row">
+                                <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
+                                    <label for="input-address-1">Addres <span class="required-f">*</span></label>
+                                    @Html.TextBoxFor(x => x.Adres, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(x => x.Adres, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
+                                    <label for="input-country">İl <span class="required-f">*</span></label>
+                                    <select name="country_id" id="input-country">
+                                        <option value=""> --- Lütfen Seçiniz --- </option>
+                                        @foreach (var il in iller)
+                                        {
+                                            <option value="@il">@il</option>
+                                        }
+                                    </select>
+                                </div>
+
+
+                            </div>
+
+
+
+                        </fieldset>
+                        <fieldset>
+                            <div class="row">
+                                <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
+                                    <label for="input-address-1">İlçe <span class="required-f">*</span></label>
+                                    @Html.TextBoxFor(x => x.Ilce, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(x => x.Ilce, "", new { @class = "text-danger" })
+                                </div>
+
+
+
+                            </div>
+
+
+
+                        </fieldset>
+
+                        <fieldset>
+                            <div class="row">
+                                <div class="form-group col-md-12 col-lg-12 col-xl-12">
+                                    <label for="input-company">Sipariş Notları <span class="required-f">*</span></label>
+                                    <textarea class="form-control resize-both" rows="3"></textarea>
+                                    @Html.ValidationMessageFor(x => x.SiparisNotu, "", new { @class = "text-danger" }) <!-- Hata mesajı için -->
+                                </div>
+                            </div>
+                        </fieldset>
+                    }
                 </form>
-
-                <!--<form action="/Siparis/SiparisOnay" method="post">
-        <fieldset>
-            <h2 class="login-title mb-3">FATURA DETAYLARI</h2>
-            <div class="row">
-                <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
-                    <label for="input-firstname">İsim <span class="required-f">*</span></label>
-                    <input name="firstname" value="" id="input-firstname" type="text">
-                </div>
-                <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
-                    <label for="input-lastname">Soyisim <span class="required-f">*</span></label>
-                    <input name="lastname" value="" id="input-lastname" type="text">
-                </div>
-            </div>-->
-                <!-- Diğer alanlar (e-mail, telefon, il, ilçe, adres, sipariş notu) -->
-                <!--<button type="submit">Siparişi Onayla</button>
-        </fieldset>
-    </form>-->
-                @*<form action="/Sepet/SiparisOnay" method="post">
-            <fieldset>
-                <h2 class="login-title mb-3">FATURA DETAYLARI</h2>
-                <div class="row">
-                    <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
-                        <label for="input-firstname">İsim <span class="required-f">*</span></label>
-                        <input name="firstname" value="" id="input-firstname" type="text">
-                    </div>
-                    <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
-                        <label for="input-lastname">Soyisim <span class="required-f">*</span></label>
-                        <input name="lastname" value="" id="input-lastname" type="text">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
-                        <label for="input-email">E-Mail <span class="required-f">*</span></label>
-                        <input name="email" value="" id="input-email" type="email">
-                    </div>
-                    <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
-                        <label for="input-telephone">Telefon <span class="required-f">*</span></label>
-                        <input name="telephone" value="" id="input-telephone" type="tel">
-                    </div>
-                </div>
-            </fieldset>
-
-            <fieldset>
-                <div class="row">
-                    <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
-                        <label for="input-city">İl <span class="required-f">*</span></label>
-                        <input name="city" value="" id="input-city" type="text">
-                    </div>
-                    <div class="form-group col-md-6 col-lg-6 col-xl-6">
-                        <label for="input-address-2">İlçe <span class="required-f">*</span></label>
-                        <input name="address_2" value="" id="input-address-2" type="text">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
-                        <label for="input-address-1">Adres <span class="required-f">*</span></label>
-                        <input name="address_1" value="" id="input-address-1" type="text">
-                    </div>
-                </div>
-            </fieldset>
-
-            <fieldset>
-                <div class="row">
-                    <div class="form-group col-md-12 col-lg-12 col-xl-12">
-                        <label for="input-company">Sipariş Notu <span class="required-f">*</span></label>
-                        <textarea name="siparisnotu" class="form-control resize-both" rows="3"></textarea>
-                    </div>
-                </div>
-            </fieldset>
-
-            <button type="submit">Onayla</button>
-        </form>*@
-
-                @*<form>
-            <fieldset>
-                <h2 class="login-title mb-3">FATURA DETAYLARI</h2>
-                <div class="row">
-                    <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
-                        <label for="input-firstname">İsim <span class="required-f">*</span></label>
-                        <input name="firstname" value="" id="input-firstname" type="text">
-                    </div>
-                    <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
-                        <label for="input-lastname">Soyisim <span class="required-f">*</span></label>
-                        <input name="lastname" value="" id="input-lastname" type="text">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
-                        <label for="input-email">E-Mail <span class="required-f">*</span></label>
-                        <input name="email" value="" id="input-email" type="email">
-                    </div>
-                    <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
-                        <label for="input-telephone">Telefon <span class="required-f">*</span></label>
-                        <input name="telephone" value="" id="input-telephone" type="tel">
-                    </div>
-                </div>
-            </fieldset>
-
-            <fieldset>
-                <div class="row">
-                    <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
-                        <label for="input-city">İl <span class="required-f">*</span></label>
-                        <input name="city" value="" id="input-city" type="text">
-                    </div>
-                    <div class="form-group col-md-6 col-lg-6 col-xl-6">
-                        <label for="input-address-2">İlçe <span class="required-f">*</span></label>
-                        <input name="address_2" value="" id="input-address-2" type="text">
-                    </div>
-
-                </div>
-                <div class="row">
-                    <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
-                        <label for="input-address-1">Adres <span class="required-f">*</span></label>
-                        <input name="address_1" value="" id="input-address-1" type="text">
-                    </div>
-
-                </div>
-
-
-            </fieldset>
-            <fieldset>
-                <div class="row">
-                    <div class="form-group col-md-12 col-lg-12 col-xl-12">
-                        <label for="input-company">Sipariş Notu <span class="required-f">*</span></label>
-                        <textarea class="form-control resize-both" rows="3"></textarea>
-                    </div>
-                </div>
-            </fieldset>
-        </form>*@
             </div>
         </div>
 
         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
             <div class="your-order-payment">
-                <div class="your-order">
-                    <h2 class="order-title mb-4">Siparişiniz</h2>
-
-                    <div class="table-responsive-sm order-table">
-                        <table class="bg-white table table-bordered table-hover text-center">
-                            @foreach (var sepetOgesi in Model)
-                            {
-                <thead>
-                    <tr>
-                        <th class="text-left">Ürün Adı</th>
-                        <th>Fiyat</th>
-                        <th>Adet</th>
-                        <th>Tutar</th>
-                    </tr>
-                </thead>
-                                <tbody>
-
-                                    <tr>
-                                        <td class="text-left">@sepetOgesi.UrunAdi</td>
-                                        <td>@sepetOgesi.Fiyat ₺</td>
-                                        <td>@sepetOgesi.Adet</td>
-                                        <td>@sepetOgesi.ToplamFiyat ₺</td>
-                                    </tr>
-                                </tbody>
-                                                <tfoot class="font-weight-600">
-                                                    <tr>
-                                                        <td colspan="3" class="text-right">Kargo Ücreti</td>
-                                                        <td>@sepetOgesi.kargoUcreti ₺</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td colspan="3" class="text-right">Toplam Tutar</td>
-                                                        <td>
-                                                            <p>@ViewBag.ToplamOdenecek ₺</p>
-                                                        </td>
-                                                    </tr>
-                                                </tfoot>}
-                        </table>
-
-                    </div>
-                </div>
-
-                <hr />
-
                 <div class="your-payment">
                     <h2 class="payment-title mb-3">Ödeme Seçenekleri</h2>
                     <div class="payment-method">
@@ -240,41 +154,50 @@
                                     <div id="collapseFour" class="collapse" data-parent="#accordion">
                                         <div class="card-body">
                                             <fieldset>
-                                                <div class="row">
-                                                    <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
-                                                        <label for="input-cardname">Karttaki İsim  <span class="required-f">*</span></label>
-                                                        <input name="cardname" value="" placeholder="Card Name" id="input-cardname" class="form-control" type="text">
-                                                    </div>
-                                                    <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
-                                                        <label for="input-country">Kredi Kartı <span class="required-f">*</span></label>
-                                                        <select name="country_id" class="form-control">
-                                                            <option value=""> --- Birini Seçin --- </option>
+                                                @using (Html.BeginForm())
+                                                {
 
-                                                            <option value="2">Visa Card</option>
-                                                            <option value="3">Master Card</option>
+                                                    <div class="row">
+                                                        <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
 
-                                                        </select>
+                                                            <label for="input-cardname">Karttaki İsim  <span class="required-f">*</span></label>
+
+                                                            @*@Html.TextBoxFor(x => x.kartisim, new { @class = "form-control", placeholder = "Kart üzerindeki isim", id = "input-cardno" })
+                                                            @Html.ValidationMessageFor(x => x.kartisim, "", new { @class = "text-danger" })*@
+                                                        </div>
+
+
+                                                        <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
+                                                            <label for="input-country">Kredi Kartı <span class="required-f">*</span></label>
+                                                            <select name="country_id" class="form-control">
+                                                                <option value=""> --- Birini Seçin --- </option>
+
+                                                                <option value="2">Visa Card</option>
+                                                                <option value="3">Master Card</option>
+
+                                                            </select>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
-                                                        <label for="input-cardno">Kredi Kartı Numarası<span class="required-f">*</span></label>
-                                                        <input name="cardno" value="" placeholder="Credit Card Number" id="input-cardno" class="form-control" type="text">
+                                                    <div class="row">
+                                                        <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
+                                                            <label for="input-cardno">Kredi Kartı Numarası<span class="required-f">*</span></label>
+                                                            <input name="cardno" value="" placeholder="Credit Card Number" id="input-cardno" class="form-control" type="text">
+                                                        </div>
+                                                        <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
+                                                            <label for="input-cvv">CVV <span class="required-f">*</span></label>
+                                                            <input name="cvv" value="" placeholder="Card Verification Number" id="input-cvv" class="form-control" type="text">
+                                                        </div>
                                                     </div>
-                                                    <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
-                                                        <label for="input-cvv">CVV <span class="required-f">*</span></label>
-                                                        <input name="cvv" value="" placeholder="Card Verification Number" id="input-cvv" class="form-control" type="text">
+                                                    <div class="row">
+                                                        <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
+                                                            <label>Son kullanma tarihi <span class="required-f">*</span></label>
+                                                            <input type="date" name="exdate" class="form-control">
+                                                        </div>
+                                                        <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
+                                                            <img class="padding-25px-top xs-padding-5px-top" src="/belle-multipurpose-bootstrap-html-template/assets/images/payment-img.jpg" alt="card" title="card" />
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
-                                                        <label>Son kullanma tarihi <span class="required-f">*</span></label>
-                                                        <input type="date" name="exdate" class="form-control">
-                                                    </div>
-                                                    <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
-                                                        <img class="padding-25px-top xs-padding-5px-top" src="/belle-multipurpose-bootstrap-html-template/assets/images/payment-img.jpg" alt="card" title="card" />
-                                                    </div>
-                                                </div>
+                                                }
                                             </fieldset>
 
                                         </div>
@@ -282,17 +205,60 @@
                                 </div>
                             </div>
                         </div>
-                        <form  class="order-button-payment"   action="/Siparis/SiparisDetay" method="post">
-                            <!-- Sepet içeriği burada listelenebilir. -->
-
-                            <input type="submit" name="checkout" class="btn btn--small-wide checkout" value="Sepeti Onayla">
+                        <form class="create-ac-content bg-light-gray padding-20px-all" action="/Siparis/SiparisDetay" method="post">
+                            <!-- Form içeriği burada -->
+                            <button type="submit" class="btn btn-primary">Siparişi Tamamla</button>
                         </form>
-                        @*<div class="order-button-payment">
-                            <button class="btn" value="Place order" type="submit">Siparişi Onayla</button>
-                        </div>*@
+
+                        <!--<form class="order-button-payment" action="/Siparis/SiparisDetay" method="post">
+        <input type="submit" name="checkout" class="btn btn--small-wide checkout" value="Sepeti Onayla">
+
+        <!-- Sepet içeriği burada listelenebilir. -->
+                        
+                        <!--@*<input type="submit" name="checkout" class="btn btn--small-wide checkout" value="Sepeti Onayla">*@
+    </form>-->
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<script>
+    $(document).ready(function () {
+        $("form").submit(function (event) {
+            // İsim, soyisim, email ve telefon alanlarını kontrol et
+            var isim = $("#Isim").val();
+            var soyisim = $("#Soyisim").val();
+            var email = $("#Email").val();
+            var telefon = $("#Telefon").val();
+
+            if (!isim || !soyisim || !email || !telefon) {
+                event.preventDefault(); // Formun gönderilmesini engelle
+                alert("Lütfen tüm alanları doldurun.");
+            }
+        });
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+        var cardNameInput = document.getElementById("input-cardname");
+        var cardTypeSelect = document.getElementById("input-country");
+        var cardNumberInput = document.getElementById("input-cardno");
+        var cvvInput = document.getElementById("input-cvv");
+        var expirationDateInput = document.querySelector("input[type='date']");
+        var paymentForm = document.querySelector(".order-button-payment form");
+
+        paymentForm.addEventListener("submit", function (event) {
+            if (
+                cardNameInput.value.trim() === "" ||
+                cardTypeSelect.value.trim() === "" ||
+                cardNumberInput.value.trim() === "" ||
+                cvvInput.value.trim() === "" ||
+                expirationDateInput.value.trim() === ""
+            ) {
+                event.preventDefault(); // Formun gönderimini engelle
+                alert("Lütfen kart bilgilerini eksiksiz doldurun.");
+            }
+        });
+    });
+</script>
+

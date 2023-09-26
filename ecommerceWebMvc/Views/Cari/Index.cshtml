@@ -1,0 +1,85 @@
+﻿@using ecommerceWebMvc.Models.Classes
+@model List<Cari>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="main-container">
+    <div class="pd-ltr-20 xs-pd-20-10">
+        <div class="min-height-200px">
+            <div class="page-header">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="title">
+                            <h4>Cari</h4>
+                        </div>
+                        <nav aria-label="breadcrumb" role="navigation">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a href="/Home/Index">Anasayfa</a>
+                                </li>
+                                <li class="breadcrumb-item active" aria-current="page">
+                                    Cariler
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+
+                </div>
+            </div>
+            <div class="card-box mb-30">
+
+                <h2 class="h4 pd-20">  Tüm Cariler</h2>
+                <table class="data-table table nowrap">
+                    <thead>
+                        <tr>
+                            <th>Cari ID</th>
+                            <th>Ad</th>
+                            <th>Soyad</th>
+                            <th>Şehir</th>
+                            <th>Mail</th>
+                            <th>Durum</th>
+                            <th>Sil</th>
+                            <th>Güncelle</th>
+                            <th>Detaylar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var b in Model)
+                        {
+                            <tr>
+
+                                <td>@b.CariID</td>
+                                <td>@b.CariAd</td>
+                                <td>@b.CariSoyad</td>
+                                <td>@b.CariSehir</td>
+                                <td>@b.CariMail</td>
+                                <td>
+                                    @if (b.Durum)
+                                    {
+                                        <span class="badge badge-success">Aktif</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge badge-danger">Pasif</span>
+                                    }
+                                </td>
+                                <td><a href="/Cari/CariSilme/@b.CariID" class="btn btn-danger">Sil</a></td>
+                                <td><a href="/Cari/CariGetirme/@b.CariID" class="btn btn-success">Güncelle</a></td>
+                                <td>
+                                    <a href="/Cari/MusteriSatis/@b.CariID" class="btn btn-group"
+                                       style="background-color: #FFC046; color: white;">Satış Geçmişi</a>
+                                </td>
+
+                            </tr>
+                        }
+
+
+
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>

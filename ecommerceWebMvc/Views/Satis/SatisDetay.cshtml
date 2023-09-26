@@ -1,0 +1,81 @@
+﻿@using ecommerceWebMvc.Models.Classes
+@model  List<SatisHareketi>
+@{
+    ViewBag.Title = "SatisDetay";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="main-container">
+    <div class="pd-ltr-20 xs-pd-20-10">
+        <div class="min-height-200px">
+            <div class="page-header">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="title">
+                            <h4>Satış Detay Sayfası</h4>
+                        </div>
+                        <nav aria-label="breadcrumb" role="navigation">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a href="/Home/Index">Anasayfa</a>
+                                </li>
+                                <li class="breadcrumb-item">
+                                    <a href="/Departman/Index">Departmanlar</a>
+                                </li>
+                                <li class="breadcrumb-item active" aria-current="page">
+                                    Satış Detay Sayfası
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="card-box mb-30">
+
+                <div class="pd-20 card-box mb-30">
+                   
+
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Satış ID</th>
+                                    <th>Ürün</th>
+                                    <th>Cari</th>
+                                    <th>Personel</th>
+                                    <th>Adet</th>
+                                    <th>Fiyat</th>
+                                    <th>Toplam Tutar</th>
+                                    <th>Tarih</th>
+                                    <th>Yazdır</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @foreach (var x in Model)
+                                {
+                                <tr>
+                                    <td>@x.SatisID</td>
+                                    <td>@x.Urunler.UrunAdi</td>
+                                    <td>@x.Cari.CariAd @x.Cari.CariSoyad</td>
+                                    <td>@x.Personel.PersonelAd @x.Personel.PersonelSoyad</td>
+                                    <td>@x.Adet</td>
+                                    <td>@x.Fiyat ₺</td>
+                                    <td>@x.ToplamTutar ₺</td>
+                                    <td>@x.Tarih</td>
+                                    <td><a href="#" class="btn btn-default" style="background-color: #708EE9; color: white ">Yazdır</a></td>
+                                </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -7,7 +7,7 @@ using System.Web;
 
 namespace ecommerceWebMvcUser.Controllers
 {
-
+    [Authorize]
     public class SepetController : Controller
     {
         public ActionResult Index()
@@ -33,33 +33,74 @@ namespace ecommerceWebMvcUser.Controllers
         public ActionResult SiparisOnay()
         {
             Sepet sepet = Session["Sepet"] as Sepet;
-            decimal kargoUcreti = 50.00M; // Kargo ücreti
-           //decimal toplamOdenecek = sepet.ToplamTutar() + kargoUcreti;
-            ViewBag.ToplamOdenecek = sepet.ToplamTutar() + kargoUcreti;
+            //decimal kargoUcreti = 50.00M; // Kargo ücreti
 
-            decimal toplamsepet = sepet.ToplamSepet();
-            int toplamAdet = sepet.ToplamAdet();
-            decimal toplamTutar = sepet.ToplamTutar();
-            ViewBag.ToplamAdet = toplamAdet;
-            ViewBag.ToplamTutar = toplamTutar;
-            ViewBag.ToplamSepet = toplamsepet;
-            //ViewBag.ToplamOdenecek = toplamOdenecek; // Yeni değişkeni ViewBag ile görünüme aktarın
-            return View(sepet.SepetOgeleriniGetir());
+
+            return View(new SiparisViewModel());
+
+            //decimal toplamOdenecek = sepet.ToplamTutar() + kargoUcreti;
+            //ViewBag.ToplamOdenecek = sepet.ToplamTutar() + kargoUcreti;
+
+            //decimal toplamsepet = sepet.ToplamSepet();
+            //int toplamAdet = sepet.ToplamAdet();
+            //decimal toplamTutar = sepet.ToplamTutar();
+            //ViewBag.ToplamAdet = toplamAdet;
+            //ViewBag.ToplamTutar = toplamTutar;
+            //ViewBag.ToplamSepet = toplamsepet;
+
+            ////ViewBag.ToplamOdenecek = toplamOdenecek; // Yeni değişkeni ViewBag ile görünüme aktarın
+            //// Sepet ögelerini ve kullanıcı bilgilerini SiparisOreturn View("SiparisDetay", siparisViewModel);
+            //return View(sepet.SepetOgeleriniGetir());
+        }
+        [HttpPost]
+        public ActionResult SiparisOnay(SiparisViewModel siparisViewModel)
+        {
+            // Sepeti al
+            Sepet sepet = Session["Sepet"] as Sepet;
+
+            // Eğer sepet boşsa, yeni bir sepet oluştur
+            if (sepet == null)
+            {
+                ModelState.AddModelError("Error", "Sepetinizde ürün bulunmamaktadır.");
+            }
+
+            if (ModelState.IsValid)
+            {
+                // TempData kullanarak sipariş bilgilerini geçici bir saklama alanına yerleştirin
+                TempData["SiparisViewModel"] = siparisViewModel;
+
+                sepet.SepetiBosalt();
+                return RedirectToAction("SiparisDetay");
+            }
+            else
+            {
+                return View(siparisViewModel);
+            }
         }
 
-        //public ActionResult SiparisOnay()
+        //[HttpPost]
+        //public ActionResult SiparisOnay(SepetOgesi sepetOgesi)
         //{
-
+        //    // Sepeti al
         //    Sepet sepet = Session["Sepet"] as Sepet;
-        //    decimal toplamOdenecek = sepet.ToplamTutar + sepet.;
-        //    decimal toplamsepet = sepet.ToplamSepet();
-        //    int toplamAdet = sepet.ToplamAdet();
-        //    decimal toplamTutar = sepet.ToplamTutar();
-        //    ViewBag.ToplamAdet = toplamAdet;
-        //    ViewBag.ToplamTutar = toplamTutar;
-        //    ViewBag.ToplamSepet = toplamsepet;
-        //    return View(sepet.SepetOgeleriniGetir());
+
+        //    // Eğer sepet boşsa, yeni bir sepet oluştur
+        //    if (sepet == null)
+        //    {
+        //        ModelState.AddModelError("Error","Sepetinizde ürün bulunmamaktadır.");
+        //    }
+        //    if(ModelState.IsValid)
+        //    {
+        //        sepet.SepetiBosalt();
+        //        return View("/Siparis/SiparisDetay");
+        //    }
+        //    else
+        //    {
+        //        return View(sepetOgesi);
+        //    }
+
         //}
+
         [HttpPost]
         public ActionResult UrunSepeteEkle(int urunId, int adet)
         {

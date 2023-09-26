@@ -1,0 +1,83 @@
+﻿@using ecommerceWebMvc.Models.Classes
+@model List<Personel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="main-container">
+    <div class="pd-ltr-20 xs-pd-20-10">
+        <div class="min-height-200px">
+            <div class="page-header">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="title">
+                            <h4>Personel</h4>
+                        </div>
+                        <nav aria-label="breadcrumb" role="navigation">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a href="/Home/Index">Anasayfa</a>
+                                </li>
+                                <li class="breadcrumb-item active" aria-current="page">
+                                    Personel
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+
+                </div>
+            </div>
+            <div class="card-box mb-30">
+
+                <h2 class="h4 pd-20">Personeller</h2>
+                <table class="data-table table nowrap">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Görsel</th>
+
+                            <th>Personel Adı</th>
+                            <th>Personel Soyad</th>
+
+                            <th>Departman</th>
+                            <th>Güncelle</th>
+                            <th>Satışlar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var b in Model)
+                        {
+                            <tr>
+                                <td>@b.PersonelID</td>
+                                <td class="table-plus">
+                                    <img src="@b.PersonelGorsel"
+                                         width="70"
+                                         height="70"
+                                         alt="" />
+                                </td>
+                                
+                                <td>@b.PersonelAd</td>
+                                <td>@b.PersonelSoyad</td>
+
+                                <td>@b.Departman.DepartmanAd</td>
+                                <td><a href="/Personel/PersonelGetirme/@b.PersonelID" class="btn btn-success">Güncelle</a></td>
+                                <td>
+                                    <a href="/Departman/DepartmanPersonelSatis/@b.PersonelID" class="btn btn-group"
+                                       style="background-color: #35B8FF; color: white; ">Detaylar</a>
+                                </td>
+
+                            </tr>
+                        }
+
+
+
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+

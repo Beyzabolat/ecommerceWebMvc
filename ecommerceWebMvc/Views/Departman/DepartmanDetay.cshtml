@@ -1,0 +1,74 @@
+﻿
+@using ecommerceWebMvc.Models.Classes
+@model  List<Personel>
+@{
+    ViewBag.Title = "DepartmanDetay";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="main-container">
+    <div class="pd-ltr-20 xs-pd-20-10">
+        <div class="min-height-200px">
+            <div class="page-header">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="title">
+                            <h4>Departman</h4>
+                        </div>
+                        <nav aria-label="breadcrumb" role="navigation">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a href="/Home/Index">Anasayfa</a>
+                                </li>
+                                <li class="breadcrumb-item">
+                                    <a href="/Departman/Index">Departmanlar</a>
+                                </li>
+                                <li class="breadcrumb-item active" aria-current="page">
+                                    Departman Detay
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="card-box mb-30">
+
+                <div class="pd-20 card-box mb-30">
+                    <ol class="breadcrumb mb-4">
+                        <li class="breadcrumb-item active">Departman Adı: @ViewBag.d</li>
+                    </ol>
+                   
+                    <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+
+
+                        
+                        <th scope="col">Personel</th>
+                        <th scope="col">Satışlar</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var b in Model)
+                    {
+                    <tr>
+                        <th scope="row">@b.PersonelAd @b.PersonelSoyad</th>
+                        <td><a href="/Departman/DepartmanPersonelSatis/@b.PersonelID" class="btn btn-default" style="color: white; background-color: #8FCCF8 ">Satışlar</a></td>
+
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

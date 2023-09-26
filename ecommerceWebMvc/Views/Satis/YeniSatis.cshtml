@@ -1,0 +1,91 @@
+﻿@model ecommerceWebMvc.Models.Classes.SatisHareketi
+@{
+    ViewBag.Title = "YeniSatis";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="main-container">
+    <div class="pd-ltr-20 xs-pd-20-10">
+        <div class="min-height-200px">
+            <div class="page-header">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="title">
+                            <h4>Cari Ekleme</h4>
+                        </div>
+                        <nav aria-label="breadcrumb" role="navigation">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a href="#">Anasayfa</a>
+                                </li>
+                                
+                                <li class="breadcrumb-item active" aria-current="page">
+                                    Yeni Satış Sayfası
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pd-20 card-box mb-30">
+
+                <form class="form-group" method="post">
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            @Html.Label("Ürün ID")
+                            @Html.DropDownListFor(x => x.Urunid, (List<SelectListItem>)ViewBag.dgr, new
+                        {
+                                @class = "form-control"
+                        })
+                        </div>
+                        <div class="form-group col-md-4">
+                            @Html.Label("Cari")
+                            @Html.DropDownListFor(x => x.Cariid, (List<SelectListItem>)ViewBag.dgr1, new
+                        {
+                                @class = "form-control"
+                        })
+                        </div>
+                        <div class="form-group col-md-4">
+                            @Html.Label("Personel")
+                            @Html.DropDownListFor(x => x.Personelid, (List<SelectListItem>)ViewBag.dgr2, new
+                        {
+                                @class = "form-control"
+                        })
+                        </div>
+                        <div class="form-group col-md-4">
+                            @Html.LabelFor(x => x.Adet)
+                            <input type="number" class="form-control" max="10" min="1" placeholder="Lütfen adet girin." id="txt1"
+                                   onchange="sum()" name="Adet" />
+                        </div>
+                        <div class="form-group col-md-4">
+                            @Html.LabelFor(x => x.Fiyat)
+                            <input type="text" name="Fiyat" value="@ViewBag.dgr3" class="form-control" id="txt2"
+                                   onkeyup="sum()" />
+                        </div>
+                        <div class="form-group col-md-4">
+                            @Html.Label("Toplam Tutar")
+                            <input type="text" name="ToplamTutar" value="0" class="form-control" id="txt3" readonly />
+
+                        </div>
+                    </div>
+                    <button class="btn btn-primary">Kaydet</button>
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function sum() {
+
+        const num1 = document.getElementById('txt1').value;
+        const num2 = document.getElementById('txt2').value;
+        const sonuc = parseInt(num1) * parseInt(num2);
+        if (!isNaN(sonuc)) {
+            document.getElementById('txt3').value = sonuc.toString();
+
+        }
+    }
+</script>

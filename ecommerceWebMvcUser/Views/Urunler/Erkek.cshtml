@@ -3,16 +3,18 @@
 
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Erkek";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+
 
 
 <!--Collection Banner-->
 <div class="collection-header">
     <div class="collection-hero">
         <div class="collection-hero__image"><img class="blur-up lazyload" data-src="/belle-multipurpose-bootstrap-html-template/assets/images/cat-women.jpg" src="assets/images/cat-women.jpg" alt="Women" title="Women" /></div>
-        <div class="collection-hero__title-wrapper"><h1 class="collection-hero__title page-width">ÇANTA</h1></div>
+        <div class="collection-hero__title-wrapper"><h1 class="collection-hero__title page-width">Ürünler</h1></div>
     </div>
 </div>
 <!--End Collection Banner-->
@@ -171,7 +173,10 @@
                         </li>
                     </ul>
                 </div>
-               
+                <!--End Brand-->
+                <!--Popular Products-->
+                <!--End Popular Products-->
+                <!--Banner-->
                 <div class="sidebar_widget static-banner">
                     <img src="/belle-multipurpose-bootstrap-html-template/assets/images/side-banner-2.jpg" alt="" />
                 </div>
@@ -187,7 +192,7 @@
 
                             Her bir ürünümüz, şıklık ve kalite standartlarını yansıtmak amacıyla tasarlanıyor. Eşsiz tarzımız ve özenli detaylarımızla, gardırobunuzu renklendirmenize yardımcı oluyoruz.
 
-                            Sizleri [Marka İsmi] dünyasına davet ediyoruz. Alışveriş yaparken keyif almanızı ve istediğiniz ürünü bulmanızı sağlamak için buradayız.
+                            Sizleri Belle dünyasına davet ediyoruz. Alışveriş yaparken keyif almanızı ve istediğiniz ürünü bulmanızı sağlamak için buradayız.
 
                         </p>
                     </div>
@@ -199,12 +204,7 @@
         <!--End Sidebar-->
         <!--Main Content-->
         <div class="col-12 col-sm-12 col-md-9 col-lg-9 main-col">
-            @*<div class="category-description">
-                    <br />
-                    <h3>Category Description</h3>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing.</p>
-                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.</p>
-                </div>*@
+
 
             <div class="category-description">
                 <br />
@@ -228,9 +228,7 @@
                                 <a href="shop-left-sidebar.html" title="Grid View" class="change-view change-view--active">
                                     <img src="/belle-multipurpose-bootstrap-html-template/assets/images/grid.jpg" alt="Grid" />
                                 </a>
-                                <a href="shop-listview.html" title="List View" class="change-view">
-                                    <img src="/belle-multipurpose-bootstrap-html-template/assets/images/list.jpg" alt="List" />
-                                </a>
+
                             </div>
                             <div class="col-4 col-md-4 col-lg-4 text-center filters-toolbar__item filters-toolbar__item--count d-flex justify-content-center align-items-center">
                                 <span class="filters-toolbar__product-count">Gösteriliyor: @ViewBag.UrunSayisi</span>
@@ -276,8 +274,6 @@
 
                                     </a>
 
-                                    @*Start product button*@
-                                    
                                     <form class="variants add" action="/Sepet/UrunSepeteEkle" method="post">
                                         <input type="hidden" name="urunId" value="@b.UrunID" /> <!-- Ürünün ID'sini buradan alıyoruz -->
                                         <input type="hidden" name="adet" value="1" /> <!-- Varsayılan adet değeri -->
@@ -295,6 +291,11 @@
                                             </form>
                                         </div>
                                     </div>
+
+
+
+
+                                    <!-- end product button -->
                                 </div>
                                 <!-- end product image -->
                                 <!--start product details -->
@@ -343,28 +344,10 @@
             </div>
             <div class="infinitpaginOuter">
                 <div class="infinitpagin">
-                    <a href="#" class="btn loadMore">Load More</a>
+                    <a href="#" class="btn loadMore">Daha Fazla</a>
                 </div>
             </div>
         </div>
         <!--End Main Content-->
     </div>
 </div>
-
-@section scripts {
-    <script>
-        // Bedenlere göre filtreleme işlemini yapacak JavaScript kodu
-        $(document).ready(function () {
-            // Bedenlere tıklama işlemleri
-            $(".swacth-btn").click(function () {
-                var selectedBeden = $(this).data("beden");
-                if (selectedBeden === "all") {
-                    $(".item").show(); // Tüm ürünleri göster
-                } else {
-                    $(".item").hide(); // Tüm ürünleri gizle
-                    $(".item[data-beden='" + selectedBeden + "']").show(); // Seçilen bedene sahip ürünleri göster
-                }
-            });
-        });
-    </script>
-}

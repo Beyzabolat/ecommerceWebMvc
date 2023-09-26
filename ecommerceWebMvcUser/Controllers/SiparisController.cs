@@ -12,6 +12,7 @@ namespace ecommerceWebMvcUser.Controllers
     public class SiparisController : Controller
     {
         // GET: Siparis
+       
         public ActionResult Index()
         {
             return View();
@@ -28,7 +29,7 @@ namespace ecommerceWebMvcUser.Controllers
         public ActionResult SiparisDetay()
         {
             // Sepet bilgilerini toplamak için kodlar buraya gelecek.
-
+          
             // Sepet bilgilerini toplamak için kodlar buraya gelecek.
             Sepet sepet = Session["Sepet"] as Sepet;
 
