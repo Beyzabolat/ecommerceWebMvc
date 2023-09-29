@@ -244,7 +244,6 @@
     <Compile Include="Controllers\KadinTakiController.cs" />
     <Compile Include="Controllers\KozmetikController.cs" />
     <Compile Include="Controllers\RoleAdminController.cs" />
-    <Compile Include="Controllers\SatisController.cs" />
     <Compile Include="Controllers\SepetController.cs" />
     <Compile Include="Controllers\SiparisController.cs" />
     <Compile Include="Controllers\TakiController.cs" />
@@ -891,7 +890,6 @@
     <Content Include="Views\KadinCanta\Index.cshtml" />
     <Content Include="Views\KadinGiyim\Index.cshtml" />
     <Content Include="Views\KadinAksesuar\Index.cshtml" />
-    <Content Include="Views\Urun\Index.cshtml" />
     <Content Include="Views\KadinTaki\Index.cshtml" />
     <Content Include="Views\KadinKozmetik\Index.cshtml" />
     <Content Include="Views\KadinAyakkabi\Index.cshtml" />
@@ -919,7 +917,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Satis\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

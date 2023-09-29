@@ -100,10 +100,6 @@ namespace ecommerceWebMvc.Controllers
         public ActionResult SatisDetay(int id)
         {
             var degerler = q.SatisHareketis.Where(x => x.SatisID == id).ToList();
-
-            //var dpt = q.Departmen.Where(x => x.DepartmanID == id).Select(y => y.DepartmanAd).FirstOrDefault();
-
-            //ViewBag.d = dpt;
             return View(degerler);
 
         }
